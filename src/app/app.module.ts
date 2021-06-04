@@ -1,22 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DesktopModule } from './desktop-components/desktop/desktop.module';
-import { MobileModule } from './mobile-components/mobile/mobile.module';
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { DesktopModule } from './desktop-components/desktop.module';
+import { MobileModule } from './mobile-components/mobile.module';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
+    MaterialModule,
     DesktopModule,
-    MobileModule
+    MobileModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
