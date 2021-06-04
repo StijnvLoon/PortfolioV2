@@ -1,0 +1,26 @@
+.searchbar {
+    z-index: 100;
+    width: 150px;
+    height: 50%;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+.blank_input {
+    background-color: transparent;
+    outline: unset;
+    width: 100%;
+    border: unset;
+    font-size: 1em;
+}
+.icon {
+    color: rgb(134, 134, 134);
+}
+.clear {
+    cursor: pointer;
+}
+.searchbar_expand {
+    width: 300px;
+}

@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { SearchComponent } from './header/search/search.component';
 import { HeaderComponent } from './header/header.component';
 import { DesktopModule } from './desktop-components/desktop.module';
 import { MobileModule } from './mobile-components/mobile.module';
@@ -12,7 +13,8 @@ import { MaterialModule } from './material.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

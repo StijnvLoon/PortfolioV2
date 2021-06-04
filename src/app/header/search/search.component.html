@@ -1,0 +1,10 @@
+<div class="searchbar mat-elevation-z1" [class.searchbar_expand]="focussed">
+    <mat-icon class="icon">search</mat-icon>
+    <input type="text" 
+        (focus)="focussed = true"
+        (focusout)="focussed = false" 
+        [ngModel]="searchText" 
+        (ngModelChange)="onInput($event)" 
+        class="blank_input">
+    <mat-icon class="icon clear" (click)="clearInput()" *ngIf="searchText !== ''">close</mat-icon>
+</div>
