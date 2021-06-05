@@ -1,0 +1,8 @@
+<button mat-icon-button (click)="toggleTheme()">
+    <div class="button_anim_container" *ngIf="themeService.theme == 0">
+        <mat-icon @ChangeAnim>dark_mode</mat-icon>
+    </div>
+    <div class="button_anim_container" *ngIf="themeService.theme == 1">
+        <mat-icon @ChangeAnim>light_mode</mat-icon>
+    </div>
+</button>

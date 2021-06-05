@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './header/search/search.component';
+import { ButtonThemeComponent } from './header/button-theme/button-theme.component';
 import { HeaderComponent } from './header/header.component';
 import { DesktopModule } from './desktop-components/desktop.module';
 import { MobileModule } from './mobile-components/mobile.module';
@@ -14,7 +15,8 @@ import { MaterialModule } from './material.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    SearchComponent
+    SearchComponent,
+    ButtonThemeComponent
   ],
   imports: [
     BrowserModule,
