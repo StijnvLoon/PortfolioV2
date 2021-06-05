@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Theme } from '../models/enums/Theme';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +22,4 @@ export class ThemeService {
     this.theme = theme
     localStorage.setItem(this.themeStorage, Theme[this.theme])
   }
-}
-
-export enum Theme {
-  Dark,
-  Light
 }

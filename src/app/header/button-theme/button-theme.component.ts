@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChangeAnim } from 'src/animations/changeAnim';
-import { ThemeService, Theme } from 'src/services/theme.service';
+import { Theme } from 'src/models/enums/Theme';
+import { ThemeService } from 'src/services/theme.service';
 
 @Component({
   selector: 'app-button-theme',

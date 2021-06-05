@@ -1,0 +1,24 @@
+.button_anim_container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+}
+.flag_container {
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: inline-block;
+    overflow: hidden;
+}
+.flag_container img {
+    height: 100%;
+    margin-left: -50%;
+}

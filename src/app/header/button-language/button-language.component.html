@@ -1,0 +1,22 @@
+<button mat-icon-button [matMenuTriggerFor]="languagesMenu">
+    <div class="button_anim_container" *ngIf="languageService.language == 0">
+        <div class="flag_container mat-elevation-z1" @ChangeAnim>
+            <img src="../../../assets/flags/Flag_of_the_Netherlands.svg">
+        </div>
+    </div>
+
+    <div class="button_anim_container" *ngIf="languageService.language == 1">
+        <div class="flag_container mat-elevation-z1" @ChangeAnim>
+            <img src="../../../assets/flags/Flag_of_the_United_Kingdom.svg">
+        </div>
+    </div>
+</button>
+
+<mat-menu #languagesMenu="matMenu">
+    <button mat-menu-item [disabled]="languageService.language == 0" (click)="languageService.setLanguage(0)">
+        <span>Nederlands</span>
+    </button>
+    <button mat-menu-item [disabled]="languageService.language == 1" (click)="languageService.setLanguage(1)">
+        <span>English</span>
+    </button>
+</mat-menu>

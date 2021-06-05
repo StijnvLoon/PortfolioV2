@@ -1,3 +1,5 @@
+import { Language } from "./enums/Language";
+
 export class TextValue {
 
     constructor(
@@ -7,9 +9,4 @@ export class TextValue {
     get(lang: Language): string {
         return this.map.get(lang)
     }
-}
-
-export enum Language {
-    NL,
-    EN
 }
