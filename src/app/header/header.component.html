@@ -1,11 +1,11 @@
 <mat-toolbar color="primary" class="mat-elevation-z2">
     <button mat-button routerLink="/About">
-        About
+        {{langService.getUpper('about')}}
     </button>
 
     <app-search></app-search>
-    
-    <app-button-theme></app-button-theme>
 
+    <app-button-theme></app-button-theme>
     <app-button-language></app-button-language>
+    
 </mat-toolbar>

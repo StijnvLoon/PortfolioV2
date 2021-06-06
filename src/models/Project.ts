@@ -10,7 +10,7 @@ export class Project {
         public description: TextValue,
         public status: TextValue,
         public coverImage: string,
-        public keywords: string[],
+        public keywords: TextValue[],
         public images: Image[],
         public urls: Url[]
     ) { }
