@@ -1,4 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import './theme.scss';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.transit_theme {
+    transition: all 0.3s ease;
+}
+.mat-app-background {
+    transition: all 0.3s ease;
+}
