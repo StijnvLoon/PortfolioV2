@@ -8,25 +8,24 @@ import { FormControl } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
 
-  //TODO fixennn
-
   public searchText: string = ''
-  public focussed: boolean = false
 
   constructor() { }
 
   ngOnInit(): void { }
-
-  onFocus(event: FocusEvent) {
-    this.focussed = true
-  }
 
   onInput(event) {
     this.searchText = event
   }
 
   clearInput() {
-    this.searchText = ''
+    const interval = setInterval(() => {
+      if(this.searchText.length == 0) {
+        clearInterval(interval)
+      }
+
+      this.searchText = this.searchText.slice(0, -1)
+    }, 20)
   }
 
 }
