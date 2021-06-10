@@ -1,8 +1,8 @@
 .searchbar {
     z-index: 100;
-    width: 300px;
+    width: 95%;
+    max-width: 300px;
     height: 50%;
-    background-color: white;
     border-radius: 25px;
     display: flex;
     padding: 5px;
@@ -20,4 +20,14 @@
 }
 .clear {
     cursor: pointer;
+}
+.option_image {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.spinner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

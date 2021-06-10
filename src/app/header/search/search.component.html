@@ -1,8 +1,20 @@
-<div class="searchbar mat-elevation-z1">
+<div class="searchbar mat-elevation-z1 mat-app-background">
+
     <mat-icon class="icon">search</mat-icon>
-    <input type="text" 
-        [ngModel]="searchText" 
-        (ngModelChange)="onInput($event)" 
-        class="blank_input">
+    <input type="text" [ngModel]="searchText" (ngModelChange)="onInput($event)" class="blank_input mat-app-background"
+        [matAutocomplete]="autoComplete">
     <mat-icon class="icon clear" (click)="clearInput()" *ngIf="searchText !== ''">close</mat-icon>
+
+    <mat-autocomplete autoActiveFirstOption #autoComplete="matAutocomplete">
+
+        <mat-option *ngFor="let project of results" (click)="navigateToProject(project.id)">
+            <img class="option_image" [src]="project.coverImage" height="25">
+            <span>{{project.title.get(languageService.language)}}</span>
+        </mat-option>
+
+        <mat-option disabled *ngIf="searching">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-option>
+
+    </mat-autocomplete>
 </div>

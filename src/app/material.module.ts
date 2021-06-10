@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -18,7 +20,9 @@ import { MatMenuModule } from '@angular/material/menu';
     ReactiveFormsModule,
     MatIconModule,
     FormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatAutocompleteModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { }
