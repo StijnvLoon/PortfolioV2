@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import './theme.scss';
 
+:root {
+    --headerHeight: 56px;
+}
+
 html,
 body {
     height: 100%;
@@ -15,4 +19,30 @@ body {
 }
 .mat-app-background {
     transition: all 0.3s ease;
+}
+
+.page_container {
+    margin-top: var(--headerHeight);
+    height: calc(100vh - var(--headerHeight));
+    overflow-y: auto;
+    position: absolute;
+}
+
+.page_container::-webkit-scrollbar {
+    height: 14px;
+    width: 14px;
+    right: 5px;
+}
+
+.page_container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.page_container::-webkit-scrollbar-thumb {
+    background: #8f8f8f;
+    border-radius: 2px;
+}
+
+.page_container::-webkit-scrollbar-thumb:hover {
+    background: #575757;
 }
