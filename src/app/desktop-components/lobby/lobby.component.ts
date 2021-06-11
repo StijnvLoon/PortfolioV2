@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LanguageService } from 'src/services/language.service';
 
 @Component({
   selector: 'desktop-lobby',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LobbyComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public languageService: LanguageService
+  ) { }
 
   ngOnInit(): void {
   }

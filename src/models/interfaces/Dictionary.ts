@@ -1,4 +1,5 @@
 export interface Dictionary {
   about,
-  error
+  error,
+  welcome
 }

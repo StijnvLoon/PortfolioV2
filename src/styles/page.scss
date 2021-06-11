@@ -1,31 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-@import './theme.scss';
-
-:root {
-    --headerHeight: 56px;
-}
-
-html,
-body {
-    height: 100%;
-}
-body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.transit_theme {
-    transition: all 0.3s ease;
-}
-.mat-app-background {
-    transition: all 0.3s ease;
-}
-
 .page_container {
     margin-top: var(--headerHeight);
     height: calc(100vh - var(--headerHeight));
     overflow-y: auto;
     position: absolute;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .page_container::-webkit-scrollbar {
@@ -45,4 +25,10 @@ body {
 
 .page_container::-webkit-scrollbar-thumb:hover {
     background: #575757;
+}
+
+.page_title {
+    text-align: center;
+    margin: 50px;
+    font-size: 3em;
 }
