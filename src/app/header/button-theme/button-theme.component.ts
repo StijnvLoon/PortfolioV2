@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChangeAnim } from 'src/animations/changeAnim';
+import { changeAnim } from 'src/animations/changeAnim';
 import { Theme } from 'src/models/enums/Theme';
 import { ThemeService } from 'src/services/theme.service';
 
@@ -8,7 +8,7 @@ import { ThemeService } from 'src/services/theme.service';
   templateUrl: './button-theme.component.html',
   styleUrls: ['./button-theme.component.scss'],
   animations: [
-    ChangeAnim
+    changeAnim
   ]
 })
 export class ButtonThemeComponent implements OnInit {

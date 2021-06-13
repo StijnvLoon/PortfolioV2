@@ -1,6 +1,6 @@
 import { trigger, transition, style, animate } from "@angular/animations";
 
-export const ChangeAnim =
+export const changeAnim =
     trigger('ChangeAnim', [
         transition(':enter', [
             style({ transform: 'scale(0.0)', opacity: 0 }),

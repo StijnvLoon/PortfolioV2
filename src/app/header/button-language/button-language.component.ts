@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChangeAnim } from 'src/animations/changeAnim';
+import { changeAnim } from 'src/animations/changeAnim';
 import { LanguageService } from 'src/services/language.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { LanguageService } from 'src/services/language.service';
   templateUrl: './button-language.component.html',
   styleUrls: ['./button-language.component.scss'],
   animations: [
-    ChangeAnim
+    changeAnim
   ]
 })
 export class ButtonLanguageComponent implements OnInit {
