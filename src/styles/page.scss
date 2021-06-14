@@ -3,9 +3,7 @@
     height: calc(100vh - var(--headerHeight));
     overflow-y: auto;
     position: absolute;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 100%;
 }
 
 .page_container::-webkit-scrollbar {
@@ -25,6 +23,12 @@
 
 .page_container::-webkit-scrollbar-thumb:hover {
     background: #575757;
+}
+
+.page_center {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .page_title {
