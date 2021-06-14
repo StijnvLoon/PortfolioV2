@@ -1,6 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-@import './theme.scss';
-@import './page.scss';
+@import "./theme.scss";
+@import "./page.scss";
+
+@font-face {
+    font-family: "DIN";
+    src: url(../assets/fonts/DIN-light.otf) format("opentype");
+}
+@font-face {
+    font-family: "DIN-Bold";
+    src: url(../assets/fonts/DIN-bold.otf) format("opentype");
+}
 
 :root {
     --headerHeight: 70px;
@@ -12,7 +21,11 @@ body {
 }
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: "DIN", Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-button {
+    font-family: "DIN-Bold", Roboto, "Helvetica Neue", sans-serif !important;
 }
 
 .center {
