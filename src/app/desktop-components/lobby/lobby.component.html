@@ -6,7 +6,7 @@
     
         <div class="center_ver">
             <div class="projects_holder" *ngIf="projects" [@LobbyListAnim]="projects.length">
-                <div class="project mat-elevation-z2" *ngFor="let project of projects">
+                <div class="project mat-elevation-z2" *ngFor="let project of projects" (click)="navigateProject(project.id)">
                     <img class="project_image" [src]="project.coverImage" >
                     <div class="center" style="position: absolute;">
                         <span class="project_title">{{project.title.get(languageService.language)}}</span>

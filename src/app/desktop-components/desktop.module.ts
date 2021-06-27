@@ -7,12 +7,14 @@ import { ImageLoaderComponent } from '../image-loader/image-loader.component';
 
 import { AboutComponent } from './about/about.component';
 import { LobbyComponent } from './lobby/lobby.component';
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
   declarations: [
     ImageLoaderComponent,
     AboutComponent,
-    LobbyComponent
+    LobbyComponent,
+    ProjectComponent
   ],
   imports: [
     CommonModule,

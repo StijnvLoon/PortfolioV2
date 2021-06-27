@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { lobbyListAnim } from 'src/animations/lobbyListAnim';
 import { Project } from 'src/models/Project';
 import { LanguageService } from 'src/services/language.service';
@@ -17,6 +18,7 @@ export class LobbyComponent implements OnInit {
   public projects: Project[]
 
   constructor(
+    private router: Router,
     public languageService: LanguageService,
     private projectService: ProjectService
   ) { }
@@ -26,6 +28,10 @@ export class LobbyComponent implements OnInit {
       (result) => { this.projects = result },
       (error) => { }
     )
+  }
+
+  navigateProject(id: string) {
+    this.router.navigate([`/project/${id}`])
   }
 
 }

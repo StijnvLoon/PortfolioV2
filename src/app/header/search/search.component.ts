@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project } from 'src/models/Project';
 import { LanguageService } from 'src/services/language.service';
 import { ProjectService } from 'src/services/project.service';
@@ -16,6 +17,7 @@ export class SearchComponent implements OnInit {
   public typedWhileSearching: boolean = false
 
   constructor(
+    private router: Router,
     private projectService: ProjectService,
     public languageService: LanguageService
     ) { }
@@ -60,8 +62,8 @@ export class SearchComponent implements OnInit {
     }, 20)
   }
 
-  navigateToProject(id: string) {
-    //TODO
+  navigateProject(id: string) {
+    this.router.navigate([`/project/${id}`])
   }
 
 }
