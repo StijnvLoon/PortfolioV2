@@ -20,14 +20,14 @@ export class SearchComponent implements OnInit {
     private router: Router,
     private projectService: ProjectService,
     public languageService: LanguageService
-    ) { }
+  ) { }
 
   ngOnInit(): void { }
 
   onInput(event) {
     this.searchText = event
 
-    if(this.searching) {
+    if (this.searching) {
       this.typedWhileSearching = true
     } else {
       this.searching = true
@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
       this.searchText,
       this.languageService.language,
       (projects: Project[]) => {
-        if(this.typedWhileSearching) {
+        if (this.typedWhileSearching) {
           this.typedWhileSearching = false
           this.updateResults()
         } else {
@@ -48,13 +48,13 @@ export class SearchComponent implements OnInit {
           this.searching = false
         }
       },
-      (error: string) => {}
+      (error: string) => { }
     )
   }
 
   clearInput() {
     const interval = setInterval(() => {
-      if(this.searchText.length == 0) {
+      if (this.searchText.length == 0) {
         clearInterval(interval)
       }
 
