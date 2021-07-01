@@ -1,0 +1,44 @@
+.loader {
+    margin-top: var(--headerHeight);
+    height: calc(100vh - var(--headerHeight));
+    width: 100vw;
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(rgb(129, 129, 129), 0.87);
+    backdrop-filter: blur(3px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bubble_grid {
+    display: flex;
+}
+.bubble {
+    width: 10vh;
+    height: 10vh;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: var(--theme-accent-600);
+    animation: bubbleAnim 2s ease 0s infinite;
+}
+
+.bubble1 {
+    animation-delay: 0s;
+}
+.bubble2 {
+    animation-delay: 0.1s;
+}
+.bubble3 {
+    animation-delay: 0.2s;
+}
+.bubble4 {
+    animation-delay: 0.3s;
+}
+
+@keyframes bubbleAnim {
+    0% {}
+    25% { transform: scale(0.8); }
+    40% { transform: scale(1.05); }
+    60% { transform: scale(1); }
+}

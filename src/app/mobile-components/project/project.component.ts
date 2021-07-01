@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Project } from 'src/models/Project';
 import { LanguageService } from 'src/services/language.service';
+import { LoaderService } from 'src/services/loader.service';
 import { ProjectService } from 'src/services/project.service';
 
 @Component({
@@ -17,19 +18,23 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private loaderService: LoaderService,
     private projectService: ProjectService,
     public languageService: LanguageService
   ) { }
 
   ngOnInit(): void {
+    this.loaderService.startLoading();
     this.routeSub = this.route.params.subscribe(params => {
       const id = params['id'];
       this.projectService.getById(id,
         result => {
+          this.loaderService.stopLoading();
           this.project = result;
           console.log(result)
         },
         error => {
+          this.loaderService.stopLoading();
           //TODO 
         }
       )
