@@ -34,4 +34,8 @@ export class Project {
 
         return textString.includes(filterString)
     }
+
+    getUrl(): string {
+        return this.title.get(Language.EN).replaceAll(' ', '-');
+    }
 }

@@ -80,6 +80,12 @@ export class ProjectService {
     }, 2000);
   }
 
+  getByUrl(url: string, onResult: (result: Project) => void, onError: (errorMessage: string) => void) {
+    setTimeout(() => {
+      onResult(this.projectList.filter(project => project.getUrl() == url)[0])
+    }, 2000);
+  }
+
   search(
     searchString: string,
     language: Language,

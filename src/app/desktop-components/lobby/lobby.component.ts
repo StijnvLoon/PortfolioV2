@@ -39,8 +39,8 @@ export class LobbyComponent implements OnInit {
     )
   }
 
-  navigateProject(id: string) {
-    this.router.navigate([`/project/${id}`])
+  navigateProject(project: Project) {
+    this.router.navigate([`/project/${project.getUrl()}`])
   }
 
 }

@@ -7,6 +7,6 @@ import { ProjectComponent } from './project/project.component';
 export const mobileRoutes: Routes = [
     { path: '', component: LobbyComponent },
     { path: 'About', component: AboutComponent },
-    { path: 'project/:id', component: ProjectComponent},
+    { path: 'project/:url', component: ProjectComponent},
     { path: '**', pathMatch: 'full', redirectTo: '' }
 ]
