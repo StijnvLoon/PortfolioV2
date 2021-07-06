@@ -5,7 +5,7 @@ import { TextValue } from 'src/models/TextValue';
 import { SearchbarService } from 'src/services/searchbar.service';
 
 @Component({
-  selector: 'app-introduction',
+  selector: 'desktop-introduction',
   templateUrl: './introduction.component.html',
   styleUrls: ['./introduction.component.scss']
 })

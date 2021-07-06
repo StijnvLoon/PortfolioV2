@@ -8,7 +8,7 @@ import { LoaderService } from 'src/services/loader.service';
 import { ProjectService } from 'src/services/project.service';
 
 @Component({
-  selector: 'app-project',
+  selector: 'desktop-project',
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.scss']
 })
@@ -25,14 +25,13 @@ export class ProjectComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.loaderService.startLoading()
     this.routeSub = this.route.params.subscribe(params => {
+      this.loaderService.startLoading()
       const url = params['url'];
       this.projectService.getByUrl(url,
         result => {
           this.loaderService.stopLoading()
           this.project = result;
-          console.log(result)
         },
         error => {
           this.loaderService.stopLoading()

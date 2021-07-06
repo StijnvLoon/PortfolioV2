@@ -1,7 +1,9 @@
 <div class="page_container">
     <div class="page_center">
-        <div *ngIf="project">
-            <app-introduction [project]="project"></app-introduction>
+        <div *ngIf="project" style="margin-top: 12px">
+            <desktop-cover [project]="project"></desktop-cover>
+            <mat-divider></mat-divider>
+            <desktop-introduction [project]="project"></desktop-introduction>
             <mat-divider></mat-divider>
         </div>
     </div>

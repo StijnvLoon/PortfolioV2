@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { ProjectComponent } from './project/project.component';
 import { IntroductionComponent } from './project/introduction/introduction.component';
+import { CoverComponent } from './project/cover/cover.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { IntroductionComponent } from './project/introduction/introduction.compo
     AboutComponent,
     LobbyComponent,
     ProjectComponent,
-    IntroductionComponent
+    IntroductionComponent,
+    CoverComponent
   ],
   imports: [
     CommonModule,
