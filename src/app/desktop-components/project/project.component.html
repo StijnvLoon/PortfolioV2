@@ -1,7 +1,8 @@
 <div class="page_container">
     <div class="page_center">
         <div *ngIf="project">
-            <h1>{{project.title.get(languageService.language)}}</h1>
+            <app-introduction [project]="project"></app-introduction>
+            <mat-divider></mat-divider>
         </div>
     </div>
 </div>

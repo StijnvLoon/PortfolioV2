@@ -8,13 +8,15 @@ import { ImageLoaderComponent } from '../image-loader/image-loader.component';
 import { AboutComponent } from './about/about.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { ProjectComponent } from './project/project.component';
+import { IntroductionComponent } from './project/introduction/introduction.component';
 
 @NgModule({
   declarations: [
     ImageLoaderComponent,
     AboutComponent,
     LobbyComponent,
-    ProjectComponent
+    ProjectComponent,
+    IntroductionComponent
   ],
   imports: [
     CommonModule,

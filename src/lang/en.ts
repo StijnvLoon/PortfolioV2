@@ -5,4 +5,5 @@ export const en: Dictionary = {
     'error': '[error]',
     'welcome': 'welcome',
     'search': 'search',
+    'keywords': 'keywords'
 }

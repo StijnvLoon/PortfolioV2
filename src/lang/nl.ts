@@ -4,5 +4,6 @@ export const nl: Dictionary = {
     'about' : 'over',
     'error': '[fout]',
     'welcome': 'welkom',
-    'search': 'zoeken'
+    'search': 'zoeken',
+    'keywords': 'zoektermen'
 }

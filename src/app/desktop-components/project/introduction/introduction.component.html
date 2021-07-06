@@ -1,0 +1,7 @@
+<h1>{{project.title.get(languageService.language)}}</h1>
+<p>{{project.description.get(languageService.language)}}</p>
+
+<div class="container_keywords">
+    <div style="margin-right: 4px;">{{languageService.getUpper('keywords')}}:</div>
+    <div class="keyword" *ngFor="let keyword of project.keywords" (click)="searchKeyword(keyword)">{{keyword.get(languageService.language)}}</div>
+</div>

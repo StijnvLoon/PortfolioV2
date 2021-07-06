@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from 'src/models/Project';
 import { LanguageService } from 'src/services/language.service';
 import { ProjectService } from 'src/services/project.service';
+import { SearchbarService } from 'src/services/searchbar.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
 
-  public searchText: string = ''
+  @ViewChild('searchBar') searchElement: ElementRef;
+
   public results: Project[] = []
   public searching: boolean = false
   public typedWhileSearching: boolean = false
@@ -19,14 +21,16 @@ export class SearchComponent implements OnInit {
   constructor(
     private router: Router,
     private projectService: ProjectService,
-    public languageService: LanguageService
-  ) { }
+    public languageService: LanguageService,
+    public searchbarService: SearchbarService
+  ) {
+    this.searchbarService.onSearchTextChange((text: string) => {
+      this.searchElement.nativeElement.click();
+      this.onInput();
+    })
+  }
 
-  ngOnInit(): void { }
-
-  onInput(event) {
-    this.searchText = event
-
+  onInput() {
     if (this.searching) {
       this.typedWhileSearching = true
     } else {
@@ -35,9 +39,17 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  //needed so autocomplete is activated
+  //https://github.com/angular/components/issues/3106
+  onSearchBarClick() {
+    setTimeout(() => {
+      this.searchElement.nativeElement.focus();
+    }, 1);
+  }
+
   private updateResults() {
     this.projectService.search(
-      this.searchText,
+      this.searchbarService.searchText,
       this.languageService.language,
       (projects: Project[]) => {
         if (this.typedWhileSearching) {
@@ -53,17 +65,11 @@ export class SearchComponent implements OnInit {
   }
 
   clearInput() {
-    const interval = setInterval(() => {
-      if (this.searchText.length == 0) {
-        clearInterval(interval)
-      }
-
-      this.searchText = this.searchText.slice(0, -1)
-    }, 20)
+    this.searchbarService.clearSearchText();
   }
 
-  navigateProject(id: string) {
-    this.router.navigate([`/project/${id}`])
+  navigateProject(url: string) {
+    this.router.navigate([`/project/${url}`]);
   }
 
 }

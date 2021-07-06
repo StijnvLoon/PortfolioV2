@@ -10,6 +10,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRippleModule } from '@angular/material/core';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [],
@@ -24,7 +25,8 @@ import { MatRippleModule } from '@angular/material/core';
     MatMenuModule,
     MatAutocompleteModule,
     MatProgressBarModule,
-    MatRippleModule
+    MatRippleModule,
+    MatDividerModule
   ]
 })
 export class MaterialModule { }

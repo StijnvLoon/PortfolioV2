@@ -1,0 +1,16 @@
+@import "~@angular/material/theming";
+
+@font-face {
+    font-family: "DIN";
+    src: url(../assets/fonts/DIN-light.otf) format("opentype");
+}
+@font-face {
+    font-family: "DIN-Bold";
+    src: url(../assets/fonts/DIN-bold.otf) format("opentype");
+}
+
+$DIN-typo: mat-typography-config(
+    $font-family: "DIN",
+);
+
+@include mat-core($DIN-typo);

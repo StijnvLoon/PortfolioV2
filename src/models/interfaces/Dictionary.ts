@@ -2,5 +2,6 @@ export interface Dictionary {
   about,
   error,
   welcome,
-  search
+  search,
+  keywords
 }
