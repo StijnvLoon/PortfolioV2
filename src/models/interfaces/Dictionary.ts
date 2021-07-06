@@ -3,5 +3,6 @@ export interface Dictionary {
   error,
   welcome,
   search,
-  keywords
+  keywords,
+  status
 }

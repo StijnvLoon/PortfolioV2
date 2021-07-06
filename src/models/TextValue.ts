@@ -7,6 +7,13 @@ export class TextValue {
     ) { }
 
     get(lang: Language): string {
-        return this.map.get(lang)
+        const translation: string = this.map.get(lang)
+
+        if(translation) {
+            return this.map.get(lang)
+        } else {
+            return 'error'
+        }
+
     }
 }

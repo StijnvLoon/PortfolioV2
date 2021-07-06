@@ -1,4 +1,8 @@
-<h1>{{project.title.get(languageService.language)}}</h1>
+<div class="head">
+    <h1 class="title">{{project.title.get(languageService.language)}}</h1>
+    <h1 class="status">{{languageService.getUpper('status')}}: {{project.status.get(languageService.language)}}</h1>
+</div>
+
 <p>{{project.description.get(languageService.language)}}</p>
 
 <div class="container_keywords">

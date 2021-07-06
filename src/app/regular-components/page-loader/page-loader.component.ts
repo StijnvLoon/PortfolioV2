@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoaderService } from '../../services/loader.service';
-import { pageLoaderAnim } from '../../animations/pageLoaderAnim';
+import { LoaderService } from '../../../services/loader.service';
+import { pageLoaderAnim } from '../../../animations/pageLoaderAnim';
 
 @Component({
   selector: 'app-page-loader',

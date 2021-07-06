@@ -5,5 +5,6 @@ export const nl: Dictionary = {
     'error': '[fout]',
     'welcome': 'welkom',
     'search': 'zoeken',
-    'keywords': 'zoektermen'
+    'keywords': 'zoektermen',
+    'status': 'status'
 }

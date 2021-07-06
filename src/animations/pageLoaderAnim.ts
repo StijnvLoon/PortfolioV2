@@ -6,7 +6,7 @@ export const pageLoaderAnim =
             ':enter',
             [
                 style({ opacity: 0, }),
-                animate('0.5s ease',
+                animate('0.3s ease',
                     style({ opacity: 1 }))
             ]
         ),

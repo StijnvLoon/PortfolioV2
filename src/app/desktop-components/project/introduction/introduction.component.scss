@@ -1,3 +1,14 @@
+.head {
+    display: flex;
+    justify-content: space-between
+}
+.head .title {
+    font-weight: bold;
+}
+.head .status {
+    font-size: large;
+}
+
 .container_keywords {
     display: flex;
 }
@@ -8,7 +19,7 @@
     color: var(--theme-accent-contrast-900);
     font-weight: 600;
     padding: 0px 10px 0px 10px;
-    margin: 0px 2px 12px 2px;
+    margin: 0px 2px 0px 2px;
     transition: all 0.1s ease;
 }
 .keyword:hover {

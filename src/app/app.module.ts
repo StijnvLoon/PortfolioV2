@@ -4,11 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { SearchComponent } from './header/search/search.component';
-import { ButtonThemeComponent } from './header/button-theme/button-theme.component';
-import { ButtonLanguageComponent } from './header/button-language/button-language.component';
-import { HeaderComponent } from './header/header.component';
-import { PageLoaderComponent } from './page-loader/page-loader.component';
+import { SearchComponent } from './regular-components/header/search/search.component';
+import { ButtonThemeComponent } from './regular-components/header/button-theme/button-theme.component';
+import { ButtonLanguageComponent } from './regular-components/header/button-language/button-language.component';
+import { HeaderComponent } from './regular-components/header/header.component';
+import { PageLoaderComponent } from './regular-components/page-loader/page-loader.component';
 import { DesktopModule } from './desktop-components/desktop.module';
 import { MobileModule } from './mobile-components/mobile.module';
 import { MaterialModule } from './material.module';

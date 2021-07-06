@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { desktopRoutes } from './desktop-components/desktop-routes';
 import { mobileRoutes } from './mobile-components/mobile-routes';
 
