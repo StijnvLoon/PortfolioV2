@@ -11,6 +11,7 @@ import { SearchbarService } from 'src/services/searchbar.service';
 })
 export class IntroductionComponent implements OnInit {
 
+  //TODO introduction --> content
   @Input() project: Project
 
   constructor(

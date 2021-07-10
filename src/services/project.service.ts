@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Language } from '../models/enums/Language';
 import { Image } from '../models/Image';
-import { Project } from '../models/Project';
+import { Paragraph, Project } from '../models/Project';
 import { TextValue } from '../models/TextValue';
 
 @Injectable({
@@ -13,7 +13,14 @@ export class ProjectService {
     new Project(
       '1',
       new TextValue(new Map([[Language.NL, "Dit is test project #1"], [Language.EN, "This is test project #1"]])),
-      new TextValue(new Map([[Language.NL, "Dit is de beschrijving"], [Language.EN, "This is the description"]])),
+      [],
+      [],
+      [
+        new Paragraph(
+          new TextValue(new Map([[Language.NL, "Beschrijving"], [Language.EN, "Description"]])),
+          new TextValue(new Map([[Language.NL, "Dit is de beschrijving paragraaf"], [Language.EN, "This is the description paragraph"]]))
+        )
+      ],
       new TextValue(new Map([[Language.NL, "engels ontbreekt"]])),
       'https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80',
       [
@@ -36,12 +43,20 @@ export class ProjectService {
           new TextValue(new Map([[Language.NL, "Cover 3"], [Language.EN, "Cover 3"]])),
           'https://png.pngtree.com/thumb_back/fh260/background/20190827/pngtree-abstract-80s-trendy-geometric-background-neon-colors-image_304908.jpg')
       ],
+      [],
       []
     ),
     new Project(
       '2',
       new TextValue(new Map([[Language.NL, "Dit is test project #2"], [Language.EN, "This is test project #2"]])),
-      new TextValue(new Map([[Language.NL, "Dit is de beschrijving"], [Language.EN, "This is the description"]])),
+      [],
+      [],
+      [
+        new Paragraph(
+          new TextValue(new Map([[Language.NL, "Beschrijving"], [Language.EN, "Description"]])),
+          new TextValue(new Map([[Language.NL, "Dit is de beschrijving paragraaf"], [Language.EN, "This is the description paragraph"]]))
+        )
+      ],
       new TextValue(new Map([[Language.NL, "engels ontbreekt"]])),
       'https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       [
@@ -64,12 +79,20 @@ export class ProjectService {
           new TextValue(new Map([[Language.NL, "Cover 3"], [Language.EN, "Cover 3"]])),
           'https://png.pngtree.com/thumb_back/fh260/background/20190827/pngtree-abstract-80s-trendy-geometric-background-neon-colors-image_304908.jpg')
       ],
+      [],
       []
     ),
     new Project(
       '3',
       new TextValue(new Map([[Language.NL, "Dit is test project #3"], [Language.EN, "This is test project #3"]])),
-      new TextValue(new Map([[Language.NL, "Dit is de beschrijving"], [Language.EN, "This is the description"]])),
+      [],
+      [],
+      [
+        new Paragraph(
+          new TextValue(new Map([[Language.NL, "Beschrijving"], [Language.EN, "Description"]])),
+          new TextValue(new Map([[Language.NL, "Dit is de beschrijving paragraaf"], [Language.EN, "This is the description paragraph"]]))
+        )
+      ],
       new TextValue(new Map([[Language.NL, "engels ontbreekt"]])),
       'https://png.pngtree.com/thumb_back/fh260/background/20190827/pngtree-abstract-80s-trendy-geometric-background-neon-colors-image_304908.jpg',
       [
@@ -92,6 +115,7 @@ export class ProjectService {
           new TextValue(new Map([[Language.NL, "Cover 3"], [Language.EN, "Cover 3"]])),
           'https://png.pngtree.com/thumb_back/fh260/background/20190827/pngtree-abstract-80s-trendy-geometric-background-neon-colors-image_304908.jpg')
       ],
+      [],
       []
     )
   ]

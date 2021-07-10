@@ -8,12 +8,15 @@ export class Project {
     constructor(
         public id: string,
         public title: TextValue,
-        public description: TextValue,
+        public logos: Image[],
+        public colors: string[],
+        public content: Paragraph[],
         public status: TextValue,
         public coverImage: string,
         public keywords: TextValue[],
         public images: Image[],
-        public urls: Url[]
+        public urls: Url[],
+        public faq: Question[]
     ) { }
 
     //TOD
@@ -43,4 +46,21 @@ export class Project {
     getUrl(): string {
         return this.title.get(Language.EN).replaceAll(' ', '-');
     }
+}
+
+export class Paragraph {
+
+    constructor(
+        public title: TextValue,
+        public text: TextValue,
+        public content?: Paragraph[]
+    ) { }
+}
+
+export class Question {
+
+    constructor(
+        public question: TextValue,
+        public answer: TextValue
+    ) { }
 }
