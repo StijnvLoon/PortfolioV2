@@ -6,5 +6,6 @@ export const en: Dictionary = {
     'welcome': 'welcome',
     'search': 'search',
     'keywords': 'keywords',
-    'status': 'status'
+    'status': 'status',
+    'pictures': 'pictures'
 }

@@ -11,6 +11,8 @@ body {
 
 :root {
     --headerHeight: 70px;
+    --picturesHeight: 500px;
+    --pageWidth: 80%;
 }
 
 .center {
@@ -35,4 +37,8 @@ body {
 
 img {
     -webkit-user-drag: none;
+    user-select: none;
+}
+mat-icon {
+    user-select: none;
 }

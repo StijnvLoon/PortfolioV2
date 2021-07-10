@@ -5,6 +5,7 @@
             <mat-divider></mat-divider>
             <desktop-introduction [project]="project"></desktop-introduction>
             <mat-divider></mat-divider>
+            <desktop-images *ngIf="project.images.length > 0" [images]="project.images"></desktop-images>
         </div>
     </div>
 </div>

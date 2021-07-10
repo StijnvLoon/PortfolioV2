@@ -1,0 +1,49 @@
+.container {
+    width: 100%;
+    height: var(--picturesHeight);
+}
+.image_container {
+    position: absolute;
+    width: var(--pageWidth);
+    height: var(--picturesHeight);
+    display: flex;
+    justify-content: center;
+}
+.image_container img {
+    height: inherit;
+}
+
+.overlay {
+    position: absolute;
+    width: var(--pageWidth);
+    height: var(--picturesHeight);
+    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(255,214,0,0) 15%, rgba(255,214,0,0) 85%, rgba(0,0,0,0.9) 100%);
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 5px;
+    display: flex;
+}
+.container:hover .overlay {
+    opacity: 1;
+}
+
+.overlay_side {
+    cursor: pointer;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.overlay_side:hover .icon_pointer{
+    transform: scale(3.5);
+}
+.overlay_middle {
+    flex-grow: 1;
+}
+
+.icon_pointer {
+    color: white;
+    transform: scale(3);
+    transition: transform 0.3s ease-in-out;
+}

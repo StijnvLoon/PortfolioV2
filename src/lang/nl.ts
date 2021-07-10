@@ -6,5 +6,6 @@ export const nl: Dictionary = {
     'welcome': 'welkom',
     'search': 'zoeken',
     'keywords': 'zoektermen',
-    'status': 'status'
+    'status': 'status',
+    'pictures': 'afbeeldingen'
 }

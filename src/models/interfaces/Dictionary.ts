@@ -4,5 +4,6 @@ export interface Dictionary {
   welcome,
   search,
   keywords,
-  status
+  status,
+  pictures
 }

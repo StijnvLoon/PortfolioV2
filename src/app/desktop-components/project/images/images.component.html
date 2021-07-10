@@ -1,0 +1,20 @@
+<h2>{{languageService.getUpper('pictures')}}</h2>
+
+<div class="container" [@animSlider]="currentIndex">
+    <div *ngFor="let image of images">
+        <div class="image_container" *ngIf="isCurrent(image)">
+            <img [src]="image.url">
+        </div>
+    </div>
+    <div class="overlay">
+        <div matRipple class="overlay_side" (click)="previousImage()">
+            <mat-icon class="icon_pointer">keyboard_arrow_left</mat-icon>
+        </div>
+
+        <div class="overlay_middle"></div>
+
+        <div matRipple class="overlay_side" (click)="nextImage()">
+            <mat-icon class="icon_pointer">keyboard_arrow_right</mat-icon>
+        </div>
+    </div>
+</div>

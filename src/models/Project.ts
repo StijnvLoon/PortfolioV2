@@ -16,6 +16,11 @@ export class Project {
         public urls: Url[]
     ) { }
 
+    //TOD
+    //waarom is het project gemaakt? (doelstelling)
+    //wat is er gedaan
+    //wat is het resultaat
+
     isGoodKeywordSearch(searchString: string, language: Language): boolean {
         const result = this.keywords.filter(
             (textvalue) => {
