@@ -8,9 +8,10 @@ import { ImageLoaderComponent } from '../regular-components/image-loader/image-l
 import { AboutComponent } from './about/about.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { ProjectComponent } from './project/project.component';
-import { IntroductionComponent } from './project/introduction/introduction.component';
+import { ParagraphComponent } from './project/paragraph/paragraph.component';
 import { CoverComponent } from './project/cover/cover.component';
 import { ImagesComponent } from './project/images/images.component';
+import { TitleComponent } from './project/title/title.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,10 @@ import { ImagesComponent } from './project/images/images.component';
     AboutComponent,
     LobbyComponent,
     ProjectComponent,
-    IntroductionComponent,
+    ParagraphComponent,
     CoverComponent,
-    ImagesComponent
+    ImagesComponent,
+    TitleComponent
   ],
   imports: [
     CommonModule,

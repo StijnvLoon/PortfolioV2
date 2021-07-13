@@ -53,7 +53,7 @@ export class Paragraph {
     constructor(
         public title: TextValue,
         public text: TextValue,
-        public content?: Paragraph[]
+        public content: Paragraph[] = []
     ) { }
 }
 

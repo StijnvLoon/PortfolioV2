@@ -1,0 +1,14 @@
+<div class="paragraph">
+    <div [ngSwitch]="level">
+        <h1 *ngSwitchCase="0">{{paragraph.title.get(languageService.language)}}</h1>
+        <h2 *ngSwitchCase="1">{{paragraph.title.get(languageService.language)}}</h2>
+        <h3 *ngSwitchCase="2">{{paragraph.title.get(languageService.language)}}</h3>
+        <h4 *ngSwitchCase="3">{{paragraph.title.get(languageService.language)}}</h4>
+        <h5 *ngSwitchCase="4">{{paragraph.title.get(languageService.language)}}</h5>
+        <h6 *ngSwitchCase="5">{{paragraph.title.get(languageService.language)}}</h6>
+    </div>
+
+    <div class="par_text">{{paragraph.text.get(languageService.language)}}</div>
+    
+    <desktop-paragraph *ngFor="let subparagraph of paragraph.content" [paragraph]="subparagraph" [level]="level + 1"></desktop-paragraph>
+</div>

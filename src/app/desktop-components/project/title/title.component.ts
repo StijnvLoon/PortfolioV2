@@ -1,25 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Project } from 'src/models/Project';
-import { LanguageService } from 'src/services/language.service';
 import { TextValue } from 'src/models/TextValue';
+import { LanguageService } from 'src/services/language.service';
 import { SearchbarService } from 'src/services/searchbar.service';
 
 @Component({
-  selector: 'desktop-introduction',
-  templateUrl: './introduction.component.html',
-  styleUrls: ['./introduction.component.scss']
+  selector: 'desktop-title',
+  templateUrl: './title.component.html',
+  styleUrls: ['./title.component.scss']
 })
-export class IntroductionComponent implements OnInit {
+export class TitleComponent implements OnInit {
 
-  //TODO introduction --> content
-  @Input() project: Project
+  @Input() title: TextValue
+  @Input() status: TextValue
+  @Input() keywords: TextValue[]
 
   constructor(
     public languageService: LanguageService,
     private searchbarService: SearchbarService
-  ) {
-
-  }
+  ) { }
 
   ngOnInit(): void {
   }

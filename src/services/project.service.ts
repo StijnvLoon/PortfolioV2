@@ -18,6 +18,22 @@ export class ProjectService {
       [
         new Paragraph(
           new TextValue(new Map([[Language.NL, "Beschrijving"], [Language.EN, "Description"]])),
+          new TextValue(new Map([[Language.NL, "Dit is de beschrijving paragraaf"], [Language.EN, "This is the description paragraph"]])),
+          [
+            new Paragraph(
+              new TextValue(new Map([[Language.NL, "Beschrijving"], [Language.EN, "Description"]])),
+              new TextValue(new Map([[Language.NL, "Dit is de beschrijving paragraaf"], [Language.EN, "This is the description paragraph"]])),
+              [
+                new Paragraph(
+                  new TextValue(new Map([[Language.NL, "Beschrijving"], [Language.EN, "Description"]])),
+                  new TextValue(new Map([[Language.NL, "Dit is de beschrijving paragraaf"], [Language.EN, "This is the description paragraph"]]))
+                )
+              ]
+            )
+          ]
+        ),
+        new Paragraph(
+          new TextValue(new Map([[Language.NL, "Beschrijving"], [Language.EN, "Description"]])),
           new TextValue(new Map([[Language.NL, "Dit is de beschrijving paragraaf"], [Language.EN, "This is the description paragraph"]]))
         )
       ],
@@ -116,7 +132,7 @@ export class ProjectService {
           'https://png.pngtree.com/thumb_back/fh260/background/20190827/pngtree-abstract-80s-trendy-geometric-background-neon-colors-image_304908.jpg')
       ],
       [],
-      []
+      [],
     )
   ]
 
