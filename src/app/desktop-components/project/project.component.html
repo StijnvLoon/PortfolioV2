@@ -1,9 +1,8 @@
 <div class="page_container">
     <div class="page_center">
         <div *ngIf="project" style="margin-top: 12px">
-            <desktop-cover [project]="project"></desktop-cover>
+            <desktop-cover [url]="project.coverImage"></desktop-cover>
 
-            <mat-divider></mat-divider>
             <desktop-title [title]="project.title" [status]="project.status" [keywords]="project.keywords"></desktop-title>
             
             <mat-divider></mat-divider>

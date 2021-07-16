@@ -8,7 +8,7 @@ import { Project } from 'src/models/Project';
 })
 export class CoverComponent implements OnInit {
 
-  @Input() project: Project;
+  @Input() url: string;
 
   constructor() { }
 
