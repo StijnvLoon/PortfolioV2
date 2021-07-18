@@ -7,5 +7,6 @@ export const nl: Dictionary = {
     'search': 'zoeken',
     'keywords': 'zoektermen',
     'status': 'status',
-    'pictures': 'afbeeldingen'
+    'pictures': 'afbeeldingen',
+    'links': 'links'
 }

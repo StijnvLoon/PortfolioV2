@@ -171,6 +171,10 @@ export class ProjectService {
         new Url(
           new TextValue(new Map([[Language.NL, "Download"], [Language.EN, "Download"]])),
           'https://1drv.ms/u/s!AmvSohWdATZvkQdL-KS2OtRoDQi5?e=pZpSzd'
+        ),
+        new Url(
+          new TextValue(new Map([[Language.NL, "test"], [Language.EN, "test"]])),
+          'https://website-bbv.web.app'
         )
       ],
       [],

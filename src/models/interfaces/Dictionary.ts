@@ -1,9 +1,10 @@
 export interface Dictionary {
-  about,
-  error,
-  welcome,
-  search,
-  keywords,
-  status,
-  pictures
+  about: string,
+  error: string,
+  welcome: string,
+  search: string,
+  keywords: string,
+  status: string,
+  pictures: string,
+  links: string
 }

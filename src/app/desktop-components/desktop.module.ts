@@ -12,6 +12,7 @@ import { ParagraphComponent } from './project/paragraph/paragraph.component';
 import { CoverComponent } from './project/cover/cover.component';
 import { ImagesComponent } from './project/images/images.component';
 import { TitleComponent } from './project/title/title.component';
+import { UrlsComponent } from './project/urls/urls.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TitleComponent } from './project/title/title.component';
     ParagraphComponent,
     CoverComponent,
     ImagesComponent,
-    TitleComponent
+    TitleComponent,
+    UrlsComponent
   ],
   imports: [
     CommonModule,

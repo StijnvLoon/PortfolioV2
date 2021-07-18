@@ -7,5 +7,6 @@ export const en: Dictionary = {
     'search': 'search',
     'keywords': 'keywords',
     'status': 'status',
-    'pictures': 'pictures'
+    'pictures': 'pictures',
+    'links': 'links'
 }

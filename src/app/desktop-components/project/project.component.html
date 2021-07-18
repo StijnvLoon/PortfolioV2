@@ -1,8 +1,7 @@
 <div class="page_container">
-    <div class="page_center">
+    <div class="page_center" style="margin-bottom: 100px;">
         <div *ngIf="project" style="margin-top: 12px">
             <desktop-cover [url]="project.coverImage"></desktop-cover>
-
             <desktop-title [title]="project.title" [status]="project.status" [keywords]="project.keywords"></desktop-title>
             
             <mat-divider></mat-divider>
@@ -10,6 +9,9 @@
             
             <mat-divider *ngIf="project.images.length > 0"></mat-divider>
             <desktop-images *ngIf="project.images.length > 0" [images]="project.images"></desktop-images>
+
+            <mat-divider *ngIf="project.urls.length > 0"></mat-divider>
+            <desktop-urls *ngIf="project.urls.length > 0" [urls]="project.urls"></desktop-urls>
         </div>
     </div>
 </div>
