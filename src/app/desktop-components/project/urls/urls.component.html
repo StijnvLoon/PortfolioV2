@@ -4,7 +4,7 @@
     <div class="url" *ngFor="let url of urls" (click)="openUrl(url.url)">
         <div class="text">
             <mat-icon>open_in_new</mat-icon>
-            {{url.name.get(languageService.language)}}
+            <div class="dots">{{url.name.get(languageService.language)}}</div>
         </div>
         <div class="line"></div>
     </div>

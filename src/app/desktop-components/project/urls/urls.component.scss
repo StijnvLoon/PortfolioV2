@@ -18,10 +18,16 @@ h1 {
 }
 .text {
     display: flex;
-    align-items: center;
     width: 100%;
     font-size: 1.2em;
     font-weight: 600;
+    align-items: center;
+}
+.dots {
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
 }
 .line {
     width: 100%;
