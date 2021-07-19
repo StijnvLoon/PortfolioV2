@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Url } from 'src/models/Url';
 import { Language } from '../models/enums/Language';
 import { Image } from '../models/Image';
-import { Paragraph, Project } from '../models/Project';
+import { Paragraph, Project, Question } from '../models/Project';
 import { TextValue } from '../models/TextValue';
 
 @Injectable({
@@ -177,7 +177,16 @@ export class ProjectService {
           'https://website-bbv.web.app'
         )
       ],
-      [],
+      [
+        new Question(
+          new TextValue(new Map([[Language.NL, "Dit is een vraag?"], [Language.EN, "This is a question?"]])),
+          new TextValue(new Map([[Language.NL, "Dit is een antwoord."], [Language.EN, "This is an answer."]]))
+        ),
+        new Question(
+          new TextValue(new Map([[Language.NL, "Dit is de volgende vraag?"], [Language.EN, "This is a follow up question?"]])),
+          new TextValue(new Map([[Language.NL, "Dit is een antwoord."], [Language.EN, "This is an answer."]]))
+        )
+      ],
     )
   ]
 

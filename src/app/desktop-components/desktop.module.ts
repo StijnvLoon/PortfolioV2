@@ -13,6 +13,7 @@ import { CoverComponent } from './project/cover/cover.component';
 import { ImagesComponent } from './project/images/images.component';
 import { TitleComponent } from './project/title/title.component';
 import { UrlsComponent } from './project/urls/urls.component';
+import { FaqComponent } from './project/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UrlsComponent } from './project/urls/urls.component';
     CoverComponent,
     ImagesComponent,
     TitleComponent,
-    UrlsComponent
+    UrlsComponent,
+    FaqComponent
   ],
   imports: [
     CommonModule,

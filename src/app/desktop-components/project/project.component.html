@@ -12,6 +12,9 @@
 
             <mat-divider *ngIf="project.urls.length > 0"></mat-divider>
             <desktop-urls *ngIf="project.urls.length > 0" [urls]="project.urls"></desktop-urls>
+
+            <mat-divider></mat-divider>
+            <desktop-faq [questions]="project.questions" [projectTitle]="project.title"></desktop-faq>
         </div>
     </div>
 </div>

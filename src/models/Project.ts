@@ -16,7 +16,7 @@ export class Project {
         public keywords: TextValue[],
         public images: Image[],
         public urls: Url[],
-        public faq: Question[]
+        public questions: Question[]
     ) { }
 
     isGoodKeywordSearch(searchString: string, language: Language): boolean {

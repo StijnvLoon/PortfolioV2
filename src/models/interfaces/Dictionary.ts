@@ -6,5 +6,7 @@ export interface Dictionary {
   keywords: string,
   status: string,
   pictures: string,
-  links: string
+  links: string,
+  faq: string,
+  no_questions: string
 }
