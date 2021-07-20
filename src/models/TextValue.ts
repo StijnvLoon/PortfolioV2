@@ -14,6 +14,9 @@ export class TextValue {
         } else {
             return 'error'
         }
+    }
 
+    set(lang: Language, text: string) {
+        this.map.set(lang, text)
     }
 }

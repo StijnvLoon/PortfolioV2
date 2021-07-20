@@ -11,6 +11,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [],
@@ -26,7 +27,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatAutocompleteModule,
     MatProgressBarModule,
     MatRippleModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonToggleModule
   ]
 })
 export class MaterialModule { }

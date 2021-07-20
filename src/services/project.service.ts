@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { JSONLib } from 'src/assets/jsonLibrary';
 import { Url } from 'src/models/Url';
 import { Language } from '../models/enums/Language';
 import { Image } from '../models/Image';
@@ -195,19 +196,19 @@ export class ProjectService {
   get(onResult: (results: Project[]) => void, onError: (errorMessage: string) => void) {
     setTimeout(() => {
       onResult(this.projectList)
-    }, 2000);
+    }, 1000);
   }
 
   getById(id: string, onResult: (result: Project) => void, onError: (errorMessage: string) => void) {
     setTimeout(() => {
       onResult(this.projectList.filter(project => project.id == id)[0])
-    }, 2000);
+    }, 1000);
   }
 
   getByUrl(url: string, onResult: (result: Project) => void, onError: (errorMessage: string) => void) {
     setTimeout(() => {
       onResult(this.projectList.filter(project => project.getUrl() == url)[0])
-    }, 2000);
+    }, 1000);
   }
 
   search(
@@ -227,6 +228,20 @@ export class ProjectService {
       )
 
       onResult(filteredProjects)
-    }, 2000);
+    }, 1000);
+  }
+
+  deepCopyProject(project: Project): Project {
+    const copy: Project = JSONLib.deepCopyClass(Project, project) as Project
+    copy.title = JSONLib.toClass(TextValue, project.title) as TextValue
+    copy.logos = JSONLib.toClassArray(Image, project.logos) as Image[]
+    copy.content = JSONLib.toClassArray(Paragraph, project.content) as Paragraph[]
+    copy.status = JSONLib.toClass(TextValue, project.status) as TextValue
+    copy.keywords = JSONLib.toClassArray(TextValue, project.keywords) as TextValue[]
+    copy.images = JSONLib.toClassArray(Image, project.images) as Image[]
+    copy.urls = JSONLib.toClassArray(Url, project.urls) as Url[]
+    copy.questions = JSONLib.toClassArray(Question, project.questions) as Question[]
+
+    return copy
   }
 }

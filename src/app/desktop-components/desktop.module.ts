@@ -14,6 +14,8 @@ import { ImagesComponent } from './project/images/images.component';
 import { TitleComponent } from './project/title/title.component';
 import { UrlsComponent } from './project/urls/urls.component';
 import { FaqComponent } from './project/faq/faq.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
+import { EditLanguageComponent } from './edit-project/edit-language/edit-language.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FaqComponent } from './project/faq/faq.component';
     ImagesComponent,
     TitleComponent,
     UrlsComponent,
-    FaqComponent
+    FaqComponent,
+    EditProjectComponent,
+    EditLanguageComponent
   ],
   imports: [
     CommonModule,

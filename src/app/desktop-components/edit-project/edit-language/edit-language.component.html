@@ -1,0 +1,4 @@
+<mat-button-toggle-group [(ngModel)]="projectEditor.selectedLanguage">
+    <mat-button-toggle *ngFor="let language of getAvailableLanguages()" [value]="getIndex(language)">{{language}}
+    </mat-button-toggle>
+</mat-button-toggle-group>
