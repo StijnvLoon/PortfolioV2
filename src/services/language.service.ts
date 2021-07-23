@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Language } from '../models/enums/Language';
-import { Dictionary } from '../models/interfaces/Dictionary';
+import { Dictionary, Language, TextValue } from '../models/Dictionary';
 import { en } from 'src/lang/en';
 import { nl } from 'src/lang/nl';
 
@@ -26,36 +25,39 @@ export class LanguageService {
     localStorage.setItem(this.languageStorage, Language[this.language])
   }
 
-  dict(): Dictionary {
+  getUpper(identifier: string | TextValue): string {
+    let translation = this.get(identifier)
+    return translation.charAt(0).toUpperCase() + translation.slice(1)
+  }
+
+  get(identifier: string | TextValue): string {
+    let translation: string;
+
+    if(typeof identifier == 'string') {
+      translation = this.retrieveFromString(identifier)
+    } else {
+      translation = this.retrieveFromTextValue(identifier)
+    }
+
+    if(translation !== undefined) {
+      return translation
+    } else {
+      return this.retrieveFromString('translation_not_found')
+    }
+  }
+
+  private retrieveFromString(string: string): string {
+    return this.dict()[string]
+  }
+
+  private retrieveFromTextValue(textValue: TextValue): string {
+    return textValue[Language[this.language]]
+  }
+
+  private dict(): Dictionary {
     switch(this.language) {
       case Language.EN: return en
       case Language.NL: return nl
-    }
-  }
-
-  toUpper(string: string) {
-    return string.charAt(0).toUpperCase() + string.slice(1)
-  }
-
-  get(string: string): string {
-    const translation = this.search(string)
-    return translation ? translation : this.search('error')
-  }
-
-  getUpper(string: string) {
-    const translation = this.search(string)
-
-    if(translation) {
-      return translation.charAt(0).toUpperCase() + translation.slice(1)
-    } else {
-      return this.search('error')
-    }
-  }
-
-  private search(string: string): string {
-    switch(this.language) {
-      case Language.EN: return en[string]
-      case Language.NL: return nl[string]
     }
   }
 }

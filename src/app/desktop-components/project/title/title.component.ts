@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { TextValue } from 'src/models/TextValue';
+import { Component, Input } from '@angular/core';
+import { TextValue } from 'src/models/Dictionary';
 import { LanguageService } from 'src/services/language.service';
 import { SearchbarService } from 'src/services/searchbar.service';
 
@@ -8,7 +8,7 @@ import { SearchbarService } from 'src/services/searchbar.service';
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.scss']
 })
-export class TitleComponent implements OnInit {
+export class TitleComponent {
 
   @Input() title: TextValue
   @Input() status: TextValue
@@ -19,11 +19,8 @@ export class TitleComponent implements OnInit {
     private searchbarService: SearchbarService
   ) { }
 
-  ngOnInit(): void {
-  }
-
   searchKeyword(keyword: TextValue) {
-    this.searchbarService.setSearchText(keyword.get(this.languageService.language));
+    this.searchbarService.setSearchText(this.languageService.get(keyword));
   }
 
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Theme } from '../models/enums/Theme';
+import { Theme } from '../models/Theme';
 import { ThemeTemplate } from '../models/ThemeTemplate';
 import { JSONLib } from '../assets/jsonLibrary';
 

@@ -1,7 +1,7 @@
 <div class="page_container">
     <div class="page_center">
         <div *ngIf="project">
-            <h1>{{project.title.get(languageService.language)}}</h1>
+            <h1>{{languageService.get(project.title)}}</h1>
         </div>
     </div>
 </div>

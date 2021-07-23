@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Image } from 'src/models/Image';
 import { LanguageService } from 'src/services/language.service';
 import { imageTransitionAnimLtoR, imageTransitionAnimRtoL } from 'src/animations/imageTransitionAnim';
 import { trigger, transition } from '@angular/animations';
+import { Image } from 'src/models/Project';
 
 @Component({
   selector: 'desktop-images',

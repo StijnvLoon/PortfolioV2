@@ -6,8 +6,8 @@
 
 <div class="questions_holder" *ngIf="questions.length > 0">
     <div class="question_holder" *ngFor="let question of questions; let i = index">
-        <h2>{{i + 1}}. {{question.question.get(languageService.language)}}</h2>
-        <p>{{question.answer.get(languageService.language)}}</p>
+        <h2>{{i + 1}}. {{languageService.getUpper(question.question)}}</h2>
+        <p>{{languageService.getUpper(question.answer)}}</p>
     </div>
 </div>
 

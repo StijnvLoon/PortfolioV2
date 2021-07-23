@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Language, languageArray } from 'src/models/enums/Language';
+import { Language, languageArray } from 'src/models/Dictionary';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 
 @Component({

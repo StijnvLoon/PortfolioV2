@@ -30,9 +30,8 @@ export class EditProjectComponent implements OnInit {
       this.projectService.getByUrl(url,
         result => {
           this.loaderService.stopLoading()
-          this.projectEditor = new ProjectEditor(
-            this.projectService.deepCopyProject(result)
-          )
+          this.projectEditor = new ProjectEditor(JSON.parse(JSON.stringify(result)))
+          console.log(this.projectEditor)
         },
         error => {
           this.loaderService.stopLoading()

@@ -1,4 +1,4 @@
-import { Dictionary } from '../models/interfaces/Dictionary';
+import { Dictionary } from '../models/Dictionary';
 
 export const nl: Dictionary = {
     about : 'over',
@@ -10,5 +10,6 @@ export const nl: Dictionary = {
     pictures: 'afbeeldingen',
     links: 'links',
     faq: 'veelgestelde vragen',
-    no_questions: 'er zijn nog geen vragen gesteld ¯\\_(ツ)_/¯'
+    no_questions: 'er zijn nog geen vragen gesteld ¯\\_(ツ)_/¯',
+    translation_not_found: 'geen vertaling gevonden'
 }

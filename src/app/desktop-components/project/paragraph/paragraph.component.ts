@@ -7,7 +7,7 @@ import { LanguageService } from 'src/services/language.service';
   templateUrl: './paragraph.component.html',
   styleUrls: ['./paragraph.component.scss']
 })
-export class ParagraphComponent implements OnInit {
+export class ParagraphComponent {
 
   @Input() paragraph: Paragraph
   @Input() level: number = 0
@@ -15,9 +15,4 @@ export class ParagraphComponent implements OnInit {
   constructor(
     public languageService: LanguageService
   ) { }
-
-  ngOnInit(): void {
-    console.log(this.paragraph)
-  }
-
 }

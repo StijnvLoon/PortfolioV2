@@ -40,7 +40,7 @@ export class LobbyComponent implements OnInit {
   }
 
   navigateProject(project: Project) {
-    this.router.navigate([`/project/${project.getUrl()}`])
+    this.router.navigate([`/project/${ this.projectService.getUrl(project) }`])
   }
 
 }

@@ -9,7 +9,7 @@
 
         <mat-option *ngFor="let project of results" (click)="navigateProject(project.getUrl())">
             <img class="option_image" [src]="project.coverImage" height="25">
-            <span>{{project.title.get(languageService.language)}}</span>
+            <span>{{languageService.get(project.title)}}</span>
         </mat-option>
 
         <mat-option disabled *ngIf="searching">

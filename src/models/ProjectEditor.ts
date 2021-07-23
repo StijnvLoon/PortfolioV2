@@ -1,4 +1,4 @@
-import { Language, languageArray } from './enums/Language'
+import { Language, languageArray } from './Dictionary'
 import { Project } from './Project'
 
 export class ProjectEditor {
@@ -12,10 +12,10 @@ export class ProjectEditor {
     }
 
     getTitle(): string {
-        return this.project.title.get(this.selectedLanguage)
+        return this.project.title[Language[this.selectedLanguage]]
     }
 
     setTitle(string: string) {
-        this.project.title.set(this.selectedLanguage, string)
+        this.project.title[Language[this.selectedLanguage]] = string
     }
 }

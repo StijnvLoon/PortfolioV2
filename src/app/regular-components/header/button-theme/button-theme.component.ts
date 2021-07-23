@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { changeAnim } from 'src/animations/changeAnim';
-import { Theme } from 'src/models/enums/Theme';
+import { Theme } from 'src/models/Theme';
 import { ThemeService } from 'src/services/theme.service';
 
 @Component({

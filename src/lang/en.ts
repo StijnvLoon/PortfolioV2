@@ -1,4 +1,4 @@
-import { Dictionary } from '../models/interfaces/Dictionary';
+import { Dictionary } from '../models/Dictionary';
 
 export const en: Dictionary = {
     about : 'about',
@@ -10,5 +10,6 @@ export const en: Dictionary = {
     pictures: 'pictures',
     links: 'links',
     faq: 'FAQ',
-    no_questions: 'there are no questions yet ¯\\_(ツ)_/¯'
+    no_questions: 'there are no questions yet ¯\\_(ツ)_/¯',
+    translation_not_found: 'no translation found'
 }
