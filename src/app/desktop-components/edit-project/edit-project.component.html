@@ -1,12 +1,9 @@
 <div class="page_container">
     <div class="page_center" style="margin-bottom: 100px;">
-        <div *ngIf="projectEditor" style="margin-top: 12px">
+        <div class="holder" *ngIf="projectEditor" style="margin-top: 12px">
             <desktop-edit-language [projectEditor]="projectEditor"></desktop-edit-language>
-            <h1>{{getTitle()}}</h1>
-            <mat-form-field appearance="fill">
-                <mat-label>Titel</mat-label>
-                <input matInput [value]="getTitle()" (input)="updateTitle($event.target.value)">
-            </mat-form-field>
+            <desktop-edit-title [projectEditor]="projectEditor"></desktop-edit-title>
+            <desktop-edit-logos [projectEditor]="projectEditor"></desktop-edit-logos>
         </div>
     </div>
 </div>

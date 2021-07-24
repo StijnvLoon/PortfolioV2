@@ -23,6 +23,9 @@ export class EditProjectComponent implements OnInit {
     public languageService: LanguageService
   ) { }
 
+  // TODO keywords edit
+  // https://material.angular.io/components/chips/overview
+
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
       this.loaderService.startLoading()
@@ -43,13 +46,5 @@ export class EditProjectComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.routeSub.unsubscribe();
-  }
-
-  getTitle() {
-    return this.projectEditor.getTitle()
-  }
-
-  updateTitle(title: string) {
-    this.projectEditor.setTitle(title)
   }
 }
