@@ -20,7 +20,11 @@ export interface Dictionary {
   links: string,
   faq: string,
   no_questions: string,
-  translation_not_found: string
+  translation_not_found: string,
+  yes: string,
+  no: string,
+  cancel: string,
+  confirm_delete_logo: string
 }
 
 export const languageArray: () => string[] = () => {

@@ -12,6 +12,7 @@ import { PageLoaderComponent } from './regular-components/page-loader/page-loade
 import { DesktopModule } from './desktop-components/desktop.module';
 import { MobileModule } from './mobile-components/mobile.module';
 import { MaterialModule } from './material.module';
+import { DialogModule } from './dialogs/dialog.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MaterialModule } from './material.module';
     MaterialModule,
     DesktopModule,
     MobileModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

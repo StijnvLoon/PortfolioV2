@@ -11,5 +11,9 @@ export const en: Dictionary = {
     links: 'links',
     faq: 'FAQ',
     no_questions: 'there are no questions yet ¯\\_(ツ)_/¯',
-    translation_not_found: 'no translation found'
+    translation_not_found: 'no translation found',
+    yes: 'yes',
+    no: 'no',
+    cancel: 'cancel',
+    confirm_delete_logo: 'are you sure you want to delete this logo?'
 }

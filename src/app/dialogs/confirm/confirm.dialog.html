@@ -1,0 +1,6 @@
+<h1 mat-dialog-title>{{languageService.getUpper(data.title)}}</h1>
+
+<div mat-dialog-actions class="dialog_actions">
+    <button mat-flat-button (click)="close()" color="primary" class="mat-elevation-z1">{{languageService.getUpper('no')}}</button>
+    <button mat-flat-button (click)="submit()" color="accent" class="mat-elevation-z1">{{languageService.getUpper('yes')}}</button>
+</div>

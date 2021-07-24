@@ -11,5 +11,9 @@ export const nl: Dictionary = {
     links: 'links',
     faq: 'veelgestelde vragen',
     no_questions: 'er zijn nog geen vragen gesteld ¯\\_(ツ)_/¯',
-    translation_not_found: 'geen vertaling gevonden'
+    translation_not_found: 'geen vertaling gevonden',
+    yes: 'ja',
+    no: 'nee',
+    cancel: 'annuleer',
+    confirm_delete_logo: 'weet je zeker dat je dit logo wilt verwijderen?'
 }
