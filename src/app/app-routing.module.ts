@@ -7,7 +7,7 @@ import { mobileRoutes } from './mobile-components/mobile-routes';
 const mobile: boolean = window.innerWidth < 1200
 
 @NgModule({
-  imports: [RouterModule.forRoot(mobile ? mobileRoutes : desktopRoutes)],
+  imports: [RouterModule.forRoot(mobile ? mobileRoutes : desktopRoutes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
