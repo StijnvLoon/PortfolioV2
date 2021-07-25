@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 @import "~@angular/material/theming";
 
 @font-face {
@@ -9,8 +10,8 @@
     src: url(../assets/fonts/DIN-bold.otf) format("opentype");
 }
 
-$DIN-typo: mat-typography-config(
+$DIN-typo: mat.define-typography-config(
     $font-family: "DIN",
 );
 
-@include mat-core($DIN-typo);
+@include mat.core($DIN-typo);

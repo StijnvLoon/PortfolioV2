@@ -1,6 +1,7 @@
+@use '~@angular/material' as mat;
 @import "~@angular/material/theming";
 
-@include mat-core();
+@include mat.core();
 
 $dynamic-theme-primary: (
     50: var(--theme-primary-50),
@@ -102,19 +103,19 @@ $dynamic-theme-warn: (
 );
 
 .dynamic-light-theme {
-    $primary: mat-palette($dynamic-theme-primary);
-    $accent: mat-palette($dynamic-theme-accent);
-    $warn: mat-palette($dynamic-theme-warn);
-    $theme: mat-light-theme($primary, $accent, $warn);
+    $primary: mat.define-palette($dynamic-theme-primary);
+    $accent: mat.define-palette($dynamic-theme-accent);
+    $warn: mat.define-palette($dynamic-theme-warn);
+    $theme: mat.define-light-theme($primary, $accent, $warn);
 
-    @include angular-material-theme($theme);
+    @include mat.all-component-themes($theme);
 }
 
 .dynamic-dark-theme {
-    $primary: mat-palette($dynamic-theme-primary);
-    $accent: mat-palette($dynamic-theme-accent);
-    $warn: mat-palette($dynamic-theme-warn);
-    $theme: mat-dark-theme($primary, $accent, $warn);
+    $primary: mat.define-palette($dynamic-theme-primary);
+    $accent: mat.define-palette($dynamic-theme-accent);
+    $warn: mat.define-palette($dynamic-theme-warn);
+    $theme: mat.define-dark-theme($primary, $accent, $warn);
 
-    @include angular-material-theme($theme);
+    @include mat.all-component-themes($theme);
 }
