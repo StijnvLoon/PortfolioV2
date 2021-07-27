@@ -1,4 +1,18 @@
+<mat-card-header>
+    <mat-card-title>Main</mat-card-title>
+</mat-card-header>
+
+<img class="image_cover mat-elevation-z2" [src]="projectEditor.project.coverImage">
+
 <mat-form-field appearance="fill" class="component">
-    <mat-label>Titel</mat-label>
+    <mat-label>Cover image</mat-label>
+    <input matInput [(ngModel)]="projectEditor.project.coverImage">
+    <button mat-icon-button matSuffix (click)="pickImage()">
+        <mat-icon>folder</mat-icon>
+    </button>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="component">
+    <mat-label>Title</mat-label>
     <input matInput [value]="getTitle()" (input)="updateTitle($event.target.value)">
 </mat-form-field>

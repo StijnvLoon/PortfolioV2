@@ -1,47 +1,47 @@
-.component {
-    max-width: 100%;
-}
+// .component {
+//     max-width: 100%;
+// }
 
-.logos_holder {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-    grid-gap: 10px;
-}
-.logo {
-    width: 60px;
-    height: 60px;
-    position: relative;
-}
-.logo img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-}
-.delete_button {
-    position: absolute;
-    right: -10px;
-    top: -10px;
-    width: 24px;
-    height: 24px;
-    background-color: var(--theme-primary-A100);
-    color: var(--theme-primary-contrast-A100);
-    cursor: pointer;
-    border-radius: 50%;
-    transition: all ease 0.3s;
-}
-.delete_button:hover {
-    transform: scale(1.1);
-}
-.add_button {
-    cursor: pointer;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--theme-primary-400);
-    color: var(--theme-primary-contrast-400);
-}
-.add_button mat-icon {
-    transform: scale(1.4);
-}
+// .logos_holder {
+//     display: grid;
+//     width: 100%;
+//     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+//     grid-gap: 10px;
+// }
+// .logo {
+//     width: 60px;
+//     height: 60px;
+//     position: relative;
+// }
+// .logo img {
+//     width: 60px;
+//     height: 60px;
+//     object-fit: contain;
+// }
+// .delete_button {
+//     position: absolute;
+//     right: -10px;
+//     top: -10px;
+//     width: 24px;
+//     height: 24px;
+//     background-color: var(--theme-primary-A100);
+//     color: var(--theme-primary-contrast-A100);
+//     cursor: pointer;
+//     border-radius: 50%;
+//     transition: all ease 0.3s;
+// }
+// .delete_button:hover {
+//     transform: scale(1.1);
+// }
+// .add_button {
+//     cursor: pointer;
+//     border-radius: 10px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background-color: var(--theme-primary-400);
+//     color: var(--theme-primary-contrast-400);
+// }
+// .add_button mat-icon {
+//     transform: scale(1.4);
+// }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProjectEditor } from 'src/models/ProjectEditor';
+import { DialogService } from 'src/services/dialog.service';
 
 @Component({
   selector: 'desktop-edit-title',
@@ -10,9 +11,21 @@ export class EditTitleComponent implements OnInit {
 
   @Input() projectEditor: ProjectEditor
 
-  constructor() { }
+  constructor(
+    private dialogService: DialogService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  pickImage() {
+    this.dialogService.showImagePickerDialog(
+      (url: string) => {
+        if(url) {
+          this.projectEditor.project.coverImage = url
+        }
+      }
+    )
   }
 
   getTitle() {

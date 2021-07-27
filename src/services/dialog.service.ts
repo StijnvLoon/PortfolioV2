@@ -24,4 +24,20 @@ export class DialogService {
       onResult(confirmed)
     })
   }
+
+  showImagePickerDialog(onResult: (url: string) => void) {
+    //TODO
+
+    // const dialogRef = this.dialog.open(ImagePickerDialog, {
+    //   width: this.dialogWidth
+    // })
+
+    // dialogRef.afterClosed().subscribe(async data => {
+    //   if(data.confirmed) {
+    //     onResult(data.url)
+    //   } else {
+    //     onResult(undefined)
+    //   }
+    // })
+  }
 }
