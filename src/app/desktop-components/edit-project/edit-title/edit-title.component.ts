@@ -45,6 +45,10 @@ export class EditTitleComponent implements OnInit {
     this.projectEditor.project.logos.push("")
   }
 
+  addColor() {
+    this.projectEditor.project.colors.push("#000000")
+  }
+
   updateTitle(title: string) {
     this.projectEditor.setTitle(title)
   }
@@ -53,8 +57,16 @@ export class EditTitleComponent implements OnInit {
     this.projectEditor.project.logos[index] = value
   }
 
+  updateColor(index: number, value: string) {
+    this.projectEditor.project.colors[index] = value
+  }
+
   deleteLogo(index: number) {
     this.projectEditor.project.logos.splice(index, 1)
+  }
+
+  deleteColor(index: number) {
+    this.projectEditor.project.colors.splice(index, 1)
   }
 
 }
