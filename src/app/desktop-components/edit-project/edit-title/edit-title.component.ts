@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Language } from 'src/models/Dictionary';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 import { DialogService } from 'src/services/dialog.service';
 
@@ -16,6 +17,10 @@ export class EditTitleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  getCurrentLanguageString() {
+    return Language[this.projectEditor.selectedLanguage]
   }
 
   trackByFn(index) {
