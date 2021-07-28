@@ -4,11 +4,11 @@ import { ProjectEditor } from 'src/models/ProjectEditor';
 import { DialogService } from 'src/services/dialog.service';
 
 @Component({
-  selector: 'desktop-edit-title',
-  templateUrl: './edit-title.component.html',
-  styleUrls: ['./edit-title.component.scss']
+  selector: 'desktop-edit-main',
+  templateUrl: './edit-main.component.html',
+  styleUrls: ['./edit-main.component.scss']
 })
-export class EditTitleComponent implements OnInit {
+export class EditMainComponent implements OnInit {
 
   @Input() projectEditor: ProjectEditor
 
@@ -37,20 +37,12 @@ export class EditTitleComponent implements OnInit {
     )
   }
 
-  getTitle() {
-    return this.projectEditor.getTitle()
-  }
-
   addLogo() {
     this.projectEditor.project.logos.push("")
   }
 
   addColor() {
     this.projectEditor.project.colors.push("#000000")
-  }
-
-  updateTitle(title: string) {
-    this.projectEditor.setTitle(title)
   }
 
   updateLogo(index: number, value: string) {

@@ -16,8 +16,8 @@ import { UrlsComponent } from './project/urls/urls.component';
 import { FaqComponent } from './project/faq/faq.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { EditLanguageComponent } from './edit-project/edit-language/edit-language.component';
-import { EditTitleComponent } from './edit-project/edit-title/edit-title.component';
-import { EditLogosComponent } from './edit-project/edit-logos/edit-logos.component';
+import { EditMainComponent } from './edit-project/edit-main/edit-main.component';
+import { EditUtilsComponent } from './edit-project/edit-utils/edit-utils.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +33,8 @@ import { EditLogosComponent } from './edit-project/edit-logos/edit-logos.compone
     FaqComponent,
     EditProjectComponent,
     EditLanguageComponent,
-    EditTitleComponent,
-    EditLogosComponent
+    EditMainComponent,
+    EditUtilsComponent
   ],
   imports: [
     CommonModule,

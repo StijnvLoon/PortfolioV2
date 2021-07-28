@@ -18,4 +18,12 @@ export class ProjectEditor {
     setTitle(string: string) {
         this.project.title[Language[this.selectedLanguage]] = string
     }
+
+    getStatus(): string {
+        return this.project.status[Language[this.selectedLanguage]]
+    }
+
+    setStatus(string: string) {
+        this.project.status[Language[this.selectedLanguage]] = string
+    }
 }

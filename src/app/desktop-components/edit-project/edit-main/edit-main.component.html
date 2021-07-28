@@ -70,5 +70,11 @@
 <!-- Title -->
 <mat-form-field appearance="fill" class="component" color="accent">
     <mat-label>Title [{{getCurrentLanguageString()}}]</mat-label>
-    <input matInput [value]="getTitle()" (input)="updateTitle($event.target.value)">
+    <input matInput [value]="projectEditor.getTitle()" (input)="projectEditor.setTitle($event.target.value)">
+</mat-form-field>
+
+<!-- Status -->
+<mat-form-field appearance="fill" class="component" color="accent">
+    <mat-label>Status [{{getCurrentLanguageString()}}]</mat-label>
+    <input matInput [value]="projectEditor.getStatus()" (input)="projectEditor.setStatus($event.target.value)">
 </mat-form-field>
