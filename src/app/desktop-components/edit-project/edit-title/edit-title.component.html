@@ -12,6 +12,34 @@
     </button>
 </mat-form-field>
 
+<mat-expansion-panel style="margin-bottom: 1.6em;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Logos
+        </mat-panel-title>
+        <mat-panel-description>
+            Amount: {{projectEditor.project.logos.length}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="logos_holder">
+        <div class="logo" *ngFor="let logo of projectEditor.project.logos; let i = index; trackBy: trackByFn">
+            <mat-form-field appearance="fill" class="component">
+                <mat-label>{{i + 1}}</mat-label>
+                <input matInput [value]="logo" (input)="updateLogo(i, $event.target.value)">
+                <button mat-icon-button matSuffix (click)="pickImage()">
+                    <mat-icon>folder</mat-icon>
+                </button>
+            </mat-form-field>
+            <img [src]="logo" style="height: 50px; min-width: 50px;">
+            <button mat-icon-button color="warn" (click)="deleteLogo(i)">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="addLogo()">Add</button>
+</mat-expansion-panel>
+
 <mat-form-field appearance="fill" class="component">
     <mat-label>Title</mat-label>
     <input matInput [value]="getTitle()" (input)="updateTitle($event.target.value)">

@@ -18,10 +18,14 @@ export class EditTitleComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  trackByFn(index) {
+    return index;
+  }
+
   pickImage() {
     this.dialogService.showImagePickerDialog(
       (url: string) => {
-        if(url) {
+        if (url) {
           this.projectEditor.project.coverImage = url
         }
       }
@@ -32,8 +36,20 @@ export class EditTitleComponent implements OnInit {
     return this.projectEditor.getTitle()
   }
 
+  addLogo() {
+    this.projectEditor.project.logos.push("")
+  }
+
   updateTitle(title: string) {
     this.projectEditor.setTitle(title)
+  }
+
+  updateLogo(index: number, value: string) {
+    this.projectEditor.project.logos[index] = value
+  }
+
+  deleteLogo(index: number) {
+    this.projectEditor.project.logos.splice(index, 1)
   }
 
 }
