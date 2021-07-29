@@ -4,11 +4,12 @@
 
 .keywords_holder {
     display: grid;
-    grid-template-columns: repeat( auto-fill, minmax(240px, 1fr) );
+    grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
 }
-
 .keyword {
     width: fit-content;
+    display: flex;
+    gap: 10px;
 }
 
 .colors_holder {
@@ -18,4 +19,16 @@
 .color {
     display: flex;
     gap: 12px;
+}
+
+.urls_holder {
+    display: flex;
+    flex-direction: column;
+}
+.url {
+    display: flex;
+    gap: 12px;
+}
+.url mat-form-field {
+    width: 100%;
 }

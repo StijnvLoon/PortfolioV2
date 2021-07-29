@@ -47,11 +47,28 @@ export class EditUtilsComponent implements OnInit {
     this.projectEditor.project.colors.push("#000000")
   }
 
-  updateColor(index: number, value: string) {
+  setColor(index: number, value: string) {
     this.projectEditor.project.colors[index] = value
   }
 
   deleteColor(index: number) {
     this.projectEditor.project.colors.splice(index, 1)
+  }
+
+  getUrlName(index: number) {
+    return this.projectEditor.getUrlName(index)
+  }
+
+  setUrlName(index: number, value: string) {
+    this.projectEditor.setUrlName(index, value)
+    console.log(this.projectEditor.project.urls)
+  }
+
+  deleteUrl(index: number) {
+    this.projectEditor.project.urls.splice(index, 1)
+  }
+
+  addUrl() {
+    this.projectEditor.project.urls.push({ name: {}, url: "" })
   }
 }

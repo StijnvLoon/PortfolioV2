@@ -49,4 +49,12 @@ export class ProjectEditor {
     setKeyword(index: number, string: string) {
         this.project.keywords[index][Language[this.selectedLanguage]] = string
     }
+
+    getUrlName(index: number): string {
+        return this.project.urls[index].name[Language[this.selectedLanguage]]
+    }
+
+    setUrlName(index: number, string: string) {
+        this.project.urls[index].name[Language[this.selectedLanguage]] = string
+    }
 }
