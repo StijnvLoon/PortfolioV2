@@ -1,12 +1,53 @@
-<!-- <mat-card class="component">
-    <mat-card-header>
-        <mat-card-title>Logo's</mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="logos_holder">
-        <div class="logo" *ngFor="let url of projectEditor.project.logos">
-            <div matRipple class="delete_button mat-elevation-z4" (click)="removeLogo(url)"><mat-icon>close</mat-icon></div>
-            <img [src]="url">
+<mat-card-header>
+    <mat-card-title>Utils</mat-card-title>
+</mat-card-header>
+
+<!-- Keywords -->
+<mat-expansion-panel style="margin-bottom: 1.6em;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Keywords
+        </mat-panel-title>
+        <mat-panel-description>
+            Amount: {{projectEditor.project.keywords.length}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="keywords_holder">
+        <div class="keyword" *ngFor="let keyword of projectEditor.project.keywords; let i = index; trackBy: trackByFn">
+            <mat-form-field appearance="fill" color="accent">
+                <mat-label>{{i + 1}} [{{getCurrentLanguageString()}}]</mat-label>
+                <input matInput [value]="getKeyword(i)" (input)="setKeyword(i, $event.target.value)">
+            </mat-form-field>
+            <button mat-icon-button color="warn" (click)="deleteKeyword(i)">
+                <mat-icon>close</mat-icon>
+            </button>
         </div>
-        <div matRipple class="logo add_button mat-elevation-z4" (click)="addLogo()"><mat-icon>add</mat-icon></div>
-    </mat-card-content>
-</mat-card> -->
+    </div>
+    <button mat-raised-button color="primary" (click)="addKeyword()">Add</button>
+</mat-expansion-panel>
+
+<!-- Colors -->
+<mat-expansion-panel style="margin-bottom: 1.6em;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Colors
+        </mat-panel-title>
+        <mat-panel-description>
+            Amount: {{projectEditor.project.colors.length}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="colors_holder">
+        <div class="color" *ngFor="let color of projectEditor.project.colors; let i = index; trackBy: trackByFn">
+            <mat-form-field appearance="fill" class="component">
+                <mat-label>{{i + 1}}</mat-label>
+                <input matInput type="color" [value]="color" (input)="updateColor(i, $event.target.value)">
+            </mat-form-field>
+            <button mat-icon-button color="warn" (click)="deleteColor(i)">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="addColor()">Add</button>
+</mat-expansion-panel>

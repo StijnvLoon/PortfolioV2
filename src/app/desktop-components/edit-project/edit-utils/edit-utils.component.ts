@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Language } from 'src/models/Dictionary';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 import { DialogService } from 'src/services/dialog.service';
 
@@ -18,15 +19,39 @@ export class EditUtilsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  removeLogo(logo: string) {
-    this.dialogService.showConfirmDialog('confirm_delete_logo', (confirmed: boolean) => {
-      if(confirmed) {
-        this.projectEditor.project.logos.splice(this.projectEditor.project.logos.indexOf(logo), 1)
-      }
-    })
+  getCurrentLanguageString() {
+    return Language[this.projectEditor.selectedLanguage]
   }
 
-  addLogo() {
+  trackByFn(index) {
+    return index;
+  }
 
+  getKeyword(index: number) {
+    return this.projectEditor.getKeyword(index)
+  }
+
+  setKeyword(index: number, value: string) {
+    this.projectEditor.setKeyword(index, value)
+  }
+
+  deleteKeyword(index: number) {
+    this.projectEditor.project.keywords.splice(index, 1)
+  }
+
+  addKeyword() {
+    this.projectEditor.project.keywords.push({})
+  }
+
+  addColor() {
+    this.projectEditor.project.colors.push("#000000")
+  }
+
+  updateColor(index: number, value: string) {
+    this.projectEditor.project.colors[index] = value
+  }
+
+  deleteColor(index: number) {
+    this.projectEditor.project.colors.splice(index, 1)
   }
 }

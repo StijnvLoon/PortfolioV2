@@ -41,4 +41,12 @@ export class ProjectEditor {
     setStatus(string: string) {
         this.project.status[Language[this.selectedLanguage]] = string
     }
+
+    getKeyword(index: number): string {
+        return this.project.keywords[index][Language[this.selectedLanguage]]
+    }
+
+    setKeyword(index: number, string: string) {
+        this.project.keywords[index][Language[this.selectedLanguage]] = string
+    }
 }

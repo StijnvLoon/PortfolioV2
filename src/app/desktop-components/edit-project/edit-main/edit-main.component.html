@@ -42,31 +42,6 @@
     <button mat-raised-button color="primary" (click)="addLogo()">Add</button>
 </mat-expansion-panel>
 
-<!-- Colors -->
-<mat-expansion-panel style="margin-bottom: 1.6em;">
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            Colors
-        </mat-panel-title>
-        <mat-panel-description>
-            Amount: {{projectEditor.project.colors.length}}
-        </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <div class="logos_holder">
-        <div class="logo" *ngFor="let color of projectEditor.project.colors; let i = index; trackBy: trackByFn">
-            <mat-form-field appearance="fill" class="component">
-                <mat-label>{{i + 1}}</mat-label>
-                <input matInput type="color" [value]="color" (input)="updateColor(i, $event.target.value)">
-            </mat-form-field>
-            <button mat-icon-button color="warn" (click)="deleteColor(i)">
-                <mat-icon>close</mat-icon>
-            </button>
-        </div>
-    </div>
-    <button mat-raised-button color="primary" (click)="addColor()">Add</button>
-</mat-expansion-panel>
-
 <!-- Title -->
 <mat-form-field appearance="fill" class="component" color="accent">
     <mat-label>Title [{{getCurrentLanguageString()}}]</mat-label>
