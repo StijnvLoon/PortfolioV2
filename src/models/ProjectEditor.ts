@@ -4,10 +4,25 @@ import { Project } from './Project'
 export class ProjectEditor {
 
     public selectedLanguage: Language
-    
+
     constructor(
-        public project: Project
+        public project?: Project
     ) {
+        if (!this.project) {
+            this.project = {
+                id: "",
+                title: {},
+                logos: [],
+                colors: [],
+                content: [],
+                status: {},
+                coverImage: "",
+                keywords: [],
+                images: [],
+                urls: [],
+                questions: []
+            }
+        }
         this.selectedLanguage = Language[languageArray()[0]]
     }
 

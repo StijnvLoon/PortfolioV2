@@ -23,9 +23,6 @@ export class EditProjectComponent implements OnInit {
     public languageService: LanguageService
   ) { }
 
-  // TODO keywords edit
-  // https://material.angular.io/components/chips/overview
-
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(params => {
       this.loaderService.startLoading()
@@ -33,8 +30,11 @@ export class EditProjectComponent implements OnInit {
       this.projectService.getByUrl(url,
         result => {
           this.loaderService.stopLoading()
-          this.projectEditor = new ProjectEditor(JSON.parse(JSON.stringify(result)))
-          console.log(this.projectEditor)
+          if (result == undefined) {
+            this.projectEditor = new ProjectEditor()
+          } else {
+            this.projectEditor = new ProjectEditor(JSON.parse(JSON.stringify(result)))
+          }
         },
         error => {
           this.loaderService.stopLoading()
