@@ -80,3 +80,33 @@
     </div>
     <button mat-raised-button color="primary" (click)="addUrl()">Add</button>
 </mat-expansion-panel>
+
+<!-- Images -->
+<mat-expansion-panel style="margin-bottom: 1.6em;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Images
+        </mat-panel-title>
+        <mat-panel-description>
+            Amount: {{projectEditor.project.images.length}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="imagess_holder">
+        <div class="image" *ngFor="let image of projectEditor.project.images; let i = index; trackBy: trackByFn">
+            <mat-form-field appearance="fill" color="accent">
+                <mat-label>{{i + 1}}: title [{{getCurrentLanguageString()}}]</mat-label>
+                <input matInput [value]="getImageTitle(i)" (input)="setImageTitle(i, $event.target.value)">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{i + 1}}: url</mat-label>
+                <input matInput [(ngModel)]="image.url">
+            </mat-form-field>
+            <img [src]="image.url" style="height: 50px; min-width: 50px;" (click)="openUrl(image.url)">
+            <button mat-icon-button color="warn" (click)="deleteImage(i)">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="addImage()">Add</button>
+</mat-expansion-panel>

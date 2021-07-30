@@ -27,6 +27,10 @@ export class EditUtilsComponent implements OnInit {
     return index;
   }
 
+  openUrl(url: string) {
+    window.open(url, '_blank').focus();
+  }
+
   getKeyword(index: number) {
     return this.projectEditor.getKeyword(index)
   }
@@ -61,7 +65,6 @@ export class EditUtilsComponent implements OnInit {
 
   setUrlName(index: number, value: string) {
     this.projectEditor.setUrlName(index, value)
-    console.log(this.projectEditor.project.urls)
   }
 
   deleteUrl(index: number) {
@@ -70,5 +73,21 @@ export class EditUtilsComponent implements OnInit {
 
   addUrl() {
     this.projectEditor.project.urls.push({ name: {}, url: "" })
+  }
+
+  getImageTitle(index: number) {
+    return this.projectEditor.getImageTitle(index)
+  }
+
+  setImageTitle(index: number, value: string) {
+    this.projectEditor.setImageTitle(index, value)
+  }
+
+  deleteImage(index: number) {
+    this.projectEditor.project.images.splice(index, 1)
+  }
+
+  addImage() {
+    this.projectEditor.project.images.push({ title: {}, url: "" })
   }
 }

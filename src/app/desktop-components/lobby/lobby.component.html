@@ -12,7 +12,7 @@
                         <span class="project_title">{{languageService.getUpper(project.title)}}</span>
                     </div>
                     <div class="project_logos_holder" style="position: absolute;">
-                        <img class="project_logo" *ngFor="let image of project.logos" [src]="image.url">
+                        <img class="project_logo" *ngFor="let imageUrl of project.logos" [src]="imageUrl">
                     </div>
                 </div>
             </div>

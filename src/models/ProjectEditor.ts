@@ -57,4 +57,12 @@ export class ProjectEditor {
     setUrlName(index: number, string: string) {
         this.project.urls[index].name[Language[this.selectedLanguage]] = string
     }
+
+    getImageTitle(index: number): string {
+        return this.project.images[index].title[Language[this.selectedLanguage]]
+    }
+
+    setImageTitle(index: number, string: string) {
+        this.project.images[index].title[Language[this.selectedLanguage]] = string
+    }
 }

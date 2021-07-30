@@ -32,3 +32,18 @@
 .url mat-form-field {
     width: 100%;
 }
+
+.images_holder {
+    display: flex;
+    flex-direction: column;
+}
+.image {
+    display: flex;
+    gap: 12px;
+}
+.image mat-form-field {
+    width: 100%;
+}
+.image img {
+    cursor: pointer;
+}
