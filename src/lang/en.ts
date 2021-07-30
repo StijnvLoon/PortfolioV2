@@ -15,5 +15,19 @@ export const en: Dictionary = {
     yes: 'yes',
     no: 'no',
     cancel: 'cancel',
-    confirm_delete_logo: 'are you sure you want to delete this logo?'
+    confirm_delete_logo: 'are you sure you want to delete this logo?',
+    main: 'main',
+    cover: 'cover',
+    image: 'image',
+    title: 'title',
+    rest: 'rest',
+    logos: 'logos',
+    amount: 'amount',
+    colors: 'colors',
+    add: 'add',
+    urls: 'urls',
+    url: 'url',
+    name: 'name',
+    question: 'question',
+    answer: 'answer'
 }

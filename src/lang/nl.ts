@@ -15,5 +15,19 @@ export const nl: Dictionary = {
     yes: 'ja',
     no: 'nee',
     cancel: 'annuleer',
-    confirm_delete_logo: 'weet je zeker dat je dit logo wilt verwijderen?'
+    confirm_delete_logo: 'weet je zeker dat je dit logo wilt verwijderen?',
+    main: 'basis',
+    cover: 'cover',
+    image: 'afbeelding',
+    title: 'titel',
+    rest: 'rest',
+    logos: 'logos',
+    amount: 'aantal',
+    colors: 'kleuren',
+    add: 'toevoegen',
+    urls: 'urls',
+    url: 'url',
+    name: 'naam',
+    question: 'vraag',
+    answer: 'antwoord'
 }

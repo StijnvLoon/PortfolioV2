@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Language } from 'src/models/Dictionary';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 import { DialogService } from 'src/services/dialog.service';
+import { LanguageService } from 'src/services/language.service';
 
 @Component({
   selector: 'desktop-edit-utils',
@@ -13,7 +14,8 @@ export class EditUtilsComponent implements OnInit {
   @Input() projectEditor: ProjectEditor
 
   constructor(
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    public languageService: LanguageService
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,18 @@ export class EditUtilsComponent implements OnInit {
 
   openUrl(url: string) {
     window.open(url, '_blank').focus();
+  }
+
+  addLogo() {
+    this.projectEditor.project.logos.push("")
+  }
+
+  updateLogo(index: number, value: string) {
+    this.projectEditor.project.logos[index] = value
+  }
+
+  deleteLogo(index: number) {
+    this.projectEditor.project.logos.splice(index, 1)
   }
 
   getKeyword(index: number) {
@@ -113,5 +127,15 @@ export class EditUtilsComponent implements OnInit {
 
   addQuestion() {
     this.projectEditor.project.questions.push({ question: {}, answer: {} })
+  }
+
+  pickImage() {
+    this.dialogService.showImagePickerDialog(
+      (url: string) => {
+        if (url) {
+          this.projectEditor.project.coverImage = url
+        }
+      }
+    )
   }
 }

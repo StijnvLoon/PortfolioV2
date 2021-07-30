@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Language } from 'src/models/Dictionary';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 import { DialogService } from 'src/services/dialog.service';
+import { LanguageService } from 'src/services/language.service';
 
 @Component({
   selector: 'desktop-edit-main',
@@ -13,7 +14,8 @@ export class EditMainComponent implements OnInit {
   @Input() projectEditor: ProjectEditor
 
   constructor(
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    public languageService: LanguageService
   ) { }
 
   ngOnInit(): void {
@@ -21,10 +23,6 @@ export class EditMainComponent implements OnInit {
 
   getCurrentLanguageString() {
     return Language[this.projectEditor.selectedLanguage]
-  }
-
-  trackByFn(index) {
-    return index;
   }
 
   pickImage() {
@@ -35,18 +33,6 @@ export class EditMainComponent implements OnInit {
         }
       }
     )
-  }
-
-  addLogo() {
-    this.projectEditor.project.logos.push("")
-  }
-
-  updateLogo(index: number, value: string) {
-    this.projectEditor.project.logos[index] = value
-  }
-
-  deleteLogo(index: number) {
-    this.projectEditor.project.logos.splice(index, 1)
   }
 
 }

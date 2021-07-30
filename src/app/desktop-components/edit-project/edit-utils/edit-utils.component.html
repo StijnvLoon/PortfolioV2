@@ -1,141 +1,178 @@
 <mat-card-header>
-    <mat-card-title>Utils</mat-card-title>
+    <mat-card-title>{{languageService.getUpper('rest')}}</mat-card-title>
 </mat-card-header>
 
-<!-- Keywords -->
-<mat-expansion-panel style="margin-bottom: 1.6em;">
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            Keywords
-        </mat-panel-title>
-        <mat-panel-description>
-            Amount: {{projectEditor.project.keywords.length}}
-        </mat-panel-description>
-    </mat-expansion-panel-header>
+<mat-accordion multi>
+    <!-- Logos -->
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{languageService.getUpper('logos')}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{languageService.getUpper('amount')}}: {{projectEditor.project.logos.length}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
-    <div class="keywords_holder">
-        <div class="keyword" *ngFor="let keyword of projectEditor.project.keywords; let i = index; trackBy: trackByFn">
-            <mat-form-field appearance="fill" color="accent">
-                <mat-label>{{i + 1}} [{{getCurrentLanguageString()}}]</mat-label>
-                <input matInput [value]="getKeyword(i)" (input)="setKeyword(i, $event.target.value)">
-            </mat-form-field>
-            <button mat-icon-button color="warn" (click)="deleteKeyword(i)">
-                <mat-icon>close</mat-icon>
-            </button>
+        <div class="logos_holder">
+            <div class="logo" *ngFor="let logo of projectEditor.project.logos; let i = index; trackBy: trackByFn">
+                <mat-form-field appearance="fill" class="component">
+                    <mat-label>{{i + 1}}</mat-label>
+                    <input matInput [value]="logo" (input)="updateLogo(i, $event.target.value)">
+                    <button mat-icon-button matSuffix (click)="pickImage()">
+                        <mat-icon>folder</mat-icon>
+                    </button>
+                </mat-form-field>
+                <img [src]="logo" style="height: 50px; min-width: 50px;">
+                <button mat-icon-button color="warn" (click)="deleteLogo(i)">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
         </div>
-    </div>
-    <button mat-raised-button color="primary" (click)="addKeyword()">Add</button>
-</mat-expansion-panel>
+        <button mat-raised-button color="primary" (click)="addLogo()">{{languageService.getUpper('add')}}</button>
+    </mat-expansion-panel>
 
-<!-- Colors -->
-<mat-expansion-panel style="margin-bottom: 1.6em;">
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            Colors
-        </mat-panel-title>
-        <mat-panel-description>
-            Amount: {{projectEditor.project.colors.length}}
-        </mat-panel-description>
-    </mat-expansion-panel-header>
+    <!-- Keywords -->
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{languageService.getUpper('keywords')}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{languageService.getUpper('amount')}}: {{projectEditor.project.keywords.length}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
-    <div class="colors_holder">
-        <div class="color" *ngFor="let color of projectEditor.project.colors; let i = index; trackBy: trackByFn">
-            <mat-form-field appearance="fill" class="component">
-                <mat-label>{{i + 1}}</mat-label>
-                <input matInput type="color" [value]="color" (input)="setColor(i, $event.target.value)">
-            </mat-form-field>
-            <button mat-icon-button color="warn" (click)="deleteColor(i)">
-                <mat-icon>close</mat-icon>
-            </button>
+        <div class="keywords_holder">
+            <div class="keyword"
+                *ngFor="let keyword of projectEditor.project.keywords; let i = index; trackBy: trackByFn">
+                <mat-form-field appearance="fill" color="accent">
+                    <mat-label>{{i + 1}} [{{getCurrentLanguageString()}}]</mat-label>
+                    <input matInput [value]="getKeyword(i)" (input)="setKeyword(i, $event.target.value)">
+                </mat-form-field>
+                <button mat-icon-button color="warn" (click)="deleteKeyword(i)">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
         </div>
-    </div>
-    <button mat-raised-button color="primary" (click)="addColor()">Add</button>
-</mat-expansion-panel>
+        <button mat-raised-button color="primary" (click)="addKeyword()">{{languageService.getUpper('add')}}</button>
+    </mat-expansion-panel>
 
-<!-- Urls -->
-<mat-expansion-panel style="margin-bottom: 1.6em;">
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            Urls
-        </mat-panel-title>
-        <mat-panel-description>
-            Amount: {{projectEditor.project.urls.length}}
-        </mat-panel-description>
-    </mat-expansion-panel-header>
+    <!-- Colors -->
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{languageService.getUpper('colors')}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{languageService.getUpper('amount')}}: {{projectEditor.project.colors.length}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
-    <div class="urls_holder">
-        <div class="url" *ngFor="let url of projectEditor.project.urls; let i = index; trackBy: trackByFn">
-            <mat-form-field appearance="fill" color="accent">
-                <mat-label>{{i + 1}}: name [{{getCurrentLanguageString()}}]</mat-label>
-                <input matInput [value]="getUrlName(i)" (input)="setUrlName(i, $event.target.value)">
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>{{i + 1}}: url</mat-label>
-                <input matInput [(ngModel)]="url.url">
-            </mat-form-field>
-            <button mat-icon-button color="warn" (click)="deleteUrl(i)">
-                <mat-icon>close</mat-icon>
-            </button>
+        <div class="colors_holder">
+            <div class="color" *ngFor="let color of projectEditor.project.colors; let i = index; trackBy: trackByFn">
+                <mat-form-field appearance="fill" class="component">
+                    <mat-label>{{i + 1}}</mat-label>
+                    <input matInput type="color" [value]="color" (input)="setColor(i, $event.target.value)">
+                </mat-form-field>
+                <button mat-icon-button color="warn" (click)="deleteColor(i)">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
         </div>
-    </div>
-    <button mat-raised-button color="primary" (click)="addUrl()">Add</button>
-</mat-expansion-panel>
+        <button mat-raised-button color="primary" (click)="addColor()">{{languageService.getUpper('add')}}</button>
+    </mat-expansion-panel>
 
-<!-- Images -->
-<mat-expansion-panel style="margin-bottom: 1.6em;">
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            Images
-        </mat-panel-title>
-        <mat-panel-description>
-            Amount: {{projectEditor.project.images.length}}
-        </mat-panel-description>
-    </mat-expansion-panel-header>
+    <!-- Urls -->
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{languageService.getUpper('urls')}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{languageService.getUpper('amount')}}: {{projectEditor.project.urls.length}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
-    <div class="imagess_holder">
-        <div class="image" *ngFor="let image of projectEditor.project.images; let i = index; trackBy: trackByFn">
-            <mat-form-field appearance="fill" color="accent">
-                <mat-label>{{i + 1}}: title [{{getCurrentLanguageString()}}]</mat-label>
-                <input matInput [value]="getImageTitle(i)" (input)="setImageTitle(i, $event.target.value)">
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>{{i + 1}}: url</mat-label>
-                <input matInput [(ngModel)]="image.url">
-            </mat-form-field>
-            <img [src]="image.url" style="height: 50px; min-width: 50px;" (click)="openUrl(image.url)">
-            <button mat-icon-button color="warn" (click)="deleteImage(i)">
-                <mat-icon>close</mat-icon>
-            </button>
+        <div class="urls_holder">
+            <div class="url" *ngFor="let url of projectEditor.project.urls; let i = index; trackBy: trackByFn">
+                <mat-form-field appearance="fill" color="accent">
+                    <mat-label>{{i + 1}}. {{languageService.get('name')}} [{{getCurrentLanguageString()}}]</mat-label>
+                    <input matInput [value]="getUrlName(i)" (input)="setUrlName(i, $event.target.value)">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{i + 1}}. {{languageService.get('url')}}</mat-label>
+                    <input matInput [(ngModel)]="url.url">
+                </mat-form-field>
+                <button mat-icon-button color="warn" (click)="deleteUrl(i)">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
         </div>
-    </div>
-    <button mat-raised-button color="primary" (click)="addImage()">Add</button>
-</mat-expansion-panel>
+        <button mat-raised-button color="primary" (click)="addUrl()">{{languageService.getUpper('add')}}</button>
+    </mat-expansion-panel>
 
-<!-- Questions -->
-<mat-expansion-panel style="margin-bottom: 1.6em;">
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            Questions
-        </mat-panel-title>
-        <mat-panel-description>
-            Amount: {{projectEditor.project.questions.length}}
-        </mat-panel-description>
-    </mat-expansion-panel-header>
+    <!-- Images -->
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{languageService.getUpper('pictures')}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{languageService.getUpper('amount')}}: {{projectEditor.project.images.length}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
 
-    <div class="questions_holder">
-        <div class="question" *ngFor="let question of projectEditor.project.questions; let i = index; trackBy: trackByFn">
-            <mat-form-field appearance="fill" color="accent">
-                <mat-label>{{i + 1}}: question [{{getCurrentLanguageString()}}]</mat-label>
-                <input matInput [value]="getQuestionQuestion(i)" (input)="setQuestionQuestion(i, $event.target.value)">
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>{{i + 1}}: answer</mat-label>
-                <input matInput [value]="getQuestionAnswer(i)" (input)="setQuestionAnswer(i, $event.target.value)">
-            </mat-form-field>
-            <button mat-icon-button color="warn" (click)="deleteQuestion(i)">
-                <mat-icon>close</mat-icon>
-            </button>
+        <div class="imagess_holder">
+            <div class="image" *ngFor="let image of projectEditor.project.images; let i = index; trackBy: trackByFn">
+                <mat-form-field appearance="fill" color="accent">
+                    <mat-label>{{i + 1}}. {{languageService.get('title')}} [{{getCurrentLanguageString()}}]</mat-label>
+                    <input matInput [value]="getImageTitle(i)" (input)="setImageTitle(i, $event.target.value)">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{i + 1}}. {{languageService.get('url')}}</mat-label>
+                    <input matInput [(ngModel)]="image.url">
+                    <button mat-icon-button matSuffix (click)="pickImage()">
+                        <mat-icon>folder</mat-icon>
+                    </button>
+                </mat-form-field>
+                <img [src]="image.url" style="height: 50px; min-width: 50px;" (click)="openUrl(image.url)">
+                <button mat-icon-button color="warn" (click)="deleteImage(i)">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
         </div>
-    </div>
-    <button mat-raised-button color="primary" (click)="addQuestion()">Add</button>
-</mat-expansion-panel>
+        <button mat-raised-button color="primary" (click)="addImage()">{{languageService.getUpper('add')}}</button>
+    </mat-expansion-panel>
+
+    <!-- Questions -->
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{languageService.getUpper('faq')}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{languageService.getUpper('amount')}}: {{projectEditor.project.questions.length}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="questions_holder">
+            <div class="question"
+                *ngFor="let question of projectEditor.project.questions; let i = index; trackBy: trackByFn">
+                <mat-form-field appearance="fill" color="accent">
+                    <mat-label>{{i + 1}}. {{languageService.get('question')}} [{{getCurrentLanguageString()}}]</mat-label>
+                    <input matInput [value]="getQuestionQuestion(i)"
+                        (input)="setQuestionQuestion(i, $event.target.value)">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{i + 1}}. {{languageService.get('answer')}} [{{getCurrentLanguageString()}}]</mat-label>
+                    <input matInput [value]="getQuestionAnswer(i)" (input)="setQuestionAnswer(i, $event.target.value)">
+                </mat-form-field>
+                <button mat-icon-button color="warn" (click)="deleteQuestion(i)">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+        <button mat-raised-button color="primary" (click)="addQuestion()">{{languageService.getUpper('add')}}</button>
+    </mat-expansion-panel>
+</mat-accordion>

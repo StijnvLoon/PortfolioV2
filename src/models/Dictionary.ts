@@ -8,7 +8,6 @@ export interface TextValue {
   NL?: string,
 }
 
-
 export interface Dictionary {
   about: string,
   error: string,
@@ -24,7 +23,21 @@ export interface Dictionary {
   yes: string,
   no: string,
   cancel: string,
-  confirm_delete_logo: string
+  confirm_delete_logo: string,
+  main: string,
+  cover: string,
+  image: string,
+  title: string,
+  rest: string,
+  logos: string,
+  amount: string,
+  colors: string,
+  add: string,
+  urls: string,
+  url: string,
+  name: string,
+  question: string,
+  answer: string
 }
 
 export const languageArray: () => string[] = () => {
