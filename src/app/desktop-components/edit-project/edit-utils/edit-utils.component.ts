@@ -90,4 +90,28 @@ export class EditUtilsComponent implements OnInit {
   addImage() {
     this.projectEditor.project.images.push({ title: {}, url: "" })
   }
+
+  getQuestionQuestion(index: number) {
+    return this.projectEditor.getQuestionQuestion(index)
+  }
+
+  setQuestionQuestion(index: number, value: string) {
+    this.projectEditor.setQuestionQuestion(index, value)
+  }
+
+  getQuestionAnswer(index: number) {
+    return this.projectEditor.getQuestionAnswer(index)
+  }
+
+  setQuestionAnswer(index: number, value: string) {
+    this.projectEditor.setQuestionAnswer(index, value)
+  }
+
+  deleteQuestion(index: number) {
+    this.projectEditor.project.questions.splice(index, 1)
+  }
+
+  addQuestion() {
+    this.projectEditor.project.questions.push({ question: {}, answer: {} })
+  }
 }

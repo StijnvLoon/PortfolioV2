@@ -47,3 +47,15 @@
 .image img {
     cursor: pointer;
 }
+
+.questions_holder {
+    display: flex;
+    flex-direction: column;
+}
+.question {
+    display: flex;
+    gap: 12px;
+}
+.question mat-form-field {
+    width: 100%;
+}

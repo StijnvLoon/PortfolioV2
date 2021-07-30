@@ -65,4 +65,20 @@ export class ProjectEditor {
     setImageTitle(index: number, string: string) {
         this.project.images[index].title[Language[this.selectedLanguage]] = string
     }
+
+    getQuestionQuestion(index: number): string {
+        return this.project.questions[index].question[Language[this.selectedLanguage]]
+    }
+
+    setQuestionQuestion(index: number, string: string) {
+        this.project.questions[index].question[Language[this.selectedLanguage]] = string
+    }
+
+    getQuestionAnswer(index: number): string {
+        return this.project.questions[index].answer[Language[this.selectedLanguage]]
+    }
+
+    setQuestionAnswer(index: number, string: string) {
+        this.project.questions[index].answer[Language[this.selectedLanguage]] = string
+    }
 }

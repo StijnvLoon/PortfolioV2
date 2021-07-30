@@ -110,3 +110,32 @@
     </div>
     <button mat-raised-button color="primary" (click)="addImage()">Add</button>
 </mat-expansion-panel>
+
+<!-- Questions -->
+<mat-expansion-panel style="margin-bottom: 1.6em;">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Questions
+        </mat-panel-title>
+        <mat-panel-description>
+            Amount: {{projectEditor.project.questions.length}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="questions_holder">
+        <div class="question" *ngFor="let question of projectEditor.project.questions; let i = index; trackBy: trackByFn">
+            <mat-form-field appearance="fill" color="accent">
+                <mat-label>{{i + 1}}: question [{{getCurrentLanguageString()}}]</mat-label>
+                <input matInput [value]="getQuestionQuestion(i)" (input)="setQuestionQuestion(i, $event.target.value)">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{i + 1}}: answer</mat-label>
+                <input matInput [value]="getQuestionAnswer(i)" (input)="setQuestionAnswer(i, $event.target.value)">
+            </mat-form-field>
+            <button mat-icon-button color="warn" (click)="deleteQuestion(i)">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="addQuestion()">Add</button>
+</mat-expansion-panel>
