@@ -2,8 +2,28 @@
     <div class="page_center" style="margin-bottom: 100px;">
         <div class="holder" *ngIf="projectEditor" style="margin-top: 12px">
             <desktop-edit-language [projectEditor]="projectEditor"></desktop-edit-language>
-            <mat-card><desktop-edit-main [projectEditor]="projectEditor"></desktop-edit-main></mat-card>
-            <mat-card><desktop-edit-utils [projectEditor]="projectEditor"></desktop-edit-utils></mat-card>
+            <mat-card>
+                <desktop-edit-main [projectEditor]="projectEditor"></desktop-edit-main>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{languageService.getUpper('content')}}</mat-card-title>
+                </mat-card-header>
+
+                <div *ngFor="let paragraph of projectEditor.project.content">
+                    <mat-card>
+                        <desktop-edit-paragraph [paragraph]="paragraph" [projectEditor]="projectEditor">
+                        </desktop-edit-paragraph>
+                    </mat-card>
+                </div>
+
+                <button mat-raised-button color="primary" (click)="addParagraph()">{{languageService.getUpper('add')}} {{languageService.get('to')}}: {{projectEditor.getTitle()}}</button>
+            </mat-card>
+
+            <mat-card>
+                <desktop-edit-utils [projectEditor]="projectEditor"></desktop-edit-utils>
+            </mat-card>
         </div>
     </div>
 </div>

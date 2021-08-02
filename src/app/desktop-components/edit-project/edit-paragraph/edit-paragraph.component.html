@@ -1,0 +1,22 @@
+<div [style.margin-left]="level * 10 + 'px'">
+
+    <mat-form-field appearance="fill" class="component" color="accent">
+        <mat-label>{{languageService.getUpper('title')}} [{{getCurrentLanguageString()}}]</mat-label>
+        <input matInput [value]="getTitle()" (input)="setTitle($event.target.value)">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="component" color="accent">
+        <mat-label>{{languageService.getUpper('text')}} [{{getCurrentLanguageString()}}]</mat-label>
+        <textarea matInput style="min-height: 100px;" [value]="getContent()" (input)="setContent($event.target.value)"></textarea>
+    </mat-form-field>
+
+    <div *ngFor="let subparagraph of paragraph.content">
+        <mat-card>
+            <desktop-edit-paragraph [paragraph]="subparagraph" [level]="level + 1" [projectEditor]="projectEditor">
+            </desktop-edit-paragraph>
+        </mat-card>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="addSubParagraph()" [disabled]="level == 5">{{languageService.getUpper('add')}} {{languageService.get('to')}}: {{getTitle()}}</button>
+
+</div>

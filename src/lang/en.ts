@@ -29,5 +29,9 @@ export const en: Dictionary = {
     url: 'url',
     name: 'name',
     question: 'question',
-    answer: 'answer'
+    answer: 'answer',
+    content: 'content',
+    paragraph: 'paragraph',
+    text: 'text',
+    to: 'to'
 }

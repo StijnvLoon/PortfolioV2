@@ -37,7 +37,11 @@ export interface Dictionary {
   url: string,
   name: string,
   question: string,
-  answer: string
+  answer: string,
+  content: string,
+  paragraph: string,
+  text: string,
+  to: string
 }
 
 export const languageArray: () => string[] = () => {

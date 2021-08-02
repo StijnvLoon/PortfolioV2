@@ -18,6 +18,7 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
 import { EditLanguageComponent } from './edit-project/edit-language/edit-language.component';
 import { EditMainComponent } from './edit-project/edit-main/edit-main.component';
 import { EditUtilsComponent } from './edit-project/edit-utils/edit-utils.component';
+import { EditParagraphComponent } from './edit-project/edit-paragraph/edit-paragraph.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EditUtilsComponent } from './edit-project/edit-utils/edit-utils.compone
     EditProjectComponent,
     EditLanguageComponent,
     EditMainComponent,
-    EditUtilsComponent
+    EditUtilsComponent,
+    EditParagraphComponent
   ],
   imports: [
     CommonModule,

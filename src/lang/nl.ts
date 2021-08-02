@@ -29,5 +29,9 @@ export const nl: Dictionary = {
     url: 'url',
     name: 'naam',
     question: 'vraag',
-    answer: 'antwoord'
+    answer: 'antwoord',
+    content: 'inhoud',
+    paragraph: 'paragraaf',
+    text: 'tekst',
+    to: 'aan'
 }

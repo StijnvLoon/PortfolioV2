@@ -47,4 +47,8 @@ export class EditProjectComponent implements OnInit {
   ngOnDestroy(): void {
     this.routeSub.unsubscribe();
   }
+
+  addParagraph() {
+    this.projectEditor.project.content.push({ title: {}, text: {} })
+  }
 }
