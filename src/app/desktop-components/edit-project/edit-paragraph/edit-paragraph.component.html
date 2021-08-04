@@ -11,12 +11,16 @@
     </mat-form-field>
 
     <div *ngFor="let subparagraph of paragraph.content">
-        <mat-card>
-            <desktop-edit-paragraph [paragraph]="subparagraph" [level]="level + 1" [projectEditor]="projectEditor">
+        <mat-card style="margin-top: 5px;">
+            <desktop-edit-paragraph [paragraph]="subparagraph" [level]="level + 1" [projectEditor]="projectEditor" (onRemoveSubparagraph)="removeSubparagraph($event)">
             </desktop-edit-paragraph>
         </mat-card>
     </div>
 
-    <button mat-raised-button color="primary" (click)="addSubParagraph()" [disabled]="level == 5">{{languageService.getUpper('add')}} {{languageService.get('to')}}: {{getTitle()}}</button>
+    <div class="action_buttons">
+        <button mat-raised-button color="primary" (click)="addSubParagraph()" [disabled]="level == 5">{{languageService.getUpper('add')}} {{languageService.get('to')}}: {{getTitle()}}</button>
+        <button mat-raised-button color="warn" (click)="removeParagraph()">{{languageService.getUpper('remove')}}: {{getTitle()}}</button>
+    </div>
+
 
 </div>

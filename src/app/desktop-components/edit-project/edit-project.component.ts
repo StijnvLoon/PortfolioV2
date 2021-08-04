@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Paragraph } from 'src/models/Project';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 import { LanguageService } from 'src/services/language.service';
 import { LoaderService } from 'src/services/loader.service';
@@ -50,5 +51,10 @@ export class EditProjectComponent implements OnInit {
 
   addParagraph() {
     this.projectEditor.project.content.push({ title: {}, text: {} })
+  }
+
+  removeParagraph(par: Paragraph) {
+    const index = this.projectEditor.project.content.indexOf(par)
+    this.projectEditor.project.content.splice(index, 1)
   }
 }

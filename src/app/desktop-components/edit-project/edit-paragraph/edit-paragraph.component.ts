@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Language } from 'src/models/Dictionary';
 import { Paragraph } from 'src/models/Project';
 import { ProjectEditor } from 'src/models/ProjectEditor';
@@ -14,6 +14,7 @@ export class EditParagraphComponent implements OnInit {
   @Input() projectEditor: ProjectEditor
   @Input() paragraph: Paragraph
   @Input() level: number = 0
+  @Output() onRemoveSubparagraph = new EventEmitter<Paragraph>();
 
   constructor(
     public languageService: LanguageService
@@ -47,6 +48,15 @@ export class EditParagraphComponent implements OnInit {
       this.paragraph.content = []
     }
     this.paragraph.content.push({ title: {}, text: {} })
+  }
+
+  removeParagraph() {
+    this.onRemoveSubparagraph.emit(this.paragraph)
+  }
+
+  removeSubparagraph(subparagraph: Paragraph) {
+    const index = this.paragraph.content.indexOf(subparagraph)
+    this.paragraph.content.splice(index, 1)
   }
 
 }

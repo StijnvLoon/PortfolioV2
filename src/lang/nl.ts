@@ -33,5 +33,6 @@ export const nl: Dictionary = {
     content: 'inhoud',
     paragraph: 'paragraaf',
     text: 'tekst',
-    to: 'aan'
+    to: 'aan',
+    remove: 'verwijder'
 }

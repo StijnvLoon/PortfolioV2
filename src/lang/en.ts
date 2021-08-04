@@ -33,5 +33,6 @@ export const en: Dictionary = {
     content: 'content',
     paragraph: 'paragraph',
     text: 'text',
-    to: 'to'
+    to: 'to',
+    remove: 'remove'
 }
