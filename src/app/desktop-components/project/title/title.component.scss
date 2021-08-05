@@ -13,18 +13,22 @@
 
 .container_keywords {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 .keyword {
     cursor: pointer;
     background-color: var(--theme-accent-900);
-    border-radius: 10px;
+    border-radius: 2px;
     color: var(--theme-accent-contrast-900);
     font-weight: 600;
     padding: 0px 10px 0px 10px;
-    margin: 0px 2px 0px 2px;
-    transition: all 0.1s ease;
+    user-select: none;
+    transition: all 0.3s ease;
 }
 .keyword:hover {
     background-color: var(--theme-accent-600);
     color: var(--theme-accent-contrast-600);
+    transform: scale(1.05); 
+    box-shadow: 0px 5px 15px -1px rgba(0,0,0,0.35);
 }

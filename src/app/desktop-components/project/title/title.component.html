@@ -5,5 +5,7 @@
 
 <div class="container_keywords">
     <div style="margin-right: 4px;">{{languageService.getUpper('keywords')}}:</div>
-    <div class="keyword" *ngFor="let keyword of keywords" (click)="searchKeyword(keyword)">{{languageService.get(keyword)}}</div>
+    <div class="keyword" matRipple *ngFor="let keyword of keywords" (click)="searchKeyword(keyword)">
+        {{languageService.get(keyword)}}
+    </div>
 </div>
