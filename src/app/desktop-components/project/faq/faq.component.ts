@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TextValue, Language } from 'src/models/Dictionary';
 import { Question } from 'src/models/Project';
 import { LanguageService } from 'src/services/language.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'desktop-faq',
@@ -21,25 +22,9 @@ export class FaqComponent implements OnInit {
   }
 
   sendMail() {
-    var target: string, subject: string, body: string
-
-    switch (this.languageService.language) {
-      case Language.EN:
-        target = 'stijnvanloon@home.nl'
-        subject = 'Question about ' + this.languageService.get(this.projectTitle)
-        body = ''
-        break;
-      case Language.NL:
-        target = 'stijnvanloon@home.nl'
-        subject = 'Vraag over ' + this.languageService.get(this.projectTitle)
-        body = ''
-        break
-      default:
-        target = 'stijnvanloon@home.nl'
-        subject = 'Question about ' + this.languageService.get(this.projectTitle)
-        body = ''
-        break
-    }
+    const target = environment.ownerEmail
+    const subject = this.languageService.getUpper('mail_subject') + ' ' + this.languageService.get(this.projectTitle)
+    const body = ''
 
     window.location.href = `mailto:${target}?subject=${subject}&body=${body}`
   }

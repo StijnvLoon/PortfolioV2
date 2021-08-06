@@ -2,8 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { Theme } from "src/models/Theme";
+
 export const environment = {
-  production: false
+  production: false,
+  isMobile: window.innerWidth < 1200,
+  defaultTheme: Theme.Light,
+  ownerEmail: 'stijnvanloon@home.nl'
 };
 
 /*

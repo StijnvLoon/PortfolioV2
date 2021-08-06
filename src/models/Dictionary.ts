@@ -42,7 +42,8 @@ export interface Dictionary {
   paragraph: string,
   text: string,
   to: string,
-  remove: string
+  remove: string,
+  mail_subject: string
 }
 
 export const languageArray: () => string[] = () => {

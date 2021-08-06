@@ -34,5 +34,6 @@ export const nl: Dictionary = {
     paragraph: 'paragraaf',
     text: 'tekst',
     to: 'aan',
-    remove: 'verwijder'
+    remove: 'verwijder',
+    mail_subject: 'vraag over'
 }

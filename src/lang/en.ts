@@ -34,5 +34,6 @@ export const en: Dictionary = {
     paragraph: 'paragraph',
     text: 'text',
     to: 'to',
-    remove: 'remove'
+    remove: 'remove',
+    mail_subject: 'question about'
 }

@@ -1,9 +1,10 @@
-import { Injectable, isDevMode } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { FireStoreDataSource } from 'src/dataSources/FireStoreDataSource';
 import { DataSource } from '../dataSources/DataSource';
 import { MockDataSource } from '../dataSources/MockDataSource';
 import { Language } from '../models/Dictionary';
 import { Project } from '../models/Project';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class ProjectService {
   private dataSource: DataSource
 
   constructor() {
-    if (isDevMode()) {
+    if (!environment.production) {
       this.dataSource = new MockDataSource()
     } else {
       this.dataSource = new FireStoreDataSource()
