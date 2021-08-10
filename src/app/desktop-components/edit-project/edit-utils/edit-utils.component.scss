@@ -12,8 +12,9 @@
 }
 
 .keywords_holder {
-    display: grid;
-    grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 .keyword {
     width: fit-content;

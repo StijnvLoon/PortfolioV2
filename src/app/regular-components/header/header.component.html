@@ -4,7 +4,7 @@
     <div class="toolbar_item" style="justify-content: flex-start;">
         <button mat-icon-button color="accent" routerLink="/"
             [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_lobby') + '\''">
-            <mat-icon>cottage</mat-icon>
+            <mat-icon class="material-icons-round">cottage</mat-icon>
         </button>
         <button mat-button routerLink="/About" color="accent"
             [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_about') + '\''">
@@ -20,7 +20,7 @@
     </div>
     <div class="toolbar_item" style="justify-content: flex-end;">
         <button mat-icon-button [matTooltip]="languageService.getUpper('header_help')">
-            <mat-icon>help</mat-icon>
+            <mat-icon class="material-icons-round">help</mat-icon>
         </button>
         <app-button-theme></app-button-theme>
         <app-button-language></app-button-language>

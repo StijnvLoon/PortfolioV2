@@ -1,9 +1,12 @@
 <div class="searchbar mat-elevation-z1 mat-app-background">
 
-    <mat-icon class="icon">search</mat-icon>
-    <input type="text" #searchBar [ngModel]="searchbarService.searchText" (ngModelChange)="searchbarService.setSearchText($event)" class="blank_input mat-app-background"
-        [matAutocomplete]="autoComplete" [placeholder]="languageService.getUpper('header_search') + ' ...'" (click)="onSearchBarClick()">
-    <mat-icon class="icon clear" (click)="clearInput()" [style.opacity]="searchbarService.searchText ? 1 : 0">close</mat-icon>
+    <mat-icon class="icon material-icons-round">search</mat-icon>
+    <input type="text" #searchBar [ngModel]="searchbarService.searchText"
+        (ngModelChange)="searchbarService.setSearchText($event)" class="blank_input mat-app-background"
+        [matAutocomplete]="autoComplete" [placeholder]="languageService.getUpper('header_search') + ' ...'"
+        (click)="onSearchBarClick()">
+    <mat-icon class="icon clear material-icons-round" (click)="clearInput()"
+        [style.opacity]="searchbarService.searchText ? 1 : 0">close</mat-icon>
 
     <mat-autocomplete autoActiveFirstOption #autoComplete="matAutocomplete">
 

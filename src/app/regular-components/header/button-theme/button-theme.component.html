@@ -1,8 +1,8 @@
 <button mat-icon-button (click)="toggleTheme()" [matTooltip]="languageService.getUpper('header_change_theme')">
     <div class="button_anim_container" *ngIf="themeService.theme == 0">
-        <mat-icon @ChangeAnim>dark_mode</mat-icon>
+        <mat-icon @ChangeAnim class="material-icons-round">dark_mode</mat-icon>
     </div>
     <div class="button_anim_container" *ngIf="themeService.theme == 1">
-        <mat-icon @ChangeAnim>light_mode</mat-icon>
+        <mat-icon @ChangeAnim class="material-icons-round">light_mode</mat-icon>
     </div>
 </button>
