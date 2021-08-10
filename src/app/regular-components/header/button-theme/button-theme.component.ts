@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { changeAnim } from 'src/animations/changeAnim';
 import { Theme } from 'src/models/Theme';
+import { LanguageService } from 'src/services/language.service';
 import { ThemeService } from 'src/services/theme.service';
 
 @Component({
@@ -14,7 +15,8 @@ import { ThemeService } from 'src/services/theme.service';
 export class ButtonThemeComponent implements OnInit {
 
   constructor(
-    public themeService: ThemeService
+    public themeService: ThemeService,
+    public languageService: LanguageService
   ) { }
 
   ngOnInit(): void {

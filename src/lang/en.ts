@@ -1,10 +1,8 @@
 import { Dictionary } from '../models/Dictionary';
 
 export const en: Dictionary = {
-    about : 'about',
     error: '[error]',
     welcome: 'welcome',
-    search: 'search',
     keywords: 'keywords',
     status: 'status',
     pictures: 'pictures',
@@ -35,5 +33,13 @@ export const en: Dictionary = {
     text: 'text',
     to: 'to',
     remove: 'remove',
-    mail_subject: 'question about'
+    mail_subject: 'question about',
+    header_about: 'about',
+    header_lobby: 'lobby',
+    header_contact: 'contact',
+    header_change_theme: 'switch theme',
+    header_change_language: 'switch language',
+    header_help: 'help',
+    header_search: 'search',
+    hint_navigate_to: 'navigate to'
 }

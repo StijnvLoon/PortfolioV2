@@ -1,4 +1,4 @@
-<button mat-icon-button [matMenuTriggerFor]="languagesMenu">
+<button mat-icon-button [matMenuTriggerFor]="languagesMenu" [matTooltip]="languageService.getUpper('header_change_language')">
     <div class="button_anim_container" *ngIf="languageService.language == 0">
         <div class="flag_container mat-elevation-z1" @ChangeAnim>
             <img src="../../../assets/flags/Flag_of_the_Netherlands.svg">

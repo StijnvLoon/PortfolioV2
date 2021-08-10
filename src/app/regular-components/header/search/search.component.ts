@@ -68,8 +68,8 @@ export class SearchComponent {
     this.searchbarService.clearSearchText();
   }
 
-  navigateProject(url: string) {
-    this.router.navigate([`/project/${url}`]);
+  navigateProject(project: Project) {
+    this.router.navigate([`/project/${this.projectService.getUrl(project)}`]);
   }
 
 }

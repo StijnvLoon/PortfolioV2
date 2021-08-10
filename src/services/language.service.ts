@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Dictionary, Language, TextValue } from '../models/Dictionary';
+import { environment } from 'src/environments/environment';
 import { en } from 'src/lang/en';
 import { nl } from 'src/lang/nl';
 
@@ -16,7 +17,7 @@ export class LanguageService {
     this.language = Language[localStorage.getItem(this.languageStorage)];
 
     if(this.language == undefined) {
-      this.setLanguage(Language.NL)
+      this.setLanguage(environment.defaultLanguage)
     }
   }
 

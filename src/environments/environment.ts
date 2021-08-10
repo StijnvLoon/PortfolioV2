@@ -2,12 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { Language } from "src/models/Dictionary";
 import { Theme } from "src/models/Theme";
 
 export const environment = {
   production: false,
   isMobile: window.innerWidth < 1200,
   defaultTheme: Theme.Light,
+  defaultLanguage: Language.NL,
   ownerEmail: 'stijnvanloon@home.nl'
 };
 

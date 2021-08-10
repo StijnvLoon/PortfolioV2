@@ -16,12 +16,12 @@ export class ThemeService {
   private readonly darkTheme: ThemeTemplate = JSONLib.toClass(ThemeTemplate, '{"name":"dark red","primaryPalette":{"name":"custom_teal","colors":[{"name":"50","hex":"#e2eced","darkContrast":true},{"name":"100","hex":"#b8d1d1","darkContrast":true},{"name":"200","hex":"#88b2b3","darkContrast":true},{"name":"300","hex":"#589394","darkContrast":true},{"name":"400","hex":"#357b7d","darkContrast":false},{"name":"500","hex":"#116466","darkContrast":false},{"name":"600","hex":"#0f5c5e","darkContrast":false},{"name":"700","hex":"#0c5253","darkContrast":false},{"name":"800","hex":"#0a4849","darkContrast":false},{"name":"900","hex":"#053638","darkContrast":false},{"name":"A100","hex":"#6ffbff","darkContrast":true},{"name":"A200","hex":"#3cfaff","darkContrast":true},{"name":"A400","hex":"#09f9ff","darkContrast":true},{"name":"A700","hex":"#00e9ef","darkContrast":true}]},"accentPalette":{"name":"custom_hide","colors":[{"name":"50","hex":"#faf6f1","darkContrast":true},{"name":"100","hex":"#f4e7dd","darkContrast":true},{"name":"200","hex":"#ecd8c6","darkContrast":true},{"name":"300","hex":"#e4c8af","darkContrast":true},{"name":"400","hex":"#dfbc9d","darkContrast":true},{"name":"500","hex":"#d9b08c","darkContrast":true},{"name":"600","hex":"#d5a984","darkContrast":true},{"name":"700","hex":"#cfa079","darkContrast":true},{"name":"800","hex":"#ca976f","darkContrast":true},{"name":"900","hex":"#c0875c","darkContrast":true},{"name":"A100","hex":"#ffffff","darkContrast":true},{"name":"A200","hex":"#fffaf6","darkContrast":true},{"name":"A400","hex":"#ffdcc3","darkContrast":true},{"name":"A700","hex":"#ffcdaa","darkContrast":true}]},"warnPalette":{"name":"custom_blue","colors":[{"name":"50","hex":"#f9fcfc","darkContrast":true},{"name":"100","hex":"#f1f8f6","darkContrast":true},{"name":"200","hex":"#e8f4f1","darkContrast":true},{"name":"300","hex":"#dfefeb","darkContrast":true},{"name":"400","hex":"#d8ebe6","darkContrast":true},{"name":"500","hex":"#d1e8e2","darkContrast":true},{"name":"600","hex":"#cce5df","darkContrast":true},{"name":"700","hex":"#c6e2da","darkContrast":true},{"name":"800","hex":"#c0ded6","darkContrast":true},{"name":"900","hex":"#b5d8cf","darkContrast":true},{"name":"A100","hex":"#ffffff","darkContrast":true},{"name":"A200","hex":"#ffffff","darkContrast":true},{"name":"A400","hex":"#ffffff","darkContrast":true},{"name":"A700","hex":"#ffffff","darkContrast":true}]},"dark":true}')
 
   constructor() {
-    const retrievedTheme: Theme = Theme[localStorage.getItem(this.themeStorage)];
+    this.theme = Theme[localStorage.getItem(this.themeStorage)];
 
-    if(retrievedTheme == undefined) {
+    if(this.theme == undefined) {
       this.setTheme(environment.defaultTheme)
     } else {
-      this.setTheme(retrievedTheme)
+      this.setTheme(this.theme)
     }
   }
 

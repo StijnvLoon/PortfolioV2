@@ -1,10 +1,8 @@
 import { Dictionary } from '../models/Dictionary';
 
 export const nl: Dictionary = {
-    about : 'over',
     error: '[fout]',
     welcome: 'welkom',
-    search: 'zoeken',
     keywords: 'zoektermen',
     status: 'status',
     pictures: 'afbeeldingen',
@@ -35,5 +33,13 @@ export const nl: Dictionary = {
     text: 'tekst',
     to: 'aan',
     remove: 'verwijder',
-    mail_subject: 'vraag over'
+    mail_subject: 'vraag over',
+    header_about: 'over',
+    header_lobby: 'lobby',
+    header_contact: 'contact',
+    header_change_theme: 'verander thema',
+    header_change_language: 'verander taal',
+    header_help: 'help',
+    header_search: 'zoeken',
+    hint_navigate_to: 'navigeer naar'
 }

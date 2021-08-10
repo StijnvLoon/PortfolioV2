@@ -26,25 +26,28 @@ export class ProjectService {
     return project.title.EN.replaceAll(' ', '-');
   }
 
-  private isGoodKeywordSearch(project: Project, searchString: string, language: Language): boolean {
-    // const result = project.keywords.filter(
-    //     (textvalue) => {
-    //         const textString = textvalue.get(language).toLowerCase()
-    //         const filterString = searchString.toLowerCase()
+  private isGoodKeywordSearch(project: Project, searchString: string = "", language: Language): boolean {
+    const result = project.keywords.filter(
+      (textvalue) => {
+        const translatedKeyword: string = textvalue[Language[language]]
 
-    //         return textString.includes(filterString)
-    //     })[0]
+        if (translatedKeyword !== undefined) {
+          const textString: string = translatedKeyword.toLowerCase()
+          const filterString: string = searchString.toLowerCase()
 
-    // return result ? true : false
-    return true
+          return textString.includes(filterString)
+        }
+        return false
+      })[0]
+
+    return result ? true : false
   }
 
-  private isGoodTitleSearh(project: Project, searchString: string, language: Language): boolean {
-    // const textString = this.title.get(language).toLowerCase()
-    // const filterString = searchString.toLowerCase()
+  private isGoodTitleSearh(project: Project, searchString: string = "", language: Language): boolean {
+    const textString = project.title[Language[language]].toLowerCase()
+    const filterString = searchString.toLowerCase()
 
-    // return textString.includes(filterString)
-    return true
+    return textString.includes(filterString)
   }
 
   get(onResult: (results: Project[]) => void, onError: (errorMessage: string) => void) {
@@ -86,8 +89,16 @@ export class ProjectService {
     onResult: (results: Project[]) => void,
     onError: (errorMessage: string) => void
   ) {
-    this.get(onResult, onError)
-    //TODO
+    const filteredProjects: Project[] = this.projects.filter(
+      (project) => {
+        const goodKeyword: boolean = this.isGoodKeywordSearch(project, searchString, language)
+        const goodTitle: boolean = this.isGoodTitleSearh(project, searchString, language)
+
+        return goodKeyword || goodTitle
+      }
+    )
+
+    onResult(filteredProjects)
 
     // setTimeout(() => {
     //   const filteredProjects: Project[] = this.projectList.filter(

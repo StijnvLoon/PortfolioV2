@@ -1,9 +1,10 @@
 .page_container {
-    margin-top: var(--headerHeight);
+    padding-top: var(--headerHeight);
     height: calc(100vh - var(--headerHeight));
     overflow-y: scroll;
     position: absolute;
     width: 100%;
+    z-index: 0;
 }
 
 .page_container::-webkit-scrollbar {

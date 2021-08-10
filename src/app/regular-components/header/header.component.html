@@ -1,11 +1,41 @@
-<mat-toolbar color="primary" class="mat-elevation-z2 transit_theme">
+<mat-toolbar color="primary" class="mat-elevation-z2 transit_theme" [class.small_toolbar]="smallHeader"
+    *ngIf="!isMobile()">
+
+    <div class="toolbar_item" style="justify-content: flex-start;">
+        <button mat-icon-button color="accent" routerLink="/"
+            [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_lobby') + '\''">
+            <mat-icon>cottage</mat-icon>
+        </button>
+        <button mat-button routerLink="/About" color="accent"
+            [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_about') + '\''">
+            {{languageService.getUpper('header_about')}}
+        </button>
+        <button mat-button routerLink="/Contact" color="accent"
+            [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_contact') + '\''">
+            {{languageService.getUpper('header_contact')}}
+        </button>
+    </div>
+    <div class="toolbar_item" style="justify-content: center;">
+        <app-search></app-search>
+    </div>
+    <div class="toolbar_item" style="justify-content: flex-end;">
+        <button mat-icon-button [matTooltip]="languageService.getUpper('header_help')">
+            <mat-icon>help</mat-icon>
+        </button>
+        <app-button-theme></app-button-theme>
+        <app-button-language></app-button-language>
+    </div>
+
+</mat-toolbar>
+
+<mat-toolbar color="primary" class="mat-elevation-z2 transit_theme" *ngIf="isMobile()">
     <button mat-button routerLink="/About" color="accent">
-        {{langService.getUpper('about')}}
+        {{languageService.getUpper('about')}}
     </button>
 
     <app-search style="margin: auto;"></app-search>
 
     <app-button-theme></app-button-theme>
     <app-button-language></app-button-language>
-    
+
 </mat-toolbar>

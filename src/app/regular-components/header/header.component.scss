@@ -1,4 +1,14 @@
 mat-toolbar {
     position: fixed;
     height: var(--headerHeight) !important;
+    transition: height 0.3s ease;
+    z-index: 1;
+}
+.small_toolbar {
+    height: var(--smallHeaderHeight) !important;
+}
+.toolbar_item {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
 }

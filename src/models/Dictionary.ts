@@ -9,10 +9,8 @@ export interface TextValue {
 }
 
 export interface Dictionary {
-  about: string,
   error: string,
   welcome: string,
-  search: string,
   keywords: string,
   status: string,
   pictures: string,
@@ -43,7 +41,15 @@ export interface Dictionary {
   text: string,
   to: string,
   remove: string,
-  mail_subject: string
+  mail_subject: string,
+  header_lobby: string,
+  header_about: string,
+  header_contact: string,
+  header_change_theme: string,
+  header_change_language: string,
+  header_help: string,
+  header_search: string,
+  hint_navigate_to: string
 }
 
 export const languageArray: () => string[] = () => {
