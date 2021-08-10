@@ -14,6 +14,11 @@ import { MobileModule } from './mobile-components/mobile.module';
 import { MaterialModule } from './material.module';
 import { DialogModule } from './dialogs/dialog.module';
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +35,10 @@ import { DialogModule } from './dialogs/dialog.module';
     MaterialModule,
     DesktopModule,
     MobileModule,
-    DialogModule
+    DialogModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
