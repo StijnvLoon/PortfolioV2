@@ -4,11 +4,13 @@ import { Project } from './Project'
 export class ProjectEditor {
 
     public selectedLanguage: Language
+    public isNewProject: boolean
 
     constructor(
         public project?: Project
     ) {
         if (!this.project) {
+            this.isNewProject = true
             this.project = {
                 id: "",
                 title: {},
@@ -22,6 +24,8 @@ export class ProjectEditor {
                 urls: [],
                 questions: []
             }
+        } else {
+            this.isNewProject = false
         }
         this.selectedLanguage = Language[languageArray()[0]]
     }

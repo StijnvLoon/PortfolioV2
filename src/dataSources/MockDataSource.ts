@@ -3,6 +3,12 @@ import { DataSource } from "./DataSource";
 
 export class MockDataSource implements DataSource {
 
+    private readonly mockDelay: number = 1000
+
+    private readonly files: string[] = [
+        "https://walz-images.walz.de/v2/470x470_r1/images/MH/653/1/6531075_01/jpg/yoga-olifant-p1661023-1.jpg"
+    ]
+
     private readonly projectList: Project[] = [
         {
             id: '1',
@@ -148,7 +154,69 @@ export class MockDataSource implements DataSource {
     ) {
         setTimeout(() => {
             onResult(this.projectList)
-        }, 1000);
+        }, this.mockDelay);
+    }
+
+    saveProject(
+        project: Project,
+        onResult: () => void,
+        onError: (errorCode: string) => void
+    ) {
+        setTimeout(() => {
+            this.projectList.push(project)
+            onResult()
+        }, this.mockDelay);
+    }
+
+    updateProject(
+        project: Project,
+        onResult: () => void,
+        onError: (errorCode: string) => void
+    ) {
+        setTimeout(() => {
+            const index = this.projectList.indexOf(
+                this.projectList.filter((i) => i.id == project.id)[0]
+            )
+            this.projectList[index] = project
+            onResult()
+        }, this.mockDelay);
+    }
+
+    deleteProject(
+        project: Project,
+        onResult: () => void,
+        onError: (errorCode: string) => void
+    ) {
+        setTimeout(() => {
+            const index = this.projectList.indexOf(
+                this.projectList.filter((i) => i.id == project.id)[0]
+            )
+            this.projectList.splice(index, 1)
+            onResult()
+        }, this.mockDelay);
+    }
+
+    retrieveFiles(
+        onResult: (files: string[]) => void,
+        onError: (errorCode: string) => void
+    ) {
+        setTimeout(() => {
+            onResult(this.files)
+        }, this.mockDelay);
+    }
+
+    uploadFile(
+        file: any,
+        onResult: (url: string) => void,
+        onError: (errorCode: string) => void
+    ) {
+        setTimeout(() => {
+            //must first be converted to string in real datasource
+            this.files.push(file)
+
+            //return that url
+            onResult(file)
+        }, this.mockDelay);
     }
 
 }

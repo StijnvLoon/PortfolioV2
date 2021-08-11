@@ -13,17 +13,31 @@
 
                 <div *ngFor="let paragraph of projectEditor.project.content">
                     <mat-card style="margin-top: 5px;">
-                        <desktop-edit-paragraph [paragraph]="paragraph" [projectEditor]="projectEditor" (onRemoveSubparagraph)="removeParagraph($event)">
+                        <desktop-edit-paragraph [paragraph]="paragraph" [projectEditor]="projectEditor"
+                            (onRemoveSubparagraph)="removeParagraph($event)">
                         </desktop-edit-paragraph>
                     </mat-card>
                 </div>
 
-                <button mat-raised-button color="primary" style="margin-top: 20px;" (click)="addParagraph()">{{languageService.getUpper('add')}} {{languageService.get('to')}}: {{projectEditor.getTitle()}}</button>
+                <button mat-raised-button color="primary" style="margin-top: 20px;" (click)="addParagraph()">
+                    {{languageService.getUpper('add')}} {{languageService.get('to')}}: {{projectEditor.getTitle()}}
+                </button>
             </mat-card>
 
             <mat-card>
                 <desktop-edit-utils [projectEditor]="projectEditor"></desktop-edit-utils>
             </mat-card>
+
+            <div style="display: flex; gap: 20px;">
+                <button mat-raised-button color="warn" style="width: 100%;" (click)="deleteProject()">
+                    {{languageService.getUpper('editor_delete')}}
+                </button>
+                <button mat-raised-button color="primary" style="width: 100%;" (click)="submitProject()">
+                    {{projectEditor.isNewProject ? languageService.getUpper('editor_submit') :
+                    languageService.getUpper('editor_update')}}
+                </button>
+            </div>
+
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Paragraph } from 'src/models/Project';
 import { ProjectEditor } from 'src/models/ProjectEditor';
@@ -16,12 +16,14 @@ export class EditProjectComponent implements OnInit {
 
   private routeSub: Subscription;
   public projectEditor: ProjectEditor;
+  private isNewProject: boolean
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private loaderService: LoaderService,
     private projectService: ProjectService,
-    public languageService: LanguageService
+    public languageService: LanguageService,
   ) { }
 
   ngOnInit(): void {
@@ -56,5 +58,45 @@ export class EditProjectComponent implements OnInit {
   removeParagraph(par: Paragraph) {
     const index = this.projectEditor.project.content.indexOf(par)
     this.projectEditor.project.content.splice(index, 1)
+  }
+
+  submitProject() {
+    this.loaderService.startLoading()
+
+    if (this.projectEditor.isNewProject) {
+      this.projectService.saveProject(
+        this.projectEditor.project,
+        () => {
+          this.loaderService.stopLoading()
+        },
+        () => {
+          this.loaderService.stopLoading()
+        }
+      )
+    } else {
+      this.projectService.updateProject(
+        this.projectEditor.project,
+        () => {
+          this.loaderService.stopLoading()
+          this.router.navigate([``])
+        },
+        () => {
+          this.loaderService.stopLoading()
+        }
+      )
+    }
+  }
+
+  deleteProject() {
+    this.projectService.deleteProject(
+      this.projectEditor.project,
+      () => {
+        this.loaderService.stopLoading()
+        this.router.navigate([``])
+      },
+      () => {
+        this.loaderService.stopLoading()
+      }
+    )
   }
 }

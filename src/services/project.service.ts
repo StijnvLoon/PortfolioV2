@@ -5,6 +5,8 @@ import { MockDataSource } from '../dataSources/MockDataSource';
 import { Language } from '../models/Dictionary';
 import { Project } from '../models/Project';
 import { environment } from 'src/environments/environment';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -14,16 +16,19 @@ export class ProjectService {
   private projects: Project[]
   private dataSource: DataSource
 
-  constructor() {
+  constructor(
+    private firestorage: AngularFireStorage,
+    private firestore: AngularFirestore
+  ) {
     if (!environment.production) {
       this.dataSource = new MockDataSource()
     } else {
-      this.dataSource = new FireStoreDataSource()
+      this.dataSource = new FireStoreDataSource(this.firestorage, this.firestore)
     }
   }
 
   getUrl(project: Project) {
-    return project.title.EN.replaceAll(' ', '-');
+    return project.title.EN.replaceAll(' ', '-').toLowerCase();
   }
 
   private isGoodKeywordSearch(project: Project, searchString: string = "", language: Language): boolean {
@@ -99,19 +104,30 @@ export class ProjectService {
     )
 
     onResult(filteredProjects)
+  }
 
-    // setTimeout(() => {
-    //   const filteredProjects: Project[] = this.projectList.filter(
-    //     (project) => {
-    //       const goodKeyword: boolean = this.isGoodKeywordSearch(project, searchString, language)
-    //       const goodTitle: boolean = this.isGoodTitleSearh(project, searchString, language)
+  saveProject(
+    project: Project,
+    onResult: () => void,
+    onError: (errorCode: string) => void
+  ) {
+    this.dataSource.saveProject(project, onResult, onError)
+  }
 
-    //       return goodKeyword || goodTitle
-    //     }
-    //   )
+  updateProject(
+    project: Project,
+    onResult: () => void,
+    onError: (errorCode: string) => void
+  ) {
+    this.dataSource.updateProject(project, onResult, onError)
+  }
 
-    //   onResult(filteredProjects)
-    // }, 1000);
+  deleteProject(
+    project: Project,
+    onResult: () => void,
+    onError: (errorCode: string) => void
+  ) {
+    this.dataSource.deleteProject(project, onResult, onError)
   }
 
   private setProjects(
