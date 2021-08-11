@@ -33,8 +33,7 @@ export class LobbyComponent implements OnInit {
         this.projects = result
       },
       (error) => {
-        this.loaderService.stopLoading()
-        //TODO
+        this.loaderService.stopLoading(error)
       }
     )
   }

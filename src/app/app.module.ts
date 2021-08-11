@@ -18,6 +18,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
+import { ErrorComponent } from './regular-components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { environment } from 'src/environments/environment';
     SearchComponent,
     ButtonThemeComponent,
     ButtonLanguageComponent,
-    PageLoaderComponent
+    PageLoaderComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

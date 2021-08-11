@@ -31,7 +31,7 @@ export class EditProjectComponent implements OnInit {
       this.loaderService.startLoading()
       const url = params['url'];
       this.projectService.getByUrl(url,
-        result => {
+        (result) => {
           this.loaderService.stopLoading()
           if (result == undefined) {
             this.projectEditor = new ProjectEditor()
@@ -39,9 +39,8 @@ export class EditProjectComponent implements OnInit {
             this.projectEditor = new ProjectEditor(JSON.parse(JSON.stringify(result)))
           }
         },
-        error => {
-          this.loaderService.stopLoading()
-          //TODO 
+        (error) => {
+          this.loaderService.stopLoading(error)
         }
       )
     });
@@ -69,8 +68,8 @@ export class EditProjectComponent implements OnInit {
         () => {
           this.loaderService.stopLoading()
         },
-        () => {
-          this.loaderService.stopLoading()
+        (error) => {
+          this.loaderService.stopLoading(error)
         }
       )
     } else {
@@ -80,8 +79,8 @@ export class EditProjectComponent implements OnInit {
           this.loaderService.stopLoading()
           this.router.navigate([``])
         },
-        () => {
-          this.loaderService.stopLoading()
+        (error) => {
+          this.loaderService.stopLoading(error)
         }
       )
     }
@@ -94,8 +93,8 @@ export class EditProjectComponent implements OnInit {
         this.loaderService.stopLoading()
         this.router.navigate([``])
       },
-      () => {
-        this.loaderService.stopLoading()
+      (error) => {
+        this.loaderService.stopLoading(error)
       }
     )
   }

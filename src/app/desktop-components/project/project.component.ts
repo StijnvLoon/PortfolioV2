@@ -30,12 +30,12 @@ export class ProjectComponent implements OnInit, OnDestroy {
       this.loaderService.startLoading()
       const url = params['url'];
       this.projectService.getByUrl(url,
-        result => {
+        (result) => {
           this.loaderService.stopLoading()
           this.project = result;
         },
-        error => {
-          this.loaderService.stopLoading()
+        (error) => {
+          this.loaderService.stopLoading(error)
           //TODO 
         }
       )
