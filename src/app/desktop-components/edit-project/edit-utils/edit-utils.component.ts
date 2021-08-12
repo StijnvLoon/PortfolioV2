@@ -130,12 +130,12 @@ export class EditUtilsComponent implements OnInit {
   }
 
   pickImage() {
-    this.dialogService.showImagePickerDialog(
-      (url: string) => {
-        if (url) {
-          this.projectEditor.project.coverImage = url
-        }
-      }
-    )
+    // this.dialogService.showImagePickerDialog(
+    //   (url: string) => {
+    //     if (url) {
+    //       this.projectEditor.project.coverImage = url
+    //     }
+    //   }
+    // )
   }
 }

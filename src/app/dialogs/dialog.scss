@@ -1,0 +1,19 @@
+.dialog_container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.dialog_title {
+
+}
+.dialog_body {
+    height: 100%;
+}
+.dialog_footer mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+}
+.dialog_footer button {
+    font-weight: bold;
+    font-size: 1.2em;
+}

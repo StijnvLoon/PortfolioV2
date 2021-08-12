@@ -1,0 +1,53 @@
+.container_urlparts {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    user-select: none;
+}
+.urlpart .url {
+    background-color: #0000000e;
+    padding: 10px;
+    margin: 0px 5px 0px 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.urlpart .url:hover {
+    background-color: #0000002f;
+}
+.urlpart .slash {
+    font-size: large;
+    font-weight: 600;
+}
+
+.container_items {
+    display: flex;
+    flex-wrap: wrap;
+}
+.item {
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2px;
+}
+.item mat-icon {
+    font-size: 80px;
+    width: 80px;
+    margin: 10px;
+}
+.item img {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+}
+.item .name {
+    width: 100%;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+}

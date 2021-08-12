@@ -1,11 +1,12 @@
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AngularFireStorage } from "@angular/fire/storage";
+import { Folder } from "src/models/Folder";
+import { Item } from "src/models/Item";
 import { Project } from "../models/Project";
 import { DataSource } from "./DataSource";
 
 export class FireStoreDataSource implements DataSource {
 
-    private readonly storageRoot: string = "projects/"
     private readonly collectionsName: string = "projects"
 
     constructor(
@@ -87,11 +88,37 @@ export class FireStoreDataSource implements DataSource {
                 });
     }
 
-    retrieveFiles(
-        onResult: (files: string[]) => void,
+    async retrieveStorageItems(
+        path: string = '',
+        onResult: (folders: Folder[], items: Item[]) => void,
         onError: (errorCode: string) => void
     ) {
+        await this.firestorage.ref(path).listAll().subscribe((result) => {
+            const items: Item[] = []
+            
+            result.items.forEach((itemRaw) => {
+                itemRaw.getDownloadURL().then((url) => {
+                    const item: Item = {
+                        name: itemRaw.name,
+                        extention: itemRaw.name.split('.')[itemRaw.name.split('.').length-1],
+                        path: itemRaw.fullPath,
+                        downloadUrl: url
+                    }
 
+                    items.push(item)
+                })
+            })
+
+            const folders = result.prefixes.map((folderRaw) => {
+                const folder: Folder = {
+                    name: folderRaw.name,
+                    path: folderRaw.fullPath
+                }
+                return folder
+            })
+
+            onResult(folders, items)
+        })
     }
 
     uploadFile(

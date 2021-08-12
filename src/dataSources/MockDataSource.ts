@@ -1,3 +1,5 @@
+import { Folder } from "src/models/Folder";
+import { Item } from "src/models/Item";
 import { Project } from "../models/Project";
 import { DataSource } from "./DataSource";
 
@@ -5,8 +7,15 @@ export class MockDataSource implements DataSource {
 
     private readonly mockDelay: number = 1000
 
-    private readonly files: string[] = [
-        "https://walz-images.walz.de/v2/470x470_r1/images/MH/653/1/6531075_01/jpg/yoga-olifant-p1661023-1.jpg"
+    private readonly folders1: Folder[] = [
+        { name: 'test', path: 'test' },
+        { name: 'test2', path: 'test2' }
+    ]
+    private readonly folders2: Folder[] = [
+        { name: 'child', path: 'test/child'}
+    ]
+    private readonly items: Item[] = [
+        { name: 'yoga-olifant-p1661023-1.jpg', extention: '.jpg', path: '', downloadUrl: 'https://walz-images.walz.de/v2/800x800_r1/images/MH/653/1/6531075_01/jpg/yoga-olifant-p1661023-1.jpg' }
     ]
 
     private readonly projectList: Project[] = [
@@ -196,13 +205,18 @@ export class MockDataSource implements DataSource {
         }, this.mockDelay);
     }
 
-    retrieveFiles(
-        onResult: (files: string[]) => void,
+    retrieveStorageItems(
+        path: string = '',
+        onResult: (folders: Folder[], items: Item[]) => void,
         onError: (errorCode: string) => void
     ) {
-        setTimeout(() => {
-            onResult(this.files)
-        }, this.mockDelay);
+        if(path == 'test' || path == 'test/') {
+            onResult(this.folders2, this.items)
+        } else if(path.includes('test/child') || path.includes('test2')) {
+            onResult([], this.items)
+        } else {
+            onResult(this.folders1, this.items)
+        }
     }
 
     uploadFile(
@@ -212,7 +226,7 @@ export class MockDataSource implements DataSource {
     ) {
         setTimeout(() => {
             //must first be converted to string in real datasource
-            this.files.push(file)
+            // this.files.push(file)
 
             //return that url
             onResult(file)

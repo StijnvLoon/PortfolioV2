@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { FilePickerDialog } from 'src/app/dialogs/file-picker/file-picker.dialog';
 import { ConfirmDialog } from '../app/dialogs/confirm/confirm.dialog';
 import { TextValue } from '../models/Dictionary';
 
@@ -25,19 +26,19 @@ export class DialogService {
     })
   }
 
-  showImagePickerDialog(onResult: (url: string) => void) {
-    //TODO
+  showFilePickerDialog(
+    titleIdentifier: string | TextValue,
+    path: string = '',
+    onResult: (url: string) => void
+  ) {
+    const dialogRef = this.dialog.open(FilePickerDialog, {
+      width: this.dialogWidth,
+      height: '80%',
+      data: { title: titleIdentifier, path: path }
+    })
 
-    // const dialogRef = this.dialog.open(ImagePickerDialog, {
-    //   width: this.dialogWidth
-    // })
-
-    // dialogRef.afterClosed().subscribe(async data => {
-    //   if(data.confirmed) {
-    //     onResult(data.url)
-    //   } else {
-    //     onResult(undefined)
-    //   }
-    // })
+    dialogRef.afterClosed().subscribe(async data => {
+      onResult(data)
+    })
   }
 }

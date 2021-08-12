@@ -22,7 +22,7 @@ export class LobbyComponent implements OnInit {
     private router: Router,
     private loaderService: LoaderService,
     public languageService: LanguageService,
-    private projectService: ProjectService
+    private projectService: ProjectService,
   ) { }
 
   ngOnInit(): void {

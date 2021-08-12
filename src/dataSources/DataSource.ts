@@ -1,3 +1,5 @@
+import { Folder } from 'src/models/Folder';
+import { Item } from 'src/models/Item';
 import { Project } from '../models/Project';
 
 export interface DataSource {
@@ -22,8 +24,9 @@ export interface DataSource {
         onError: (errorCode: string) => void
     )
     // files
-    retrieveFiles(
-        onResult: (files: string[]) => void,
+    retrieveStorageItems(
+        path: string,
+        onResult: (folders: Folder[], items: Item[]) => void,
         onError: (errorCode: string) => void
     )
     uploadFile(
