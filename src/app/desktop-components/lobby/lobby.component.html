@@ -6,12 +6,12 @@
     
         <div class="center_ver">
             <div class="projects_holder" *ngIf="projects" [@LobbyListAnim]="projects.length">
-                <div class="project mat-elevation-z2" *ngFor="let project of projects" (click)="navigateProject(project)">
-                    <img class="project_image" [src]="project.coverImage">
+                <div class="project" *ngFor="let project of projects" (click)="navigateProject(project)">
+                    <img class="project_image mat-elevation-z2" [src]="project.coverImage">
                     <div class="center" style="position: absolute;">
-                        <span class="project_title">{{languageService.getUpper(project.title)}}</span>
+                        <span class="project_title mat-app-background">{{languageService.getUpper(project.title)}}</span>
                     </div>
-                    <div class="project_logos_holder" style="position: absolute;">
+                    <div class="project_logos_holder" style="position: absolute;" [style.width]="55 * project.logos.length + 'px'">
                         <img class="project_logo" *ngFor="let imageUrl of project.logos" [src]="imageUrl">
                     </div>
                 </div>

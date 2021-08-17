@@ -10,7 +10,7 @@ export interface DialogData {
 @Component({
     selector: 'confirm-dialog',
     templateUrl: './confirm.dialog.html',
-    styleUrls: ['./confirm.dialog.scss']
+    styleUrls: ['./confirm.dialog.scss', '../dialog.scss']
 })
 export class ConfirmDialog {
 
