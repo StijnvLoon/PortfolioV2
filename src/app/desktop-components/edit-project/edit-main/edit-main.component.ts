@@ -27,7 +27,7 @@ export class EditMainComponent implements OnInit {
 
   pickImage() {
     this.dialogService.showFilePickerDialog(
-      '',
+      'file_picker_choose_image',
       '',
       (url: string) => {
         if (url) {

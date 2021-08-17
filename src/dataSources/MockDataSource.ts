@@ -221,7 +221,8 @@ export class MockDataSource implements DataSource {
 
     uploadFile(
         file: any,
-        onResult: (url: string) => void,
+        path: string,
+        onResult: (item: Item) => void,
         onError: (errorCode: string) => void
     ) {
         setTimeout(() => {

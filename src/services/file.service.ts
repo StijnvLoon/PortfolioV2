@@ -18,7 +18,7 @@ export class FileService {
   constructor(
     private firestorage: AngularFireStorage,
     private firestore: AngularFirestore
-  ) { 
+  ) {
     if (!environment.production) {
       this.dataSource = new MockDataSource()
     } else {
@@ -31,6 +31,15 @@ export class FileService {
     onResult: (folders: Folder[], items: Item[]) => void,
     onError: (errorCode: string) => void
   ) {
-    this.dataSource.retrieveStorageItems(path, onResult,onError)
+    this.dataSource.retrieveStorageItems(path, onResult, onError)
+  }
+
+  uploadItem(
+    file: any,
+    path: string,
+    onResult: (item: Item) => void,
+    onError: (errorCode: string) => void
+  ) {
+    this.dataSource.uploadFile(file, path, onResult, onError)
   }
 }

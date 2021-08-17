@@ -6,6 +6,7 @@ import { FileService } from 'src/services/file.service';
 import { Folder } from 'src/models/Folder';
 import { Item } from 'src/models/Item';
 import { itemsListAnim } from 'src/animations/itemsListAnim';
+import { LoaderService } from 'src/services/loader.service';
 
 export interface DialogData {
     title: string | TextValue,
@@ -25,11 +26,16 @@ export class FilePickerDialog {
     public folders: Folder[] = []
     public items: Item[] = []
 
+    //TODO
+    //create/edit/delete folder?
+    //extention filter
+
     constructor(
         public dialogRef: MatDialogRef<FilePickerDialog>,
         @Inject(MAT_DIALOG_DATA) public data: DialogData,
         public languageService: LanguageService,
-        public fileService: FileService
+        public fileService: FileService,
+        private loaderService: LoaderService
     ) {
         this.refresh('')
     }
@@ -42,7 +48,7 @@ export class FilePickerDialog {
         this.dialogRef.close(downloadUrl)
     }
 
-    formPathFromIndex(index: number): string {
+    formPathFromIndex(index: number = this.data.path.length): string {
         let path: string = ''
 
         const parts: string[] = this.data.path.slice(0, index).filter((part) => part !== '')
@@ -63,6 +69,23 @@ export class FilePickerDialog {
             },
             (error) => {
 
+            }
+        )
+    }
+
+    uploadItem($event) {
+        this.loaderService.startLoading()
+
+        const file = $event.target.files[0]
+        this.fileService.uploadItem(
+            file,
+            this.formPathFromIndex() + '/' + file.name,
+            (item: Item) => {
+                this.items.push(item)
+                this.loaderService.stopLoading()
+            },
+            (error) => {
+                this.loaderService.stopLoading(error)
             }
         )
     }

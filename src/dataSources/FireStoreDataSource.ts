@@ -1,5 +1,5 @@
 import { AngularFirestore } from "@angular/fire/firestore";
-import { AngularFireStorage } from "@angular/fire/storage";
+import { AngularFireStorage, AngularFireStorageReference } from "@angular/fire/storage";
 import { Folder } from "src/models/Folder";
 import { Item } from "src/models/Item";
 import { Project } from "../models/Project";
@@ -88,12 +88,12 @@ export class FireStoreDataSource implements DataSource {
                 });
     }
 
-    async retrieveStorageItems(
+    retrieveStorageItems(
         path: string = '',
         onResult: (folders: Folder[], items: Item[]) => void,
         onError: (errorCode: string) => void
     ) {
-        await this.firestorage.ref(path).listAll().subscribe((result) => {
+        this.firestorage.ref(path).listAll().subscribe((result) => {
             const items: Item[] = []
             
             result.items.forEach((itemRaw) => {
@@ -106,6 +106,8 @@ export class FireStoreDataSource implements DataSource {
                     }
 
                     items.push(item)
+                }).catch((error) => {
+                    onError(error)
                 })
             })
 
@@ -123,10 +125,24 @@ export class FireStoreDataSource implements DataSource {
 
     uploadFile(
         file: any,
-        onResult: (url: string) => void,
+        path: string,
+        onResult: (item: Item) => void,
         onError: (errorCode: string) => void
     ) {
-
+        this.firestorage.ref(path).put(file)
+            .then((itemRaw) => {
+                itemRaw.ref.getDownloadURL().then((url) => {
+                    onResult({
+                        name: itemRaw.ref.name,
+                        extention: itemRaw.ref.name.split('.')[itemRaw.ref.name.split('.').length-1],
+                        path: itemRaw.ref.fullPath,
+                        downloadUrl: url
+                    })
+                })
+            })
+            .catch((error) => {
+                onError(error)
+            })
     }
 
 }
