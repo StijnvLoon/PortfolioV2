@@ -17,3 +17,17 @@
     font-weight: bold;
     font-size: 1.2em;
 }
+
+.dialog_form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.dialog_form_section {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+.dialog_form_section_object {
+    width: 100%;
+}

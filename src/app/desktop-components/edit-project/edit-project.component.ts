@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Paragraph } from 'src/models/Project';
 import { ProjectEditor } from 'src/models/ProjectEditor';
+import { AuthService } from 'src/services/auth.service';
+import { DialogService } from 'src/services/dialog.service';
 import { LanguageService } from 'src/services/language.service';
 import { LoaderService } from 'src/services/loader.service';
 import { ProjectService } from 'src/services/project.service';
@@ -16,7 +18,6 @@ export class EditProjectComponent implements OnInit {
 
   private routeSub: Subscription;
   public projectEditor: ProjectEditor;
-  private isNewProject: boolean
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +25,8 @@ export class EditProjectComponent implements OnInit {
     private loaderService: LoaderService,
     private projectService: ProjectService,
     public languageService: LanguageService,
+    private authService: AuthService,
+    private dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -60,20 +63,39 @@ export class EditProjectComponent implements OnInit {
   }
 
   submitProject() {
-    this.loaderService.startLoading()
+    if (this.authService.isLoggedIn()) {
+      this.loaderService.startLoading()
 
-    if (this.projectEditor.isNewProject) {
-      this.projectService.saveProject(
-        this.projectEditor.project,
-        () => {
-          this.loaderService.stopLoading()
-        },
-        (error) => {
-          this.loaderService.stopLoading(error)
-        }
-      )
+      if (this.projectEditor.isNewProject) {
+        this.projectService.saveProject(
+          this.projectEditor.project,
+          () => {
+            this.loaderService.stopLoading()
+          },
+          (error) => {
+            this.loaderService.stopLoading(error)
+          }
+        )
+      } else {
+        this.projectService.updateProject(
+          this.projectEditor.project,
+          () => {
+            this.loaderService.stopLoading()
+            this.router.navigate([``])
+          },
+          (error) => {
+            this.loaderService.stopLoading(error)
+          }
+        )
+      }
     } else {
-      this.projectService.updateProject(
+      this.dialogService.showLoginDialog()
+    }
+  }
+
+  deleteProject() {
+    if(this.authService.isLoggedIn()) {
+      this.projectService.deleteProject(
         this.projectEditor.project,
         () => {
           this.loaderService.stopLoading()
@@ -83,19 +105,8 @@ export class EditProjectComponent implements OnInit {
           this.loaderService.stopLoading(error)
         }
       )
+    } else {
+      this.dialogService.showLoginDialog()
     }
-  }
-
-  deleteProject() {
-    this.projectService.deleteProject(
-      this.projectEditor.project,
-      () => {
-        this.loaderService.stopLoading()
-        this.router.navigate([``])
-      },
-      (error) => {
-        this.loaderService.stopLoading(error)
-      }
-    )
   }
 }

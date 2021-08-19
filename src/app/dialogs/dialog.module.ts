@@ -4,11 +4,13 @@ import { MaterialModule } from '../material.module';
 
 import { ConfirmDialog } from './confirm/confirm.dialog'
 import { FilePickerDialog } from './file-picker/file-picker.dialog';
+import { LoginDialog } from './login/login.dialog';
 
 @NgModule({
   declarations: [
       ConfirmDialog,
-      FilePickerDialog
+      FilePickerDialog,
+      LoginDialog
   ],
   imports: [
     CommonModule,

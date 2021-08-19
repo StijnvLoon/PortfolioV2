@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FilePickerDialog } from 'src/app/dialogs/file-picker/file-picker.dialog';
+import { LoginDialog } from 'src/app/dialogs/login/login.dialog';
 import { ConfirmDialog } from '../app/dialogs/confirm/confirm.dialog';
 import { TextValue } from '../models/Dictionary';
 
@@ -26,6 +27,13 @@ export class DialogService {
     })
   }
 
+  showLoginDialog() {
+    this.dialog.open(LoginDialog, {
+      width: this.dialogWidth,
+      data: { title: 'login_first' }
+    })
+  }
+
   showFilePickerDialog(
     titleIdentifier: string | TextValue,
     path: string = '',
@@ -41,4 +49,5 @@ export class DialogService {
       onResult(data)
     })
   }
+
 }

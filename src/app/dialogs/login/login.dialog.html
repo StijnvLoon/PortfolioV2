@@ -1,0 +1,40 @@
+<div class="dialog_container">
+
+    <div class="dialog_title">
+        <h1 mat-dialog-title>{{languageService.getUpper(data.title)}}</h1>
+    </div>
+
+    <div class="dialog_body">
+        <form class="dialog_form" [formGroup]="loginForm">
+
+            <div class="dialog_form_section">
+                <mat-form-field class="dialog_form_section_object" appearance="fill">
+                    <mat-label>{{languageService.getUpper('login_username')}}</mat-label>
+                    <input type="text" matInput formControlName="usernameControl">
+                    <mat-error *ngIf="loginForm.get('usernameControl').hasError('required')">{{languageService.getUpper('form_required')}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="dialog_form_section_object" appearance="fill">
+                    <mat-label>{{languageService.getUpper('login_password')}}</mat-label>
+                    <input type="password" matInput formControlName="passwordControl">
+                    <mat-error *ngIf="loginForm.get('passwordControl').hasError('required')">{{languageService.getUpper('form_required')}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+        </form>
+
+        <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+    </div>
+
+    <div class="dialog_footer">
+        <div mat-dialog-actions>
+            <button mat-flat-button (click)="close()" color="primary"
+                class="mat-elevation-z1">{{languageService.getUpper('cancel')}}</button>
+            <button mat-flat-button (click)="submit()" color="accent" [disabled]="loginForm.invalid"
+                class="mat-elevation-z1">{{languageService.getUpper('submit')}}</button>
+        </div>
+    </div>
+
+</div>

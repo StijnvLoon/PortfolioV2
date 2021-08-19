@@ -33,6 +33,11 @@ export const nl: Dictionary = {
     text: 'tekst',
     to: 'aan',
     remove: 'verwijder',
+    login_first: 'je moet eerst inloggen',
+    login_password: 'wachtwoord',
+    login_username: 'gebruikersnaam',
+    form_required: 'verplicht',
+    submit: 'bevestigen',
     mail_subject: 'vraag over',
     editor_submit: 'indienen',
     editor_update: 'updaten',
@@ -46,5 +51,5 @@ export const nl: Dictionary = {
     header_search: 'zoeken',
     hint_navigate_to: 'navigeer naar',
     file_picker_choose_image: 'kies een afbeelding',
-    file_picker_upload: 'uploaden'
+    file_picker_upload: 'uploaden',
 }
