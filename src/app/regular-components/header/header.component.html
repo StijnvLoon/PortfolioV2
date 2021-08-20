@@ -16,7 +16,8 @@
         </button>
     </div>
     <div class="toolbar_item" style="justify-content: center;">
-        <app-search></app-search>
+        <!-- shadow fix -->
+        <app-search style="padding-bottom: 2px;"></app-search>
     </div>
     <div class="toolbar_item" style="justify-content: flex-end;">
         <button mat-icon-button [matTooltip]="languageService.getUpper('header_help')">
