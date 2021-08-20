@@ -4,7 +4,7 @@
             <desktop-cover [url]="project.coverImage"></desktop-cover>
             <desktop-title [title]="project.title" [status]="project.status" [keywords]="project.keywords"></desktop-title>
             
-            <mat-divider></mat-divider>
+            <mat-divider *ngIf="project.content.length > 0"></mat-divider>
             <desktop-paragraph *ngFor="let paragraph of project.content" [paragraph]="paragraph"></desktop-paragraph>
             
             <mat-divider *ngIf="project.images.length > 0"></mat-divider>

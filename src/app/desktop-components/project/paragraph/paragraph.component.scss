@@ -1,3 +1,7 @@
+.paragraph {
+    animation: blur_background 3s linear 1s;
+    animation-fill-mode: forwards;
+}
 .par_header {
     margin-bottom: 0px;
     font-weight: bold;
@@ -5,4 +9,9 @@
 .par_text {
     font-size: 1.2em;
     white-space: pre-wrap;
+}
+
+@keyframes blur_background {
+    0% { backdrop-filter: blur(0px) }
+    100% { backdrop-filter: blur(30px) }
 }

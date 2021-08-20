@@ -44,6 +44,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.routeSub.unsubscribe();
+    this.project = undefined
   }
 
   onPageScroll(event) {
