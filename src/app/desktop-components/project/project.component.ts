@@ -36,7 +36,6 @@ export class ProjectComponent implements OnInit, OnDestroy {
         },
         (error) => {
           this.loaderService.stopLoading(error)
-          //TODO 
         }
       )
     });

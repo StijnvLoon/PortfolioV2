@@ -1,4 +1,8 @@
-<div class="paragraph" [style.margin-left]="level * 15 + 'px'">
+<div class="paragraph" 
+    [style.margin-left]="level * 15 + 'px'" 
+    [class.paragraph_bg]="level == 0"
+    [class.bg_light]="level == 0 && isLightTheme()"
+    [class.bg_dark]="level == 0 && !isLightTheme()">
     <div [ngSwitch]="level">
         <h1 class="par_header" *ngSwitchCase="0">{{languageService.get(paragraph.title)}}</h1>
         <h2 class="par_header" *ngSwitchCase="1">{{languageService.get(paragraph.title)}}</h2>
@@ -9,6 +13,7 @@
     </div>
 
     <p class="par_text">{{languageService.get(paragraph.text)}}</p>
-    
-    <desktop-paragraph *ngFor="let subparagraph of paragraph.content" [paragraph]="subparagraph" [level]="level + 1"></desktop-paragraph>
+
+    <desktop-paragraph *ngFor="let subparagraph of paragraph.content" [paragraph]="subparagraph" [level]="level + 1">
+    </desktop-paragraph>
 </div>

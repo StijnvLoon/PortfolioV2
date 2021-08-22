@@ -1,7 +1,7 @@
 <div class="page_container" (scroll)="onPageScroll($event)">
     <div class="page_center" style="margin-bottom: 100px;">
         <div *ngIf="project" style="margin-top: 12px">
-            <desktop-cover [url]="project.coverImage"></desktop-cover>
+            <desktop-cover [url]="project.coverImage" [editProjectUrl]="'/project/' + projectService.getUrl(project) + '/edit'"></desktop-cover>
             <desktop-title [title]="project.title" [status]="project.status" [keywords]="project.keywords"></desktop-title>
             
             <mat-divider *ngIf="project.content.length > 0"></mat-divider>

@@ -1,18 +1,22 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Project } from 'src/models/Project';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'desktop-cover',
   templateUrl: './cover.component.html',
   styleUrls: ['./cover.component.scss']
 })
-export class CoverComponent implements OnInit {
+export class CoverComponent {
 
   @Input() url: string;
+  @Input() editProjectUrl: string
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
-  ngOnInit(): void {
+  editProject() {
+    this.router.navigateByUrl(this.editProjectUrl)
   }
 
 }
