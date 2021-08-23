@@ -129,13 +129,25 @@ export class EditUtilsComponent implements OnInit {
     this.projectEditor.project.questions.push({ question: {}, answer: {} })
   }
 
-  pickImage(index: number) {
+  pickLogo(index: number) {
     this.dialogService.showFilePickerDialog(
       'file_picker_choose_image',
       '',
       (url: string) => {
         if (url) {
           this.updateLogo(index, url)
+        }
+      }
+    )
+  }
+
+  pickImage(index: number) {
+    this.dialogService.showFilePickerDialog(
+      'file_picker_choose_image',
+      '',
+      (url: string) => {
+        if (url) {
+          this.projectEditor.project.images[index].url = url
         }
       }
     )
