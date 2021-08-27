@@ -1,5 +1,5 @@
 .page_container {
-    padding-top: var(--headerHeight);
+    margin-top: var(--headerHeight);
     height: calc(100vh - var(--headerHeight));
     overflow-y: scroll;
     position: absolute;

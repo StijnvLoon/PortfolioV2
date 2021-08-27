@@ -5,7 +5,6 @@ import { Project } from 'src/models/Project';
 import { LanguageService } from 'src/services/language.service';
 import { LoaderService } from 'src/services/loader.service';
 import { ProjectService } from 'src/services/project.service';
-import { ScrollService } from 'src/services/scroll.service';
 
 @Component({
   selector: 'desktop-project',
@@ -22,7 +21,6 @@ export class ProjectComponent implements OnInit, OnDestroy {
     private loaderService: LoaderService,
     private projectService: ProjectService,
     public languageService: LanguageService,
-    private scrollService: ScrollService
   ) { }
 
   ngOnInit(): void {
@@ -44,10 +42,6 @@ export class ProjectComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.routeSub.unsubscribe();
     this.project = undefined
-  }
-
-  onPageScroll(event) {
-    this.scrollService.triggerScroll(event)
   }
 
 }

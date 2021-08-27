@@ -4,12 +4,13 @@ h1 {
 
 .container {
     width: 100%;
-    height: var(--picturesHeight);
+    height: 500px;
+    position: relative;
 }
 .image_container {
     position: absolute;
-    width: var(--pageWidth);
-    height: var(--picturesHeight);
+    width: inherit;
+    height: inherit;
     display: flex;
     justify-content: center;
 }
@@ -19,8 +20,8 @@ h1 {
 
 .overlay {
     position: absolute;
-    width: var(--pageWidth);
-    height: var(--picturesHeight);
+    width: inherit;
+    height: inherit;
     background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(255,214,0,0) 15%, rgba(255,214,0,0) 85%, rgba(0,0,0,0.9) 100%);
     z-index: 10;
     opacity: 0;
