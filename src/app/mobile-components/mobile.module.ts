@@ -5,6 +5,7 @@ import { MaterialModule } from 'src/app/material.module';
 import { AboutComponent } from 'src/app/mobile-components/about/about.component';
 import { LobbyComponent } from 'src/app/mobile-components/lobby/lobby.component';
 import { ProjectComponent } from 'src/app/mobile-components/project/project.component';
+import { RegularModule } from '../regular.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ProjectComponent } from 'src/app/mobile-components/project/project.comp
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RegularModule
   ]
 })
 export class MobileModule { }

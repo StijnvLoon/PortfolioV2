@@ -1,0 +1,19 @@
+.wrapper {
+    height: inherit;
+    width: inherit;
+}
+
+.image {
+    border-radius: inherit;
+    object-fit: inherit;
+    vertical-align: inherit;
+    transition: opacity 0.3s;
+}
+
+.error {
+    color: var(--theme-warn-500);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px var(--theme-warn-500) dashed;
+}

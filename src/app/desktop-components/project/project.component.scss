@@ -2,3 +2,17 @@ mat-divider {
     margin-top: 12px;
     margin-bottom: 12px;
 }
+
+.cover {
+    height: 150px;
+    width: 100%;
+    position: relative;
+}
+
+.cover img-lazy {
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+    border-radius: 20px;
+    position: absolute;
+}

@@ -1,0 +1,4 @@
+<img class="wrapper image" [src]="src" [ngStyle]="{opacity: isLoading ? '0' : '1'}" (load)="onLoadingFinished()"
+    (error)="onError()" *ngIf="!hasError">
+
+<div class="wrapper error" *ngIf="hasError" (click)="showError()">error</div>

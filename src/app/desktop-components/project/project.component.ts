@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Project } from 'src/models/Project';
 import { LanguageService } from 'src/services/language.service';
@@ -18,6 +18,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private loaderService: LoaderService,
     private projectService: ProjectService,
     public languageService: LanguageService,
@@ -42,6 +43,10 @@ export class ProjectComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.routeSub.unsubscribe();
     this.project = undefined
+  }
+
+  editProject() {
+    this.router.navigateByUrl('/project/' + this.projectService.getUrl(this.project) + '/edit')
   }
 
 }

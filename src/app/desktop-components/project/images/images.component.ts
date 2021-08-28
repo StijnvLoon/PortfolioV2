@@ -33,10 +33,6 @@ export class ImagesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  isCurrent(image: Image): boolean {
-      return this.images.indexOf(image) == this.currentIndex
-  }
-
   nextImage() {
     if(this.currentIndex < this.images.length-1) {
       this.currentIndex++

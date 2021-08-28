@@ -2,19 +2,19 @@
 
 <div class="container" [@animSlider]="currentIndex">
 
-    <div *ngFor="let image of images" class="image_container">
-        <img [src]="image.url" *ngIf="isCurrent(image)">
+    <div *ngFor="let image of images; let i = index" class="image_container">
+        <img-lazy [src]="image.url" *ngIf="i == currentIndex"></img-lazy>
     </div>
 
     <div class="overlay">
         <div matRipple class="overlay_side" (click)="previousImage()">
-            <mat-icon class="icon_pointer">keyboard_arrow_left</mat-icon>
+            <mat-icon class="icon_pointer material-icons-round">keyboard_arrow_left</mat-icon>
         </div>
 
         <div class="overlay_middle"></div>
 
         <div matRipple class="overlay_side" (click)="nextImage()">
-            <mat-icon class="icon_pointer">keyboard_arrow_right</mat-icon>
+            <mat-icon class="icon_pointer material-icons-round">keyboard_arrow_right</mat-icon>
         </div>
     </div>
 </div>
