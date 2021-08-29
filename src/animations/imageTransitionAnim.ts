@@ -13,7 +13,7 @@ export const imageTransitionAnimLtoR =
                 [
                     style({ opacity: 1 }),
                     animate('0.8s ease',
-                        style({ opacity: 0 }))
+                        style({ opacity: 0, transform: 'translateX(100px)' }))
                 ], { optional: true }),
         ])
     ];
@@ -30,7 +30,7 @@ export const imageTransitionAnimRtoL =
                 [
                     style({ opacity: 1 }),
                     animate('0.8s ease',
-                        style({ opacity: 0 }))
+                        style({ opacity: 0, transform: 'translateX(-100px)' }))
                 ], { optional: true }),
         ])
     ];

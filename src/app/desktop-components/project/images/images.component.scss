@@ -22,7 +22,6 @@ h1 {
     position: absolute;
     width: inherit;
     height: inherit;
-    background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(255,214,0,0) 15%, rgba(255,214,0,0) 85%, rgba(0,0,0,0.9) 100%);
     z-index: 10;
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -32,6 +31,9 @@ h1 {
 .container:hover .overlay {
     opacity: 1;
 }
+.container:hover .overlay .overlay_middle .drawer {
+    transform: unset;
+}
 
 .overlay_side {
     cursor: pointer;
@@ -39,16 +41,58 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
 }
 .overlay_side:hover .icon_pointer{
     transform: scale(3.5);
 }
+.overlay_disabled {
+    opacity: 0.2;
+    cursor: unset;
+    pointer-events: none;
+}
+
 .overlay_middle {
     flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
 }
 
 .icon_pointer {
     color: white;
     transform: scale(3);
     transition: transform 0.3s ease-in-out;
+}
+
+.image_title {
+    text-align: center;
+}
+
+.drawer {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 6px;
+    transition: transform 0.3s ease;
+    transform: translateY(5px);
+}
+.drawer div {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: var(--theme-accent-500);
+    color: var(--theme-accent-contrast-500);
+    cursor: pointer;
+    font-size: 1.6em;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.index_selected {
+    background-color: var(--theme-accent-900) !important;
+    color: var(--theme-accent-contrast-900) !important;
 }

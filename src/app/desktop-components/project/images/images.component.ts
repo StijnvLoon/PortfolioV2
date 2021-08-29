@@ -17,12 +17,6 @@ import { Image } from 'src/models/Project';
 })
 export class ImagesComponent implements OnInit {
 
-  //TODO
-  //picture drawer (little pictures with current selected picture)
-  //left/right button faded away if unable to go that way
-  //picture title somewhere
-  //button to open picture in seperate window (so people can zoom in)
-
   @Input() images: Image[]
   public currentIndex: number = 0
 
