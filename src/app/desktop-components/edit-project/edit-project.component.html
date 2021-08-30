@@ -1,4 +1,4 @@
-<div class="page_container">
+<div class="page_container" id="scrollable">
     <div class="page_center" style="margin-bottom: 100px;">
         <div class="holder" *ngIf="projectEditor" style="margin-top: 12px">
             <desktop-edit-language [projectEditor]="projectEditor"></desktop-edit-language>
@@ -41,3 +41,5 @@
         </div>
     </div>
 </div>
+
+<app-scrollup [scrollElement]="getScrollElement()"></app-scrollup>

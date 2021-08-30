@@ -1,4 +1,4 @@
-<div class="page_container">
+<div class="page_container" id="scrollable">
     <div class="page_center" style="margin-bottom: 100px;">
         <div *ngIf="project" style="margin-top: 12px">
             <div class="cover">
@@ -20,3 +20,5 @@
         </div>
     </div>
 </div>
+
+<app-scrollup [scrollElement]="getScrollElement()"></app-scrollup>

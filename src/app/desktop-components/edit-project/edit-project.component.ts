@@ -94,7 +94,7 @@ export class EditProjectComponent implements OnInit {
   }
 
   deleteProject() {
-    if(this.authService.isLoggedIn()) {
+    if (this.authService.isLoggedIn()) {
       this.projectService.deleteProject(
         this.projectEditor.project,
         () => {
@@ -108,5 +108,9 @@ export class EditProjectComponent implements OnInit {
     } else {
       this.dialogService.showLoginDialog()
     }
+  }
+
+  getScrollElement(): Element {
+    return document.getElementById('scrollable')
   }
 }
