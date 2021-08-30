@@ -29,13 +29,51 @@
 </mat-toolbar>
 
 <mat-toolbar color="primary" class="mat-elevation-z2 transit_theme" *ngIf="isMobile()">
-    <button mat-button routerLink="/About" color="accent">
-        {{languageService.getUpper('about')}}
+    <button mat-icon-button color="accent" [matMenuTriggerFor]="menu">
+        <mat-icon class="material-icons-round">menu</mat-icon>
     </button>
 
     <app-search style="margin: auto;"></app-search>
 
-    <app-button-theme></app-button-theme>
-    <app-button-language></app-button-language>
-
+    <button mat-icon-button color="accent" routerLink="/"
+        [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_lobby') + '\''">
+        <mat-icon class="material-icons-round">cottage</mat-icon>
+    </button>
 </mat-toolbar>
+
+<mat-menu #menu="matMenu" [matTooltip]="languageService.getUpper('hint_options')">
+    <button mat-menu-item color="accent"
+        [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_lobby') + '\''">
+        <span>{{languageService.getUpper('header_lobby')}}</span>
+    </button>
+    <button mat-menu-item color="accent"
+        [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_about') + '\''">
+        <span>{{languageService.getUpper('header_about')}}</span>
+    </button>
+    <button mat-menu-item color="accent"
+        [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_contact') + '\''">
+        <span>{{languageService.getUpper('header_contact')}}</span>
+    </button>
+    <button mat-menu-item color="accent" [matMenuTriggerFor]="themes">
+        <mat-icon>palette</mat-icon>
+        <span>{{languageService.getUpper('header_change_theme')}}</span>
+    </button>
+    <button mat-menu-item color="accent" [matMenuTriggerFor]="languages">
+        <mat-icon>language</mat-icon>
+        <span>{{languageService.getUpper('header_change_language')}}</span>
+    </button>
+</mat-menu>
+
+<mat-menu #themes="matMenu">
+    <button mat-menu-item (click)="themeService.setTheme(1)">Light</button>
+    <button mat-menu-item (click)="themeService.setTheme(0)">Dark</button>
+</mat-menu>
+
+<mat-menu #languages="matMenu">
+    <button mat-menu-item [disabled]="languageService.language == 0" (click)="languageService.setLanguage(0)">
+        <span>Nederlands</span>
+    </button>
+    <button mat-menu-item [disabled]="languageService.language == 1" (click)="languageService.setLanguage(1)">
+        <span>English</span>
+    </button>
+</mat-menu>

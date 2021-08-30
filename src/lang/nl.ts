@@ -49,6 +49,7 @@ export const nl: Dictionary = {
     header_change_language: 'verander taal',
     header_help: 'help',
     header_search: 'zoeken',
+    hint_options: 'opties',
     hint_navigate_to: 'navigeer naar',
     file_picker_choose_image: 'kies een afbeelding',
     file_picker_upload: 'uploaden',

@@ -49,6 +49,7 @@ export const en: Dictionary = {
     header_change_language: 'switch language',
     header_help: 'help',
     header_search: 'search',
+    hint_options: 'options',
     hint_navigate_to: 'navigate to',
     file_picker_choose_image: 'choose an image',
     file_picker_upload: 'upload',

@@ -57,6 +57,7 @@ export interface Dictionary {
   header_change_language: string
   header_help: string
   header_search: string
+  hint_options: string
   hint_navigate_to: string
   file_picker_choose_image: string
   file_picker_upload: string
