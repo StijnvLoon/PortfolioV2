@@ -42,4 +42,8 @@ export class LobbyComponent implements OnInit {
     this.router.navigate([`/project/${ this.projectService.getUrl(project) }`])
   }
 
+  getScrollElement(): Element {
+    return document.getElementById('scrollable')
+  }
+
 }

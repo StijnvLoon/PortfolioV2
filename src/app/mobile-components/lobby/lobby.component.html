@@ -1,19 +1,29 @@
-<div class="page_container">
+<div class="page_container" id="scrollable">
     <div class="page_center">
         <div class="page_title">
             {{languageService.getUpper('welcome')}}
         </div>
-    
+
         <div class="center_ver">
             <div class="projects_holder" *ngIf="projects" [@LobbyListAnim]="projects.length">
-                <div matRipple class="project mat-elevation-z2" *ngFor="let project of projects" (click)="navigateProject(project)">
-                    <img-lazy class="project_image" [src]="project.coverImage" ></img-lazy>
-                    <div class="center" style="position: absolute;">
-                        <span class="project_title">{{languageService.get(project.title)}}</span>
+
+                <mat-card matRipple class="project" *ngFor="let project of projects" (click)="navigateProject(project)">
+                    <mat-card-header class="project_header">
+                        <mat-card-title>{{languageService.get(project.title)}}</mat-card-title>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <img class="project_image" [src]="project.coverImage">
+                        <mat-divider inset *ngIf="project.logos.length > 0"></mat-divider>
+                    </mat-card-content>
+
+                    <div class="project_footer" *ngIf="project.logos.length > 0">
+                        <img-lazy class="project_logo" *ngFor="let imageUrl of project.logos" [src]="imageUrl"></img-lazy>
                     </div>
-                </div>
+                </mat-card>
             </div>
         </div>
-    
     </div>
 </div>
+
+<app-scrollup [scrollElement]="getScrollElement()"></app-scrollup>
