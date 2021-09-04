@@ -3,6 +3,7 @@ import { Language } from 'src/models/Dictionary';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 import { DialogService } from 'src/services/dialog.service';
 import { LanguageService } from 'src/services/language.service';
+import { moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'desktop-edit-utils',
@@ -151,5 +152,14 @@ export class EditUtilsComponent implements OnInit {
         }
       }
     )
+  }
+
+  moveItem(array: any[], item: any, indexModifier: number) {
+    const fromIndex: number = array.indexOf(item)
+    const targetIndex: number = fromIndex + indexModifier
+
+    if(targetIndex >= 0 && targetIndex < array.length) {
+      moveItemInArray(array, fromIndex, targetIndex);
+    }
   }
 }

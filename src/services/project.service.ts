@@ -7,6 +7,7 @@ import { Project } from '../models/Project';
 import { environment } from 'src/environments/environment';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { LanguageService } from './language.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class ProjectService {
 
   constructor(
     private firestorage: AngularFireStorage,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private languageService: LanguageService
   ) {
     if (!environment.production) {
       this.dataSource = new MockDataSource()
@@ -136,7 +138,9 @@ export class ProjectService {
   ) {
     this.dataSource.retrieveProjects(
       (projects: Project[]) => {
-        this.projects = projects
+        this.projects = projects.sort((a, b) => (
+          this.languageService.get(a.title) > this.languageService.get(b.title) ? 1 : -1)
+        )
         onFinished()
       }, onError)
   }

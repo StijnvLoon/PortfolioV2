@@ -27,6 +27,10 @@
                 <button mat-icon-button color="warn" (click)="deleteLogo(i)">
                     <mat-icon>close</mat-icon>
                 </button>
+                <div class="mover">
+                    <div matRipple (click)="moveItem(projectEditor.project.logos, logo, -1)"><mat-icon>keyboard_arrow_up</mat-icon></div>
+                    <div matRipple (click)="moveItem(projectEditor.project.logos, logo, 1)"><mat-icon>keyboard_arrow_down</mat-icon></div>
+                </div>
             </div>
         </div>
         <button mat-raised-button color="primary" (click)="addLogo()">{{languageService.getUpper('add')}}</button>
@@ -107,6 +111,10 @@
                 <button mat-icon-button color="warn" (click)="deleteUrl(i)">
                     <mat-icon>close</mat-icon>
                 </button>
+                <div class="mover">
+                    <div matRipple (click)="moveItem(projectEditor.project.urls, url, -1)"><mat-icon>keyboard_arrow_up</mat-icon></div>
+                    <div matRipple (click)="moveItem(projectEditor.project.urls, url, 1)"><mat-icon>keyboard_arrow_down</mat-icon></div>
+                </div>
             </div>
         </div>
         <button mat-raised-button color="primary" (click)="addUrl()">{{languageService.getUpper('add')}}</button>
@@ -140,6 +148,10 @@
                 <button mat-icon-button color="warn" (click)="deleteImage(i)">
                     <mat-icon>close</mat-icon>
                 </button>
+                <div class="mover">
+                    <div matRipple (click)="moveItem(projectEditor.project.images, image, -1)"><mat-icon>keyboard_arrow_up</mat-icon></div>
+                    <div matRipple (click)="moveItem(projectEditor.project.images, image, 1)"><mat-icon>keyboard_arrow_down</mat-icon></div>
+                </div>
             </div>
         </div>
         <button mat-raised-button color="primary" (click)="addImage()">{{languageService.getUpper('add')}}</button>
@@ -171,6 +183,10 @@
                 <button mat-icon-button color="warn" (click)="deleteQuestion(i)">
                     <mat-icon>close</mat-icon>
                 </button>
+                <div class="mover">
+                    <div matRipple (click)="moveItem(projectEditor.project.questions, question, -1)"><mat-icon>keyboard_arrow_up</mat-icon></div>
+                    <div matRipple (click)="moveItem(projectEditor.project.questions, question, 1)"><mat-icon>keyboard_arrow_down</mat-icon></div>
+                </div>
             </div>
         </div>
         <button mat-raised-button color="primary" (click)="addQuestion()">{{languageService.getUpper('add')}}</button>
