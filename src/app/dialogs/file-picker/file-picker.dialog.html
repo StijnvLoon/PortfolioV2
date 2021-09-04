@@ -2,6 +2,11 @@
 
     <div class="dialog_title">
         <h1 mat-dialog-title>{{languageService.getUpper(data.title)}}</h1>
+        <mat-form-field appearance="fill">
+            <mat-label>{{languageService.getUpper('file_picker_namefilter')}}</mat-label>
+            <input matInput [(ngModel)]="nameFilter">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
     </div>
 
     <div class="dialog_body">
@@ -20,11 +25,12 @@
         </div>
 
         <div class="container_items" [@ItemsListAnim]="folders.length + items.length">
-            <div matRipple class="item" *ngFor="let folder of folders" (click)="refresh(folder.path)">
+            <div matRipple class="item" *ngFor="let folder of folders" (click)="refresh(folder.path)"
+                [matTooltip]="folder.name">
                 <mat-icon color="primary" class="material-icons-round">folder</mat-icon>
                 <div class="name">{{folder.name}}</div>
             </div>
-            <div matRipple class="item" *ngFor="let item of items" (click)="submit(item.downloadUrl)"
+            <div matRipple class="item" *ngFor="let item of getFilteredItems()" (click)="submit(item.downloadUrl)"
                 [matTooltip]="item.name">
                 <img [src]="item.downloadUrl">
                 <div class="name">{{item.name}}</div>

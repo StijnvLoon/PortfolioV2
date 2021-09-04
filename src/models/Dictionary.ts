@@ -44,6 +44,7 @@ export interface Dictionary {
   login_first: string
   login_username: string
   login_password: string
+  login_required: string
   form_required: string
   submit: string
   mail_subject: string
@@ -61,6 +62,7 @@ export interface Dictionary {
   hint_navigate_to: string
   file_picker_choose_image: string
   file_picker_upload: string
+  file_picker_namefilter: string
 }
 
 export const languageArray: () => string[] = () => {

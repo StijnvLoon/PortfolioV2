@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { changeAnim } from 'src/animations/changeAnim';
 
 @Component({
@@ -7,18 +7,28 @@ import { changeAnim } from 'src/animations/changeAnim';
   styleUrls: ['./scrollup.component.scss'],
   animations: [ changeAnim ]
 })
-export class ScrollupComponent implements OnInit {
+export class ScrollupComponent implements OnInit, OnDestroy {
 
   @Input() scrollElement: Element
   isPresent: boolean = false
 
+  private onScrollListener: () => void = () => {
+    console.log('scrolling')
+    this.isPresent = this.scrollElement.scrollTop > 20
+  }
+
   constructor() { }
 
   ngOnInit(): void {
-    this.scrollElement.addEventListener('scroll', (event) => {
-      this.isPresent = this.scrollElement.scrollTop > 20
-    })
+    console.log(this.scrollElement)
+    this.scrollElement.addEventListener('scroll', this.onScrollListener)
   }
+
+  ngOnDestroy(): void {
+    this.scrollElement.removeEventListener('scroll', this.onScrollListener, true)
+    console.log('destroyed')
+  }
+
 
   scrollup() {
     this.scrollElement.scroll({

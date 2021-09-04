@@ -15,7 +15,8 @@ export class MockDataSource implements DataSource {
         { name: 'child', path: 'test/child'}
     ]
     private readonly items: Item[] = [
-        { name: 'yoga-olifant-p1661023-1.jpg', extention: '.jpg', path: '', downloadUrl: 'https://walz-images.walz.de/v2/800x800_r1/images/MH/653/1/6531075_01/jpg/yoga-olifant-p1661023-1.jpg' }
+        { name: 'olifant.jpg', extention: '.jpg', path: '', downloadUrl: 'https://walz-images.walz.de/v2/800x800_r1/images/MH/653/1/6531075_01/jpg/yoga-olifant-p1661023-1.jpg' },
+        { name: 'kangaroe.jpg', extention: '.jpg', path: '', downloadUrl: 'https://walz-images.walz.de/v2/800x800_r1/images/MH/653/1/6531075_01/jpg/yoga-olifant-p1661023-1.jpg' }
     ]
 
     private readonly projectList: Project[] = [
@@ -210,12 +211,10 @@ export class MockDataSource implements DataSource {
         onResult: (folders: Folder[], items: Item[]) => void,
         onError: (errorCode: string) => void
     ) {
-        if(path == 'test' || path == 'test/') {
-            onResult(this.folders2, this.items)
-        } else if(path.includes('test/child') || path.includes('test2')) {
-            onResult([], this.items)
-        } else {
-            onResult(this.folders1, this.items)
+        switch(path) {
+            case '': onResult(this.folders1, []); break
+            case 'test': onResult(this.folders2, []); break
+            case 'test2': onResult([], this.items); break
         }
     }
 

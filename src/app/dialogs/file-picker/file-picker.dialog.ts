@@ -7,10 +7,13 @@ import { Folder } from 'src/models/Folder';
 import { Item } from 'src/models/Item';
 import { itemsListAnim } from 'src/animations/itemsListAnim';
 import { LoaderService } from 'src/services/loader.service';
+import { AuthService } from 'src/services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DialogService } from 'src/services/dialog.service';
 
 export interface DialogData {
     title: string | TextValue,
-    path: string[]
+    path: string[],
 }
 
 @Component({
@@ -25,17 +28,19 @@ export class FilePickerDialog {
 
     public folders: Folder[] = []
     public items: Item[] = []
+    public nameFilter: string = ''
 
     //TODO
     //create/edit/delete folder?
-    //extention filter
 
     constructor(
         public dialogRef: MatDialogRef<FilePickerDialog>,
         @Inject(MAT_DIALOG_DATA) public data: DialogData,
         public languageService: LanguageService,
         public fileService: FileService,
-        private loaderService: LoaderService
+        private loaderService: LoaderService,
+        private authService: AuthService,
+        private dialogService: DialogService
     ) {
         this.refresh('')
     }
@@ -46,6 +51,12 @@ export class FilePickerDialog {
 
     submit(downloadUrl: string) {
         this.dialogRef.close(downloadUrl)
+    }
+
+    getFilteredItems(): Item[] {
+        return this.items.filter(
+            (item) => item.name.toLowerCase().includes(this.nameFilter.toLowerCase())
+        )
     }
 
     formPathFromIndex(index: number = this.data.path.length): string {
@@ -63,30 +74,32 @@ export class FilePickerDialog {
         this.fileService.getItems(
             path,
             (folders, items) => {
-                this.folders = folders
-                this.items = items
+                this.folders = folders.sort((a, b) => a.name > b.name ? 1 : -1)
+                this.items = items.sort((a, b) => a.name > b.name ? 1 : -1)
                 this.data.path = path.split('/').filter((part) => part !== '')
             },
-            (error) => {
-
-            }
+            (error) => { }
         )
     }
 
     uploadItem($event) {
-        this.loaderService.startLoading()
+        if(this.authService.isLoggedIn()) {
+            this.loaderService.startLoading()
 
-        const file = $event.target.files[0]
-        this.fileService.uploadItem(
-            file,
-            this.formPathFromIndex() + '/' + file.name,
-            (item: Item) => {
-                this.items.push(item)
-                this.loaderService.stopLoading()
-            },
-            (error) => {
-                this.loaderService.stopLoading(error)
-            }
-        )
+            const file = $event.target.files[0]
+            this.fileService.uploadItem(
+                file,
+                this.formPathFromIndex() + '/' + file.name,
+                (item: Item) => {
+                    this.items.push(item)
+                    this.loaderService.stopLoading()
+                },
+                (error) => {
+                    this.loaderService.stopLoading(error)
+                }
+            )
+        } else {
+            this.dialogService.showLoginDialog()
+        }
     }
 }

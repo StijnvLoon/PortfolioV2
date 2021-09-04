@@ -49,8 +49,4 @@ export class ProjectComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/project/' + this.projectService.getUrl(this.project) + '/edit')
   }
 
-  getScrollElement(): Element {
-    return document.getElementById('scrollable')
-  }
-
 }

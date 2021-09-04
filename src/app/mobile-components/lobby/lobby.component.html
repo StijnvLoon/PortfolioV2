@@ -1,4 +1,4 @@
-<div class="page_container" id="scrollable">
+<div class="page_container" #scrollable>
     <div class="page_center">
         <div class="page_title">
             {{languageService.getUpper('welcome')}}
@@ -26,4 +26,4 @@
     </div>
 </div>
 
-<app-scrollup [scrollElement]="getScrollElement()"></app-scrollup>
+<app-scrollup [scrollElement]="scrollable"></app-scrollup>

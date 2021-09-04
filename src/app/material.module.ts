@@ -19,6 +19,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -42,7 +43,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatListModule,
     MatTooltipModule,
     MatCheckboxModule,
-    DragDropModule
+    DragDropModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule { }

@@ -20,16 +20,20 @@
                     <mat-label>{{i + 1}}</mat-label>
                     <input matInput [value]="logo" (input)="updateLogo(i, $event.target.value)">
                     <button mat-icon-button matSuffix (click)="pickLogo(i)">
-                        <mat-icon>folder</mat-icon>
+                        <mat-icon class="material-icons-round">folder</mat-icon>
                     </button>
                 </mat-form-field>
                 <img [src]="logo" style="height: 50px; min-width: 50px;">
                 <button mat-icon-button color="warn" (click)="deleteLogo(i)">
-                    <mat-icon>close</mat-icon>
+                    <mat-icon class="material-icons-round">close</mat-icon>
                 </button>
                 <div class="mover">
-                    <div matRipple (click)="moveItem(projectEditor.project.logos, logo, -1)"><mat-icon>keyboard_arrow_up</mat-icon></div>
-                    <div matRipple (click)="moveItem(projectEditor.project.logos, logo, 1)"><mat-icon>keyboard_arrow_down</mat-icon></div>
+                    <div matRipple (click)="moveItem(projectEditor.project.logos, logo, -1)">
+                        <mat-icon class="material-icons-round">keyboard_arrow_up</mat-icon>
+                    </div>
+                    <div matRipple (click)="moveItem(projectEditor.project.logos, logo, 1)">
+                        <mat-icon class="material-icons-round">keyboard_arrow_down</mat-icon>
+                    </div>
                 </div>
             </div>
         </div>
@@ -55,7 +59,7 @@
                     <input matInput [value]="getKeyword(i)" (input)="setKeyword(i, $event.target.value)">
                 </mat-form-field>
                 <button mat-icon-button color="warn" (click)="deleteKeyword(i)">
-                    <mat-icon>close</mat-icon>
+                    <mat-icon class="material-icons-round">close</mat-icon>
                 </button>
             </div>
         </div>
@@ -80,7 +84,7 @@
                     <input matInput type="color" [value]="color" (input)="setColor(i, $event.target.value)">
                 </mat-form-field>
                 <button mat-icon-button color="warn" (click)="deleteColor(i)">
-                    <mat-icon>close</mat-icon>
+                    <mat-icon class="material-icons-round">close</mat-icon>
                 </button>
             </div>
         </div>
@@ -109,11 +113,15 @@
                     <input matInput [(ngModel)]="url.url">
                 </mat-form-field>
                 <button mat-icon-button color="warn" (click)="deleteUrl(i)">
-                    <mat-icon>close</mat-icon>
+                    <mat-icon class="material-icons-round">close</mat-icon>
                 </button>
                 <div class="mover">
-                    <div matRipple (click)="moveItem(projectEditor.project.urls, url, -1)"><mat-icon>keyboard_arrow_up</mat-icon></div>
-                    <div matRipple (click)="moveItem(projectEditor.project.urls, url, 1)"><mat-icon>keyboard_arrow_down</mat-icon></div>
+                    <div matRipple (click)="moveItem(projectEditor.project.urls, url, -1)">
+                        <mat-icon class="material-icons-round">keyboard_arrow_up</mat-icon>
+                    </div>
+                    <div matRipple (click)="moveItem(projectEditor.project.urls, url, 1)">
+                        <mat-icon class="material-icons-round">keyboard_arrow_down</mat-icon>
+                    </div>
                 </div>
             </div>
         </div>
@@ -141,16 +149,20 @@
                     <mat-label>{{i + 1}}. {{languageService.get('url')}}</mat-label>
                     <input matInput [(ngModel)]="image.url">
                     <button mat-icon-button matSuffix (click)="pickImage(i)">
-                        <mat-icon>folder</mat-icon>
+                        <mat-icon class="material-icons-round">folder</mat-icon>
                     </button>
                 </mat-form-field>
                 <img [src]="image.url" style="height: 50px; min-width: 50px;" (click)="openUrl(image.url)">
                 <button mat-icon-button color="warn" (click)="deleteImage(i)">
-                    <mat-icon>close</mat-icon>
+                    <mat-icon class="material-icons-round">close</mat-icon>
                 </button>
                 <div class="mover">
-                    <div matRipple (click)="moveItem(projectEditor.project.images, image, -1)"><mat-icon>keyboard_arrow_up</mat-icon></div>
-                    <div matRipple (click)="moveItem(projectEditor.project.images, image, 1)"><mat-icon>keyboard_arrow_down</mat-icon></div>
+                    <div matRipple (click)="moveItem(projectEditor.project.images, image, -1)">
+                        <mat-icon class="material-icons-round">keyboard_arrow_up</mat-icon>
+                    </div>
+                    <div matRipple (click)="moveItem(projectEditor.project.images, image, 1)">
+                        <mat-icon class="material-icons-round">keyboard_arrow_down</mat-icon>
+                    </div>
                 </div>
             </div>
         </div>
@@ -172,7 +184,8 @@
             <div class="question"
                 *ngFor="let question of projectEditor.project.questions; let i = index; trackBy: trackByFn">
                 <mat-form-field appearance="fill" color="accent">
-                    <mat-label>{{i + 1}}. {{languageService.get('question')}} [{{getCurrentLanguageString()}}]</mat-label>
+                    <mat-label>{{i + 1}}. {{languageService.get('question')}} [{{getCurrentLanguageString()}}]
+                    </mat-label>
                     <input matInput [value]="getQuestionQuestion(i)"
                         (input)="setQuestionQuestion(i, $event.target.value)">
                 </mat-form-field>
@@ -181,11 +194,15 @@
                     <input matInput [value]="getQuestionAnswer(i)" (input)="setQuestionAnswer(i, $event.target.value)">
                 </mat-form-field>
                 <button mat-icon-button color="warn" (click)="deleteQuestion(i)">
-                    <mat-icon>close</mat-icon>
+                    <mat-icon class="material-icons-round">close</mat-icon>
                 </button>
                 <div class="mover">
-                    <div matRipple (click)="moveItem(projectEditor.project.questions, question, -1)"><mat-icon>keyboard_arrow_up</mat-icon></div>
-                    <div matRipple (click)="moveItem(projectEditor.project.questions, question, 1)"><mat-icon>keyboard_arrow_down</mat-icon></div>
+                    <div matRipple (click)="moveItem(projectEditor.project.questions, question, -1)">
+                        <mat-icon class="material-icons-round">keyboard_arrow_up</mat-icon>
+                    </div>
+                    <div matRipple (click)="moveItem(projectEditor.project.questions, question, 1)">
+                        <mat-icon class="material-icons-round">keyboard_arrow_down</mat-icon>
+                    </div>
                 </div>
             </div>
         </div>

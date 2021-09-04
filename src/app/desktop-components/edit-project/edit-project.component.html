@@ -1,4 +1,4 @@
-<div class="page_container" id="scrollable">
+<div class="page_container" #scrollable>
     <div class="page_center" style="margin-bottom: 100px;">
         <div class="holder" *ngIf="projectEditor" style="margin-top: 12px">
             <desktop-edit-language [projectEditor]="projectEditor"></desktop-edit-language>
@@ -29,17 +29,23 @@
             </mat-card>
 
             <div style="display: flex; gap: 20px;">
-                <button mat-raised-button color="warn" style="width: 100%;" (click)="deleteProject()">
+                <button mat-raised-button color="warn" style="width: 100%;" [disabled]="!authService.isLoggedIn()"
+                    (click)="deleteProject()">
                     {{languageService.getUpper('editor_delete')}}
                 </button>
-                <button mat-raised-button color="primary" style="width: 100%;" (click)="submitProject()">
+                <button mat-fab color="accent" [disabled]="authService.isLoggedIn()"
+                    (click)="dialogService.showLoginDialog()">
+                    <mat-icon class="material-icons-round" *ngIf="!authService.isLoggedIn()">lock</mat-icon>
+                    <mat-icon class="material-icons-round" *ngIf="authService.isLoggedIn()">lock_open</mat-icon>
+                </button>
+                <button mat-raised-button color="primary" style="width: 100%;" [disabled]="!authService.isLoggedIn()"
+                    (click)="submitProject()">
                     {{projectEditor.isNewProject ? languageService.getUpper('editor_submit') :
                     languageService.getUpper('editor_update')}}
                 </button>
             </div>
-
         </div>
     </div>
 </div>
 
-<app-scrollup [scrollElement]="getScrollElement()"></app-scrollup>
+<app-scrollup [scrollElement]="scrollable"></app-scrollup>

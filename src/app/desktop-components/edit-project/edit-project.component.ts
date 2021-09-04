@@ -25,8 +25,8 @@ export class EditProjectComponent implements OnInit {
     private loaderService: LoaderService,
     private projectService: ProjectService,
     public languageService: LanguageService,
-    private authService: AuthService,
-    private dialogService: DialogService
+    public authService: AuthService,
+    public dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -108,9 +108,5 @@ export class EditProjectComponent implements OnInit {
     } else {
       this.dialogService.showLoginDialog()
     }
-  }
-
-  getScrollElement(): Element {
-    return document.getElementById('scrollable')
   }
 }

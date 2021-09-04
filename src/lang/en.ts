@@ -36,6 +36,7 @@ export const en: Dictionary = {
     login_first: 'you must login first',
     login_password: 'password',
     login_username: 'username',
+    login_required: 'must be logged in',
     form_required: 'required',
     submit: 'submit',
     mail_subject: 'question about',
@@ -53,4 +54,5 @@ export const en: Dictionary = {
     hint_navigate_to: 'navigate to',
     file_picker_choose_image: 'choose an image',
     file_picker_upload: 'upload',
+    file_picker_namefilter: 'name filter'
 }
