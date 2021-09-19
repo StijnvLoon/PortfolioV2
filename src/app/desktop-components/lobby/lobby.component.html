@@ -4,16 +4,14 @@
             {{languageService.getUpper('welcome')}}
         </div>
     
-        <div class="center_ver">
-            <div class="projects_holder" *ngIf="projects" [@LobbyListAnim]="projects.length">
-                <div class="project" *ngFor="let project of projects" (click)="navigateProject(project)">
-                    <img-lazy class="project_image mat-elevation-z2" [src]="project.coverImage"></img-lazy>
-                    <div class="center" style="position: absolute;">
-                        <span class="project_title mat-app-background">{{languageService.getUpper(project.title)}}</span>
-                    </div>
-                    <div class="project_logos_holder" style="position: absolute;">
-                        <img-lazy class="project_logo" *ngFor="let imageUrl of project.logos" [src]="imageUrl"></img-lazy>
-                    </div>
+        <div class="projects_holder" *ngIf="projects" [@LobbyListAnim]="projects.length">
+            <div class="project" *ngFor="let project of projects" (click)="navigateProject(project)">
+                <img-lazy class="project_image mat-elevation-z2" [src]="project.coverImage"></img-lazy>
+                <div class="center" style="position: absolute;">
+                    <span class="project_title mat-app-background">{{languageService.getUpper(project.title)}}</span>
+                </div>
+                <div class="project_logos_holder" style="position: absolute;">
+                    <img-lazy class="project_logo" *ngFor="let imageUrl of project.logos" [src]="imageUrl"></img-lazy>
                 </div>
             </div>
         </div>

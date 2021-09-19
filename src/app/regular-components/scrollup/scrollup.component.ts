@@ -13,20 +13,17 @@ export class ScrollupComponent implements OnInit, OnDestroy {
   isPresent: boolean = false
 
   private onScrollListener: () => void = () => {
-    console.log('scrolling')
     this.isPresent = this.scrollElement.scrollTop > 20
   }
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.scrollElement)
     this.scrollElement.addEventListener('scroll', this.onScrollListener)
   }
 
   ngOnDestroy(): void {
     this.scrollElement.removeEventListener('scroll', this.onScrollListener, true)
-    console.log('destroyed')
   }
 
 
