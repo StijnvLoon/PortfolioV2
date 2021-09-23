@@ -45,7 +45,6 @@ export const en: Dictionary = {
     editor_delete: 'delete',
     header_about: 'about',
     header_lobby: 'lobby',
-    header_contact: 'contact',
     header_change_theme: 'switch theme',
     header_change_language: 'switch language',
     header_help: 'help',
@@ -54,5 +53,5 @@ export const en: Dictionary = {
     hint_navigate_to: 'navigate to',
     file_picker_choose_image: 'choose an image',
     file_picker_upload: 'upload',
-    file_picker_namefilter: 'name filter'
+    file_picker_namefilter: 'name filter',
 }

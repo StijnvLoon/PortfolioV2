@@ -53,7 +53,6 @@ export interface Dictionary {
   editor_delete: string
   header_lobby: string
   header_about: string
-  header_contact: string
   header_change_theme: string
   header_change_language: string
   header_help: string

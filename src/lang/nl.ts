@@ -45,7 +45,6 @@ export const nl: Dictionary = {
     editor_delete: 'verwijderen',
     header_about: 'over',
     header_lobby: 'lobby',
-    header_contact: 'contact',
     header_change_theme: 'verander thema',
     header_change_language: 'verander taal',
     header_help: 'help',
