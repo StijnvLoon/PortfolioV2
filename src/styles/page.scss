@@ -34,6 +34,23 @@
 
 .page_title {
     text-align: center;
-    margin: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     font-size: 3em;
+}
+
+.page_introduction {
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.page_text_bg {
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    padding: 5px;
+    white-space: pre-line;
+}
+
+p {
+    white-space: inherit;
 }

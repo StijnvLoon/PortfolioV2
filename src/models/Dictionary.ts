@@ -47,7 +47,8 @@ export interface Dictionary {
   login_required: string
   form_required: string
   submit: string
-  mail_subject: string
+  mail_question_subject: string
+  mail_contact_subject: string
   editor_submit: string
   editor_update: string
   editor_delete: string
@@ -62,6 +63,21 @@ export interface Dictionary {
   file_picker_choose_image: string
   file_picker_upload: string
   file_picker_namefilter: string
+  about_introduction: string
+  about_paragraph_hobbies: string
+  about_hobbies: string
+  about_paragraph_studies: string
+  about_studies: string
+  about_paragraph_experience: string
+  about_paragraph_programminglanguages: string
+  about_programminglanguages: string
+  about_paragraph_frameworks: string
+  about_frameworks: string
+  about_paragraph_work: string
+  about_work: string
+  about_paragraph_programs: string
+  about_programs: string
+  about_paragraph_contact: string
 }
 
 export const languageArray: () => string[] = () => {

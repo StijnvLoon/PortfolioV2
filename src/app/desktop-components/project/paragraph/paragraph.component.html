@@ -1,6 +1,6 @@
 <div class="paragraph" 
     [style.margin-left]="level * 15 + 'px'" 
-    [class.paragraph_bg]="level == 0"
+    [class.page_text_bg]="level == 0"
     [class.bg_light]="level == 0 && isLightTheme()"
     [class.bg_dark]="level == 0 && !isLightTheme()">
     <div [ngSwitch]="level">

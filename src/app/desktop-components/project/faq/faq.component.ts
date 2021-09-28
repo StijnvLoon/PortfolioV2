@@ -23,7 +23,7 @@ export class FaqComponent implements OnInit {
 
   sendMail() {
     const target = environment.ownerEmail
-    const subject = this.languageService.getUpper('mail_subject') + ' ' + this.languageService.get(this.projectTitle)
+    const subject = this.languageService.getUpper('mail_question_subject') + ' ' + this.languageService.get(this.projectTitle)
     const body = ''
 
     window.location.href = `mailto:${target}?subject=${subject}&body=${body}`
