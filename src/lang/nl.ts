@@ -62,7 +62,7 @@ export const nl: Dictionary = {
     about_studies: 'Diploma: Havo, Natuur & Gezondheid (2012 - 2018)\nDiploma: Propedeuse, Informatica fulltime Avans Breda (2019)\nOpleiding: Informatica fulltime Avans Breda (2018-2022)',
     about_paragraph_experience: 'ervaringen',
     about_paragraph_programminglanguages: 'programmeertalen',
-    about_programminglanguages: 'C#\nC++\nCSS\nHTML\nJava\nJavascript\nMongoDb\nPostgreSQL\nScala\nSQL\nTypescript\nXML',
+    about_programminglanguages: 'C#\nC++\nCSS\nHTML\nJava\nJavascript\nMongoDb\nPostgreSQL\nPython\nScala\nSQL\nTypescript\nXML',
     about_paragraph_frameworks: 'frameworks',
     about_frameworks: 'Android\nAngular\nASP.NET\nElectron\nMongoose\nNodeJS\nPHP\nReact Native\nUnity',
     about_paragraph_work: 'werk ervaring',

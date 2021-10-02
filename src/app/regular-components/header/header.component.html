@@ -40,15 +40,13 @@
 <mat-menu #menu="matMenu" [matTooltip]="languageService.getUpper('hint_options')">
     <button mat-menu-item color="accent"
         [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_lobby') + '\''">
+        <mat-icon class="material-icons-round">cottage</mat-icon>
         <span>{{languageService.getUpper('header_lobby')}}</span>
     </button>
     <button mat-menu-item color="accent"
         [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_about') + '\''">
+        <mat-icon class="material-icons-round">info</mat-icon>
         <span>{{languageService.getUpper('header_about')}}</span>
-    </button>
-    <button mat-menu-item color="accent"
-        [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_contact') + '\''">
-        <span>{{languageService.getUpper('header_contact')}}</span>
     </button>
     <button mat-menu-item color="accent" [matMenuTriggerFor]="themes">
         <mat-icon class="material-icons-round">palette</mat-icon>
@@ -61,8 +59,8 @@
 </mat-menu>
 
 <mat-menu #themes="matMenu">
-    <button mat-menu-item (click)="themeService.setTheme(1)">Light</button>
-    <button mat-menu-item (click)="themeService.setTheme(0)">Dark</button>
+    <button mat-menu-item [disabled]="themeService.theme == 1" (click)="themeService.setTheme(1)">Light</button>
+    <button mat-menu-item [disabled]="themeService.theme == 0" (click)="themeService.setTheme(0)">Dark</button>
 </mat-menu>
 
 <mat-menu #languages="matMenu">

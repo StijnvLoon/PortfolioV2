@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material.module';
 
-import { ImageLoaderComponent } from '../regular-components/image-loader/image-loader.component';
-
 import { AboutComponent } from './about/about.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { ProjectComponent } from './project/project.component';
@@ -22,7 +20,6 @@ import { RegularModule } from '../regular.module';
 
 @NgModule({
   declarations: [
-    ImageLoaderComponent,
     AboutComponent,
     LobbyComponent,
     ProjectComponent,
