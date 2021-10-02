@@ -1,5 +1,8 @@
 <div class="head">
-    <h1 class="title">{{languageService.get(title)}}</h1>
+    <app-floating-title 
+        [text]="languageService.get(title)"
+        [scrollElement]="scrollElement">
+    </app-floating-title>
     <h1 class="status">{{languageService.getUpper('status')}}: {{languageService.get(status)}}</h1>
 </div>
 

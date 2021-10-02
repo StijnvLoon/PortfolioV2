@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 import { TextValue } from 'src/models/Dictionary';
 import { LanguageService } from 'src/services/language.service';
 import { SearchbarService } from 'src/services/searchbar.service';
@@ -13,6 +13,7 @@ export class TitleComponent {
   @Input() title: TextValue
   @Input() status: TextValue
   @Input() keywords: TextValue[]
+  @Input() scrollElement: ElementRef
 
   constructor(
     public languageService: LanguageService,

@@ -4,7 +4,7 @@
             <div class="cover">
                 <img-lazy class="mat-elevation-z12" [src]="project.coverImage" (click)="editProject()"></img-lazy>
             </div>
-            <desktop-title [title]="project.title" [status]="project.status" [keywords]="project.keywords"></desktop-title>
+            <desktop-title [title]="project.title" [status]="project.status" [keywords]="project.keywords" [scrollElement]="scrollable"></desktop-title>
             
             <mat-divider *ngIf="project.content.length > 0"></mat-divider>
             <desktop-paragraph *ngFor="let paragraph of project.content" [paragraph]="paragraph"></desktop-paragraph>

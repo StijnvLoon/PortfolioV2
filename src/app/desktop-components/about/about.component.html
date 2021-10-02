@@ -1,8 +1,9 @@
 <div class="page_container" #scrollable>
     <div class="page_center">
-        <div class="page_title">
-            {{languageService.getUpper('header_about')}}
-        </div>   
+        <app-floating-title 
+            [text]="languageService.getUpper('header_about')" 
+            [scrollElement]="scrollable">
+        </app-floating-title>
 
         <div class="page_introduction front_image">
             <div class="page_text_bg">

@@ -1,8 +1,9 @@
 <div class="page_container" #scrollable>
     <div class="page_center">
-        <div class="page_title">
-            {{languageService.getUpper('welcome')}}
-        </div>
+        <app-floating-title 
+            [text]="languageService.getUpper('welcome')"
+            [scrollElement]="scrollable">
+        </app-floating-title>
     
         <div class="projects_holder" *ngIf="projects" [@LobbyListAnim]="projects.length">
             <div class="project" *ngFor="let project of projects" (click)="navigateProject(project)">

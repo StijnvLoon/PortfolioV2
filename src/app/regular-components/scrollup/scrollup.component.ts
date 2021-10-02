@@ -34,5 +34,4 @@ export class ScrollupComponent implements OnInit, OnDestroy {
       behavior: 'smooth'
     });
   }
-
 }

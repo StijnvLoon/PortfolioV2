@@ -4,20 +4,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { MaterialModule } from './material.module';
 import { ImageLazyComponent } from './regular-components/image-lazy/image-lazy.component';
 import { ScrollupComponent } from './regular-components/scrollup/scrollup.component';
+import { FloatingTitleComponent } from './regular-components/floating-title/floating-title.component';
 
 @NgModule({
   declarations: [
       ImageLazyComponent,
-      ScrollupComponent
+      ScrollupComponent,
+      FloatingTitleComponent
   ],
   imports: [
       CommonModule,
       MaterialModule,
-      MatButtonModule
+      MatButtonModule,
   ],
   exports: [
       ImageLazyComponent,
-      ScrollupComponent
+      ScrollupComponent,
+      FloatingTitleComponent
   ]
 })
 export class RegularModule { }
