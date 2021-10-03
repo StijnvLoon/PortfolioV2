@@ -3,9 +3,10 @@
     z-index: 100;
     top: calc(var(--headerHeight) + 10px);
     left: 0;
-    width: -webkit-fill-available;
+    width: 100%;
     display: flex;
     justify-content: center;
+    pointer-events: none;
 }
 
 .floating_title {
