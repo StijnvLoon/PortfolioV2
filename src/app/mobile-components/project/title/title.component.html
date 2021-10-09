@@ -1,0 +1,11 @@
+<app-floating-title [text]="languageService.get(title)" [scrollElement]="scrollElement">
+</app-floating-title>
+
+<p class="status">{{languageService.getUpper('status')}}: {{languageService.get(status)}}</p>
+<h2 style="margin-bottom: 5px;">{{languageService.getUpper('keywords')}}:</h2>
+
+<div class="keywords_container">
+    <div class="keyword" matRipple *ngFor="let keyword of keywords" (click)="searchKeyword(keyword)">
+        {{languageService.get(keyword)}}
+    </div>
+</div>

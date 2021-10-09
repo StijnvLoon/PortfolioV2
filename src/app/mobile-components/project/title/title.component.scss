@@ -1,0 +1,14 @@
+.keywords_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.keyword {
+    background-color: var(--theme-accent-900);
+    border-radius: 2px;
+    color: var(--theme-accent-contrast-900);
+    font-weight: 600;
+    padding: 10px;
+    user-select: none;
+}
