@@ -7,38 +7,23 @@
 }
 
 .project {
-    border-radius: 10px;
-}
-.project_header {
-    font-size: 1.5em;
-    padding: 10px;
-    margin-bottom: 0px;
-}
-.project_image_holder {
     position: relative;
     width: 100%;
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+.project_title {
+    font-size: 2em;
+    margin-bottom: 0px;
+    color: white;
+    background-color: transparent;
+    text-shadow: 0px 6px 9px rgba(0,0,0,0.72);
 }
 .project_image {
     width: 100%;
     height: auto;
     border-radius: inherit;
+    filter: brightness(0.6);
 }
-
-// .project_header {
-//     justify-content: center;
-// }
-// .project_image {
-//     width: 100%;
-// }
-// .project_footer {
-//     display: flex;
-//     justify-content: flex-end;
-//     gap: 5px;
-// }
-// .project_logo {
-//     width: 50px;
-//     height: 50px;
-//     object-fit: contain;
-// }

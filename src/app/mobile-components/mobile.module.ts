@@ -7,13 +7,15 @@ import { LobbyComponent } from 'src/app/mobile-components/lobby/lobby.component'
 import { ProjectComponent } from 'src/app/mobile-components/project/project.component';
 import { RegularModule } from '../regular.module';
 import { TitleComponent } from './project/title/title.component';
+import { ParagraphComponent } from './project/paragraph/paragraph.component';
 
 @NgModule({
   declarations: [
     AboutComponent,
     LobbyComponent,
     ProjectComponent,
-    TitleComponent
+    TitleComponent,
+    ParagraphComponent
   ],
   imports: [
     CommonModule,

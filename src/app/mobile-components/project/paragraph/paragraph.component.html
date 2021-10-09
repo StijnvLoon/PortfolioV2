@@ -1,0 +1,18 @@
+<div class="paragraph" 
+    [class.page_text_bg]="level == 0"
+    [class.bg_light]="level == 0 && isLightTheme()"
+    [class.bg_dark]="level == 0 && !isLightTheme()">
+    <div [ngSwitch]="level">
+        <h1 class="par_header" *ngSwitchCase="0">{{languageService.get(paragraph.title)}}</h1>
+        <h2 class="par_header" *ngSwitchCase="1">{{languageService.get(paragraph.title)}}</h2>
+        <h3 class="par_header" *ngSwitchCase="2">{{languageService.get(paragraph.title)}}</h3>
+        <h4 class="par_header" *ngSwitchCase="3">{{languageService.get(paragraph.title)}}</h4>
+        <h5 class="par_header" *ngSwitchCase="4">{{languageService.get(paragraph.title)}}</h5>
+        <h6 class="par_header" *ngSwitchCase="5">{{languageService.get(paragraph.title)}}</h6>
+    </div>
+
+    <p class="par_text">{{languageService.get(paragraph.text)}}</p>
+
+    <mobile-paragraph *ngFor="let subparagraph of paragraph.content" [paragraph]="subparagraph" [level]="level + 1">
+    </mobile-paragraph>
+</div>

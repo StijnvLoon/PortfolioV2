@@ -1,12 +1,14 @@
 <div class="page_container" #scrollable>
     <div class="page_center" style="margin-bottom: 100px;">
-        <!-- <div class="page_title" *ngIf="project">
-            <h1>{{languageService.get(project.title)}}</h1>
-        </div> -->
-
         <div *ngIf="project">
-            <mobile-title [title]="project.title" [status]="project.status" [keywords]="project.keywords" [scrollElement]="scrollable"></mobile-title>
+            <mobile-title [title]="project.title" [status]="project.status" [keywords]="project.keywords"
+                [scrollElement]="scrollable"></mobile-title>
         </div>
-        
+
+        <mat-divider *ngIf="project.content.length > 0"></mat-divider>
+        <mobile-paragraph *ngFor="let paragraph of project.content" [paragraph]="paragraph"></mobile-paragraph>
+
     </div>
 </div>
+
+<app-scrollup [scrollElement]="scrollable"></app-scrollup>
