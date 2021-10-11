@@ -8,6 +8,7 @@ import { ProjectComponent } from 'src/app/mobile-components/project/project.comp
 import { RegularModule } from '../regular.module';
 import { TitleComponent } from './project/title/title.component';
 import { ParagraphComponent } from './project/paragraph/paragraph.component';
+import { UrlsComponent } from './project/urls/urls.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ParagraphComponent } from './project/paragraph/paragraph.component';
     LobbyComponent,
     ProjectComponent,
     TitleComponent,
-    ParagraphComponent
+    ParagraphComponent,
+    UrlsComponent
   ],
   imports: [
     CommonModule,

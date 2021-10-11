@@ -8,6 +8,9 @@
         <mat-divider *ngIf="project.content.length > 0"></mat-divider>
         <mobile-paragraph *ngFor="let paragraph of project.content" [paragraph]="paragraph"></mobile-paragraph>
 
+        <mat-divider *ngIf="project.urls.length > 0"></mat-divider>
+        <mobile-urls *ngIf="project.urls.length > 0" [urls]="project.urls"></mobile-urls>
+
     </div>
 </div>
 
