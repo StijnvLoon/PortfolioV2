@@ -1,0 +1,16 @@
+<h2>{{languageService.getUpper('faq')}}
+    <button mat-mini-fab (click)="sendMail()" color="warn">
+        <mat-icon class="material-icons-round">question_answer</mat-icon>
+    </button>
+</h2>
+
+<div class="questions_holder" *ngIf="questions.length > 0">
+    <div class="question_holder" *ngFor="let question of questions; let i = index">
+        <h2>{{i + 1}}. {{languageService.getUpper(question.question)}}</h2>
+        <p>{{languageService.getUpper(question.answer)}}</p>
+    </div>
+</div>
+
+<div class="no_questions" *ngIf="questions.length == 0">
+    {{languageService.getUpper('no_questions')}}
+</div>

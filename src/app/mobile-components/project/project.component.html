@@ -11,6 +11,9 @@
         <mat-divider *ngIf="project.urls.length > 0"></mat-divider>
         <mobile-urls *ngIf="project.urls.length > 0" [urls]="project.urls"></mobile-urls>
 
+        <mat-divider></mat-divider>
+        <mobile-faq [questions]="project.questions" [projectTitle]="project.title"></mobile-faq>
+
     </div>
 </div>
 

@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TextValue, Language } from 'src/models/Dictionary';
+import { environment } from 'src/environments/environment';
+import { TextValue } from 'src/models/Dictionary';
 import { Question } from 'src/models/Project';
 import { LanguageService } from 'src/services/language.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'desktop-faq',
+  selector: 'mobile-faq',
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.scss']
 })
