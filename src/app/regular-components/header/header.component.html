@@ -38,12 +38,12 @@
 </mat-toolbar>
 
 <mat-menu #menu="matMenu" [matTooltip]="languageService.getUpper('hint_options')">
-    <button mat-menu-item color="accent"
+    <button mat-menu-item color="accent" routerLink="/"
         [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_lobby') + '\''">
         <mat-icon class="material-icons-round">cottage</mat-icon>
         <span>{{languageService.getUpper('header_lobby')}}</span>
     </button>
-    <button mat-menu-item color="accent"
+    <button mat-menu-item color="accent" routerLink="/About"
         [matTooltip]="languageService.getUpper('hint_navigate_to') + ' \'' + languageService.getUpper('header_about') + '\''">
         <mat-icon class="material-icons-round">info</mat-icon>
         <span>{{languageService.getUpper('header_about')}}</span>

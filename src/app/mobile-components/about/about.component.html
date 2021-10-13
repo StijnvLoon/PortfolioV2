@@ -1,1 +1,90 @@
-<p>about works!</p>
+<div class="page_container" #scrollable>
+    <div class="page_center">
+        <app-floating-title 
+            [text]="languageService.getUpper('header_about')" 
+            [scrollElement]="scrollable">
+        </app-floating-title>
+
+        <div class="profile_picture_holder">
+            <img class="mat-elevation-z2" src="../../../assets/picture_Stijn.jpg"/>
+        </div>
+
+        <p class="page_introduction">{{languageService.getUpper('about_introduction')}}</p>
+        
+        <div class="cv" (click)="openCv()">
+            <img src="../../../assets/logos/logo_cv.png">
+            <div>CV</div>
+        </div>
+
+        <!-- <div class="page_introduction front_image">
+            <div class="page_text_bg">
+                <p>{{languageService.getUpper('about_introduction')}}</p>
+                <div class="cv" (click)="openCv()">
+                    <img src="../../../assets/logos/logo_cv.png">
+                    <div>CV</div>
+                </div>
+            </div>
+
+        </div> -->
+
+        <div class="page_text_bg paragraph">
+            <h2>{{languageService.getUpper('about_paragraph_hobbies')}}</h2>
+            <p>{{languageService.getUpper('about_hobbies')}}</p>
+        </div>
+        
+        <div class="page_text_bg paragraph">
+            <h2>{{languageService.getUpper('about_paragraph_studies')}}</h2>
+            <p>{{languageService.getUpper('about_studies')}}</p>
+        </div>
+
+        <div class="page_text_bg paragraph">
+            <h2>{{languageService.getUpper('about_paragraph_experience')}}</h2>
+            <div class="experience_grid">
+                <div>
+                    <h3>{{languageService.getUpper('about_paragraph_programminglanguages')}}</h3>
+                    <p>{{languageService.getUpper('about_programminglanguages')}}</p>
+                </div>
+                <div>
+                    <h3>{{languageService.getUpper('about_paragraph_frameworks')}}</h3>
+                    <p>{{languageService.getUpper('about_frameworks')}}</p>
+                </div>
+                <div>
+                    <h3>{{languageService.getUpper('about_paragraph_work')}}</h3>
+                    <p>{{languageService.getUpper('about_work')}}</p>
+                </div>
+                <div>
+                    <h3>{{languageService.getUpper('about_paragraph_programs')}}</h3>
+                    <p>{{languageService.getUpper('about_programs')}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page_text_bg paragraph" style="margin-bottom: 40px;">
+            <h2>{{languageService.getUpper('about_paragraph_contact')}}</h2>
+            <div class="contact_grid">
+                <div (click)="openMail()">
+                    <img src="../../../assets/logos/logo_mail.svg">
+                    <div>Email</div>
+                </div>
+                <div (click)="openUrl(linkedinString)">
+                    <img src="../../../assets/logos/logo_linkedin.png">
+                    <div>LinkedIn</div>
+                </div>
+                <div (click)="openUrl(githubString)">
+                    <img src="../../../assets/logos/logo_github.png">
+                    <div>Github</div>
+                </div>
+                <div (click)="openUrl(gitlabString)">
+                    <img src="../../../assets/logos/logo_gitlab.png">
+                    <div>Gitlab</div>
+                </div>
+                <div (click)="openUrl(discordString)">
+                    <img src="../../../assets/logos/logo_discord.svg">
+                    <div>Discord</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-scrollup [scrollElement]="scrollable"></app-scrollup>

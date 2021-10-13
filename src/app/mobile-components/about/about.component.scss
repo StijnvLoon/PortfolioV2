@@ -1,0 +1,66 @@
+.profile_picture_holder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.profile_picture_holder img {
+    width: 60%;
+    border-radius: 5px;
+}
+
+.paragraph h2 {
+    margin-bottom: 0px;
+}
+.paragraph h3 {
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.experience_grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.experience_grid div {
+    width: auto;
+}
+
+.contact_grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.contact_grid div {
+    width: 50px;
+    cursor: pointer;
+    text-align: center;
+}
+.contact_grid div:hover img {
+    transform: scale(1.1);
+}
+.contact_grid div img {
+    object-fit: contain;
+    width: inherit;
+    height: 50px;
+    transition: all 0.1s ease-in-out;
+}
+
+.cv {
+    width: 50px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+}
+.cv div {
+    font-size: small;
+}
+.cv:hover img {
+    transform: scale(1.1);
+}
+.cv img {
+    object-fit: contain;
+    width: inherit;
+    height: 50px;
+    transition: all 0.1s ease-in-out;
+}
