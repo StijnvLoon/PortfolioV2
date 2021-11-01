@@ -16,6 +16,7 @@ import { EditLanguageComponent } from './edit-project/edit-language/edit-languag
 import { EditMainComponent } from './edit-project/edit-main/edit-main.component';
 import { EditUtilsComponent } from './edit-project/edit-utils/edit-utils.component';
 import { EditParagraphComponent } from './edit-project/edit-paragraph/edit-paragraph.component';
+import { FloatingTitleComponent } from './floating-title/floating-title.component';
 import { RegularModule } from '../regular.module';
 
 @NgModule({
@@ -33,6 +34,7 @@ import { RegularModule } from '../regular.module';
     EditMainComponent,
     EditUtilsComponent,
     EditParagraphComponent,
+    FloatingTitleComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,20 @@
+.floating_container {
+    position: fixed;
+    z-index: 100;
+    top: calc(var(--headerHeight));
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.floating_title {
+    width: 85%;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    height: fit-content;
+    padding: 15px;
+    margin: unset;
+    font-size: 1.5em;
+}

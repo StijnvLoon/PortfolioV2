@@ -10,6 +10,7 @@ import { TitleComponent } from './project/title/title.component';
 import { ParagraphComponent } from './project/paragraph/paragraph.component';
 import { UrlsComponent } from './project/urls/urls.component';
 import { FaqComponent } from './project/faq/faq.component';
+import { FloatingTitleComponent } from './floating-title/floating-title.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FaqComponent } from './project/faq/faq.component';
     TitleComponent,
     ParagraphComponent,
     UrlsComponent,
-    FaqComponent
+    FaqComponent,
+    FloatingTitleComponent
   ],
   imports: [
     CommonModule,

@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '
 import { titleFloatAnim } from 'src/animations/titleFloatAnim';
 
 @Component({
-  selector: 'app-floating-title',
+  selector: 'mobile-floating-title',
   templateUrl: './floating-title.component.html',
   styleUrls: ['./floating-title.component.scss'],
   animations: [titleFloatAnim]

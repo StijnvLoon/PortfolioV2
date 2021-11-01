@@ -1,0 +1,9 @@
+<div class="page_title" #realTitle>
+    {{text}}
+</div>
+
+<div class="floating_container" *ngIf="isFloating" @TitleFloatAnim>
+    <div class="page_title floating_title mat-app-background mat-elevation-z4">
+        {{text}}
+    </div>
+</div>
