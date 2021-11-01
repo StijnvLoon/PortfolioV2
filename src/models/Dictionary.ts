@@ -60,6 +60,12 @@ export interface Dictionary {
   header_search: string
   hint_options: string
   hint_navigate_to: string
+  hint_scrollup: string
+  hint_askquestion: string
+  hint_open_url: string
+  hint_image_previous: string
+  hint_image_next: string
+  hint_search: string
   file_picker_choose_image: string
   file_picker_upload: string
   file_picker_namefilter: string

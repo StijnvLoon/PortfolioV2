@@ -10,20 +10,23 @@
 
     <div class="overlay">
         <div matRipple style="background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 100%);"
-            class="overlay_side" [class.overlay_disabled]="currentIndex == 0" (click)="previousImage()">
+            class="overlay_side" [class.overlay_disabled]="currentIndex == 0" (click)="previousImage()"
+            [matTooltip]="languageService.getUpper('hint_image_previous')">
             <mat-icon class="icon_pointer material-icons-round">keyboard_arrow_left</mat-icon>
         </div>
 
         <div class="overlay_middle">
             <div class="drawer">
                 <div matRipple class="mat-elevation-z2" [class.index_selected]="currentIndex == i"
-                    *ngFor="let image of images; let i = index" (click)="currentIndex = i">{{i + 1}}
+                    *ngFor="let image of images; let i = index" (click)="currentIndex = i"
+                    [matTooltip]="languageService.getUpper('hint_navigate_to')">{{i + 1}}
                 </div>
             </div>
         </div>
 
         <div matRipple style="background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%);"
-            class="overlay_side" [class.overlay_disabled]="currentIndex == images.length-1" (click)="nextImage()">
+            class="overlay_side" [class.overlay_disabled]="currentIndex == images.length-1" (click)="nextImage()"
+            [matTooltip]="languageService.getUpper('hint_image_next')">
             <mat-icon class="icon_pointer material-icons-round">keyboard_arrow_right</mat-icon>
         </div>
     </div>

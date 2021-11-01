@@ -1,5 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { changeAnim } from 'src/animations/changeAnim';
+import { LanguageService } from 'src/services/language.service';
 
 @Component({
   selector: 'app-scrollup',
@@ -16,7 +17,7 @@ export class ScrollupComponent implements OnInit, OnDestroy {
     this.isPresent = this.scrollElement.scrollTop > 20
   }
 
-  constructor() { }
+  constructor(public languageService: LanguageService) { }
 
   ngOnInit(): void {
     this.scrollElement.addEventListener('scroll', this.onScrollListener)

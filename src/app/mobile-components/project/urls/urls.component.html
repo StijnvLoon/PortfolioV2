@@ -1,7 +1,8 @@
 <h2 style="margin-bottom: 2px;">{{languageService.getUpper('links')}}</h2>
 
 <div class="urls_holder">
-    <button mat-raised-button color="accent" *ngFor="let url of urls" (click)="openUrl(url.url)">
+    <button mat-raised-button color="accent" *ngFor="let url of urls" (click)="openUrl(url.url)"
+        [matTooltip]="languageService.getUpper('hint_open_url')">
         <mat-icon class="material-icons-round">open_in_new</mat-icon>
         {{languageService.get(url.name)}}
     </button>

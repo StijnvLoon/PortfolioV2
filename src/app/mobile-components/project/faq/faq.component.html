@@ -1,5 +1,5 @@
 <h2>{{languageService.getUpper('faq')}}
-    <button mat-mini-fab (click)="sendMail()" color="warn">
+    <button mat-mini-fab (click)="sendMail()" color="warn" [matTooltip]="languageService.getUpper('hint_askquestion')">
         <mat-icon class="material-icons-round">question_answer</mat-icon>
     </button>
 </h2>

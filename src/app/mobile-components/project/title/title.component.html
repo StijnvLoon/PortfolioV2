@@ -5,7 +5,7 @@
 <h2 style="margin-bottom: 5px;">{{languageService.getUpper('keywords')}}:</h2>
 
 <div class="keywords_container">
-    <div class="keyword" matRipple *ngFor="let keyword of keywords" (click)="searchKeyword(keyword)">
+    <div class="keyword" matRipple *ngFor="let keyword of keywords" (click)="searchKeyword(keyword)" [matTooltip]="languageService.getUpper('hint_search')">
         {{languageService.get(keyword)}}
     </div>
 </div>
