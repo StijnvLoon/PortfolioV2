@@ -46,6 +46,10 @@ export class ProjectEditor {
         this.project.status[Language[this.selectedLanguage]] = string
     }
 
+    getKeywordHint(index: number): string {
+        return this.project.keywords[index][Language[Language.EN]]
+    }
+
     getKeyword(index: number): string {
         return this.project.keywords[index][Language[this.selectedLanguage]]
     }

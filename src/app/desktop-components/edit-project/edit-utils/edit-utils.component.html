@@ -54,7 +54,7 @@
         <div class="keywords_holder">
             <div class="keyword"
                 *ngFor="let keyword of projectEditor.project.keywords; let i = index; trackBy: trackByFn">
-                <mat-form-field appearance="fill" color="accent">
+                <mat-form-field appearance="fill" color="accent" [hintLabel]="getKeywordHint(i)">
                     <mat-label>{{i + 1}} [{{getCurrentLanguageString()}}]</mat-label>
                     <input matInput [value]="getKeyword(i)" (input)="setKeyword(i, $event.target.value)">
                 </mat-form-field>

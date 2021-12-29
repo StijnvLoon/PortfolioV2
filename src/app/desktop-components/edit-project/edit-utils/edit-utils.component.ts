@@ -46,6 +46,10 @@ export class EditUtilsComponent implements OnInit {
     this.projectEditor.project.logos.splice(index, 1)
   }
 
+  getKeywordHint(index: number) {
+    return 'EN: ' + this.projectEditor.getKeywordHint(index)
+  }
+
   getKeyword(index: number) {
     return this.projectEditor.getKeyword(index)
   }
