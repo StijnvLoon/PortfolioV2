@@ -19,7 +19,7 @@ export const routeTransitionAnim =
             query(':enter',
                 [
                     style({ opacity: 0 }),
-                    animate('0.8s 1s ease-out', style({ opacity: 1 }))
+                    animate('0.5s ease-out', style({ opacity: 1 }))
                 ],
                 { optional: true }
             )
