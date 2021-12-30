@@ -17,6 +17,18 @@ export class ProjectService {
   private projects: Project[]
   private dataSource: DataSource
 
+  public sortFunctions: {name: string, function: (a: Project, b: Project) => number}[] = [
+    //TODO add creation date to project and sorting functions for date
+    {
+      name: "A > Z",
+      function: (a, b) => (this.languageService.get(a.title) > this.languageService.get(b.title) ? 1 : -1)
+    },
+    {
+      name: "Z > A",
+      function: (a, b) => (this.languageService.get(a.title) < this.languageService.get(b.title) ? 1 : -1)
+    }
+  ]
+
   constructor(
     private firestorage: AngularFireStorage,
     private firestore: AngularFirestore,
@@ -132,15 +144,18 @@ export class ProjectService {
     this.dataSource.deleteProject(project, onResult, onError)
   }
 
+  sortProjects(sortFunction: (a: Project, b: Project) => number) {
+    this.projects = this.projects.sort(sortFunction)
+  }
+
   private setProjects(
     onFinished: () => void,
     onError: (errorMessage: string) => void
   ) {
     this.dataSource.retrieveProjects(
       (projects: Project[]) => {
-        this.projects = projects.sort((a, b) => (
-          this.languageService.get(a.title) > this.languageService.get(b.title) ? 1 : -1)
-        )
+        this.projects = projects
+        this.sortProjects(this.sortFunctions[0].function)
         onFinished()
       }, onError)
   }

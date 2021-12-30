@@ -1,5 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { MatRadioChange } from '@angular/material/radio';
 import { Router } from '@angular/router';
+import { changeAnim } from 'src/animations/changeAnim';
 import { Project } from 'src/models/Project';
 import { LanguageService } from 'src/services/language.service';
 import { ProjectService } from 'src/services/project.service';
@@ -8,24 +10,27 @@ import { SearchbarService } from 'src/services/searchbar.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  animations: [ changeAnim ]
 })
 export class SearchComponent {
 
-  @ViewChild('searchBar') searchElement: ElementRef;
+  @ViewChild('searchInput') searchInput: ElementRef
+  @ViewChild('searchContainer') searchContainer: ElementRef
 
   public results: Project[] = []
   public searching: boolean = false
   public typedWhileSearching: boolean = false
+  public sorting: boolean = false
 
   constructor(
     private router: Router,
-    private projectService: ProjectService,
+    public projectService: ProjectService,
     public languageService: LanguageService,
     public searchbarService: SearchbarService
   ) {
     this.searchbarService.onSearchTextChange((text: string) => {
-      this.searchElement.nativeElement.click();
+      this.searchInput.nativeElement.click();
       this.onInput();
     })
   }
@@ -43,7 +48,7 @@ export class SearchComponent {
   //https://github.com/angular/components/issues/3106
   onSearchBarClick() {
     setTimeout(() => {
-      this.searchElement.nativeElement.focus();
+      this.searchInput.nativeElement.focus();
     }, 1);
   }
 
@@ -72,4 +77,15 @@ export class SearchComponent {
     this.router.navigate([`/project/${this.projectService.getUrl(project)}`]);
   }
 
+  getSorterDimensions() {
+    return {
+      width: this.searchContainer.nativeElement.offsetWidth + 'px',
+      top: (this.searchContainer.nativeElement.getBoundingClientRect().top + this.searchContainer.nativeElement.offsetHeight + 10) + 'px',
+      left: this.searchContainer.nativeElement.getBoundingClientRect().left + 'px'
+    }
+  }
+
+  sortChange(event: MatRadioChange) {
+    this.projectService.sortProjects(event.value)
+  }
 }

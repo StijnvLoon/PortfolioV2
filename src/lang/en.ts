@@ -32,6 +32,7 @@ export const en: Dictionary = {
     paragraph: 'paragraph',
     text: 'text',
     to: 'to',
+    sort: 'sort',
     remove: 'remove',
     login_first: 'you must login first',
     login_password: 'password',

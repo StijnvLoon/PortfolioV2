@@ -40,6 +40,7 @@ export interface Dictionary {
   paragraph: string
   text: string
   to: string
+  sort: string
   remove: string
   login_first: string
   login_username: string
