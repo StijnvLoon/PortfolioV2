@@ -11,9 +11,9 @@ export const lobbyListAnim =
                 ],
                 { optional: true }
             ),
-            // query(':leave',
-            //     animate('200ms', style({ opacity: 0, transform: 'translateX(-50px)' })),
-            //     { optional: true }
-            // )
+            query(':leave',
+                animate('200ms', style({ opacity: 0 })),
+                { optional: true }
+            )
         ])
     ])

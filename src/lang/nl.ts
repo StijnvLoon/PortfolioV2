@@ -32,7 +32,7 @@ export const nl: Dictionary = {
     paragraph: 'paragraaf',
     text: 'tekst',
     to: 'aan',
-    sort: 'sorteer',
+    sort: 'sorteren',
     remove: 'verwijder',
     login_first: 'je moet eerst inloggen',
     login_password: 'wachtwoord',

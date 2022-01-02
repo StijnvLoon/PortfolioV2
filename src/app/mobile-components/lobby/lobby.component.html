@@ -3,9 +3,16 @@
 
         <mobile-floating-title [text]="languageService.getUpper('welcome')" [scrollElement]="scrollable">
         </mobile-floating-title>
-        
-        <div class="projects_holder" *ngIf="projects" [@LobbyListAnim]="projects.length">
 
+        <div class="button_sort" #sortButton>
+            <button mat-raised-button color="accent" (click)="showSort = !showSort"
+            [matTooltip]="languageService.getUpper('sort')">
+            <mat-icon class="material-icons-round">sort</mat-icon>
+            {{languageService.getUpper('sort')}}
+        </button>
+        </div>
+
+        <div class="projects_holder" *ngIf="projects" [@LobbyListAnim]="projects.length">
             <div matRipple class="project mat-elevation-z2" *ngFor="let project of projects"
                 (click)="navigateProject(project)">
                 <div class="center" style="position: absolute; z-index: 1;">
@@ -14,7 +21,19 @@
                 <img-lazy class="project_image" [src]="project.coverImage"></img-lazy>
             </div>
         </div>
+
     </div>
 </div>
 
 <app-scrollup [scrollElement]="scrollable"></app-scrollup>
+
+<!-- sorter -->
+<div class="sorter_background" *ngIf="showSort" (click)="showSort = false"></div>
+<mat-card class="sorter_container" *ngIf="showSort" [ngStyle]="getSorterDimensions()" @ChangeAnim>
+    <mat-radio-group (change)="onSortChange($event)" [(ngModel)]="currentSortingFunction">
+        {{languageService.getUpper('sort')}}:
+        <mat-radio-button *ngFor="let function of projectService.sortFunctions" [value]="function.function">
+            {{function.name}}
+        </mat-radio-button>
+    </mat-radio-group>
+</mat-card>

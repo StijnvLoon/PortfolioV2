@@ -1,4 +1,4 @@
-<div class="searchbar mat-elevation-z1 mat-app-background" #searchContainer>
+<div class="searchbar mat-elevation-z1 mat-app-background">
 
     <!-- searchbar -->
     <mat-icon class="icon material-icons-round">search</mat-icon>
@@ -8,8 +8,7 @@
         (click)="onSearchBarClick()">
     <mat-icon class="icon clear material-icons-round" (click)="clearInput()"
         [style.opacity]="searchbarService.searchText ? 1 : 0">close</mat-icon>
-    <mat-icon class="icon sorter_icon material-icons-round" (click)="sorting = true" matRipple>sort</mat-icon>
-
+        
     <!-- autocomplete -->
     <mat-autocomplete autoActiveFirstOption #autoComplete="matAutocomplete">
         <mat-option *ngFor="let project of results" (click)="navigateProject(project)">
@@ -21,16 +20,4 @@
             <mat-progress-bar mode="indeterminate"></mat-progress-bar>
         </mat-option>
     </mat-autocomplete>
-
-    <!-- sorter -->
-    <div class="sorter_background" *ngIf="sorting" (click)="sorting = false" @ChangeAnim></div>
-    <mat-card class="sorter_container" *ngIf="sorting" [ngStyle]="getSorterDimensions()" @ChangeAnim>
-        <mat-radio-group (change)="sortChange($event)">
-            {{languageService.getUpper('sort')}}:
-            <mat-radio-button *ngFor="let function of projectService.sortFunctions" [value]="function.function"
-                [checked]="function.name == 'A > Z'">
-                {{function.name}}
-            </mat-radio-button>
-        </mat-radio-group>
-    </mat-card>
 </div>

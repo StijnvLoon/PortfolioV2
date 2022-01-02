@@ -16,12 +16,10 @@ import { SearchbarService } from 'src/services/searchbar.service';
 export class SearchComponent {
 
   @ViewChild('searchInput') searchInput: ElementRef
-  @ViewChild('searchContainer') searchContainer: ElementRef
 
   public results: Project[] = []
   public searching: boolean = false
   public typedWhileSearching: boolean = false
-  public sorting: boolean = false
 
   constructor(
     private router: Router,
@@ -75,17 +73,5 @@ export class SearchComponent {
 
   navigateProject(project: Project) {
     this.router.navigate([`/project/${this.projectService.getUrl(project)}`]);
-  }
-
-  getSorterDimensions() {
-    return {
-      width: this.searchContainer.nativeElement.offsetWidth + 'px',
-      top: (this.searchContainer.nativeElement.getBoundingClientRect().top + this.searchContainer.nativeElement.offsetHeight + 10) + 'px',
-      left: this.searchContainer.nativeElement.getBoundingClientRect().left + 'px'
-    }
-  }
-
-  sortChange(event: MatRadioChange) {
-    this.projectService.sortProjects(event.value)
   }
 }
