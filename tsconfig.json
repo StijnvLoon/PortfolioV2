@@ -17,6 +17,7 @@
       "es2018",
       "dom",
       "ESNext.String"
-    ]
+    ],
+    "skipLibCheck": true
   }
 }
