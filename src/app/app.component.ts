@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { routeTransitionAnim } from 'src/animations/routeTransitionAnim';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,23 @@ import { routeTransitionAnim } from 'src/animations/routeTransitionAnim';
   styleUrls: [],
   animations: [routeTransitionAnim]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  constructor(
+    private titleService: Title,
+    private metaService: Meta
+  ) { }
+
+  ngOnInit(): void {
+    if(environment.production) {
+      this.titleService.setTitle(environment.title)
+      this.metaService.addTags([
+        {name: 'keywords', content: environment.keywords},
+        {name: 'description', content: environment.description},
+        {name: 'robots', content: environment.robots}
+      ])
+    }
+  }
 
   public getRouterOutletState(outlet) {
     return outlet.isActivated ? outlet.activatedRoute : '';

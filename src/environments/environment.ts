@@ -11,6 +11,10 @@ export const environment = {
   isMobile: window.innerWidth < 1200,
   defaultTheme: Theme.Light,
   defaultLanguage: Language.NL,
+  title: '',
+  description: '',
+  keywords: '',
+  robots: '',
   ownerEmail: 'stijnvanloon@home.nl',
   firebaseConfig: firebaseConfig
 };

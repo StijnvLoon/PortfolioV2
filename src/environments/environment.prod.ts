@@ -7,6 +7,10 @@ export const environment = {
   isMobile: window.innerWidth < 1200,
   defaultTheme: Theme.Light,
   defaultLanguage: Language.NL,
+  title: 'Portfolio website Stijn van Loon',
+  description: 'Een overzicht van projecten waar Stijn van Loon aan gewerkt heeft.',
+  keywords: 'portfolio, stijn van loon, ontwikkelaar, frontend, backend',
+  robots: 'index, follow',
   ownerEmail: 'stijnvanloon@home.nl',
   firebaseConfig: firebaseConfig
 };
