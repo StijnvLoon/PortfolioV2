@@ -17,7 +17,7 @@ export class ProjectService {
   private projects: Project[]
   private dataSource: DataSource
 
-  public sortFunctions: {name: string, function: (a: Project, b: Project) => number}[] = [
+  public sortFunctions: { name: string, function: (a: Project, b: Project) => number }[] = [
     //TODO add creation date to project and sorting functions for date
     {
       name: "A > Z",
@@ -34,10 +34,10 @@ export class ProjectService {
     private firestore: AngularFirestore,
     private languageService: LanguageService
   ) {
-    if (!environment.production) {
-      this.dataSource = new MockDataSource()
-    } else {
+    if (environment.production) {
       this.dataSource = new FireStoreDataSource(this.firestorage, this.firestore)
+    } else {
+      this.dataSource = new MockDataSource()
     }
   }
 
