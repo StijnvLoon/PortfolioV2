@@ -18,7 +18,6 @@ export class ProjectService {
   private dataSource: DataSource
 
   public sortFunctions: {name: string, function: (a: Project, b: Project) => number}[] = [
-    //TODO add creation date to project and sorting functions for date
     {
       name: "A > Z",
       function: (a, b) => (this.languageService.get(a.title) > this.languageService.get(b.title) ? 1 : -1)
@@ -26,6 +25,14 @@ export class ProjectService {
     {
       name: "Z > A",
       function: (a, b) => (this.languageService.get(a.title) < this.languageService.get(b.title) ? 1 : -1)
+    },
+    {
+      name: this.languageService.getUpper('old') + " > " + this.languageService.getUpper('new'),
+      function: (a, b) => a.creationDate.getTime() > b.creationDate.getTime() ? 1 : -1
+    },
+    {
+      name: this.languageService.getUpper('new') + " > " + this.languageService.getUpper('old'),
+      function: (a, b) => a.creationDate.getTime() < b.creationDate.getTime() ? 1 : -1
     }
   ]
 

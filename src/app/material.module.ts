@@ -21,32 +21,36 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
-  declarations: [],
-  imports: [],
-  exports: [
-    MatToolbarModule,
-    MatButtonModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    FormsModule,
-    MatMenuModule,
-    MatAutocompleteModule,
-    MatProgressBarModule,
-    MatRippleModule,
-    MatDividerModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatExpansionModule,
-    MatDialogModule,
-    MatListModule,
-    MatTooltipModule,
-    MatCheckboxModule,
-    DragDropModule,
-    MatSnackBarModule,
-    MatRadioModule
-  ]
+    declarations: [],
+    imports: [],
+    exports: [
+        MatToolbarModule,
+        MatButtonModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        FormsModule,
+        MatMenuModule,
+        MatAutocompleteModule,
+        MatProgressBarModule,
+        MatRippleModule,
+        MatDividerModule,
+        MatButtonToggleModule,
+        MatCardModule,
+        MatExpansionModule,
+        MatDialogModule,
+        MatListModule,
+        MatTooltipModule,
+        MatCheckboxModule,
+        DragDropModule,
+        MatSnackBarModule,
+        MatRadioModule,
+        MatDatepickerModule,
+        MatNativeDateModule
+    ]
 })
 export class MaterialModule { }

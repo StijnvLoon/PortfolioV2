@@ -22,7 +22,8 @@ export class ProjectEditor {
                 keywords: [],
                 images: [],
                 urls: [],
-                questions: []
+                questions: [],
+                creationDate: new Date()
             }
         } else {
             this.isNewProject = false

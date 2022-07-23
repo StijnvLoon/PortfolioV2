@@ -63,7 +63,8 @@ export class MockDataSource implements DataSource {
                 }
             ],
             urls: [],
-            questions: []
+            questions: [],
+            creationDate: new Date()
         },
         {
             id: '2',
@@ -154,7 +155,8 @@ export class MockDataSource implements DataSource {
                     question: { EN: 'This is the next question?', NL: 'Dit is de volgende vraag?' },
                     answer: { EN: 'This is an answer.', NL: 'Dit is een antwoord.' },
                 }
-            ]
+            ],
+            creationDate: new Date('2016-11-14')
         }
     ]
 
@@ -225,10 +227,6 @@ export class MockDataSource implements DataSource {
         onError: (errorCode: string) => void
     ) {
         setTimeout(() => {
-            //must first be converted to string in real datasource
-            // this.files.push(file)
-
-            //return that url
             onResult(file)
         }, this.mockDelay);
     }

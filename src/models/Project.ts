@@ -11,7 +11,8 @@ export interface Project {
     keywords: TextValue[]
     images: Image[]
     urls: Url[]
-    questions: Question[]
+    questions: Question[],
+    creationDate: Date
 }
 
 export interface Paragraph {

@@ -11,6 +11,7 @@ import { SearchbarService } from 'src/services/searchbar.service';
 export class TitleComponent {
 
   @Input() title: TextValue
+  @Input() creationDate: Date
   @Input() status: TextValue
   @Input() keywords: TextValue[]
   @Input() scrollElement: ElementRef
@@ -22,6 +23,10 @@ export class TitleComponent {
 
   searchKeyword(keyword: TextValue) {
     this.searchbarService.setSearchText(this.languageService.get(keyword));
+  }
+
+  getDateString() {
+    return `${this.creationDate.getDate()}-${this.creationDate.getMonth()+1}-${this.creationDate.getFullYear()}`
   }
 
 }

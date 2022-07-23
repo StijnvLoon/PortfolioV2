@@ -41,7 +41,10 @@ export interface Dictionary {
   text: string
   to: string
   sort: string
-  remove: string
+  remove: string,
+  creationDate: string,
+  old: string,
+  new: string
   login_first: string
   login_username: string
   login_password: string

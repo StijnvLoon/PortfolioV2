@@ -1,7 +1,16 @@
 <div class="head">
     <desktop-floating-title [text]="languageService.get(title)" [scrollElement]="scrollElement">
     </desktop-floating-title>
-    <h1 class="status">{{languageService.getUpper('status')}}: {{languageService.get(status)}}</h1>
+    <table class="info">
+        <tr *ngIf="creationDate">
+            <td>{{languageService.getUpper('creationDate')}}:</td>
+            <td>{{getDateString()}}</td>
+        </tr>
+        <tr>
+            <td>{{languageService.getUpper('status')}}:</td>
+            <td>{{languageService.get(status)}}</td>
+        </tr>
+    </table>
 </div>
 
 <div class="container_keywords">
