@@ -41,10 +41,10 @@ export class ProjectService {
     private firestore: AngularFirestore,
     private languageService: LanguageService
   ) {
-    if (!environment.production) {
-      this.dataSource = new MockDataSource()
-    } else {
+    if (environment.production) {
       this.dataSource = new FireStoreDataSource(this.firestorage, this.firestore)
+    } else {
+      this.dataSource = new MockDataSource()
     }
   }
 
