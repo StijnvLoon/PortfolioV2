@@ -18,6 +18,7 @@ import { EditUtilsComponent } from './edit-project/edit-utils/edit-utils.compone
 import { EditParagraphComponent } from './edit-project/edit-paragraph/edit-paragraph.component';
 import { FloatingTitleComponent } from './floating-title/floating-title.component';
 import { RegularModule } from '../regular.module';
+import { EditProject2Component } from './edit-project2/edit-project2.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { RegularModule } from '../regular.module';
     UrlsComponent,
     FaqComponent,
     EditProjectComponent,
+    EditProject2Component,
     EditLanguageComponent,
     EditMainComponent,
     EditUtilsComponent,
