@@ -132,5 +132,7 @@
       }
     }
   },
-  "defaultProject": "PortfolioV2"
+  "cli": {
+    "analytics": false
+  }
 }

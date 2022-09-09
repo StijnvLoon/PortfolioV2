@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Url } from 'src/models/Project';
 import { LanguageService } from 'src/services/language.service';
-import { Url } from 'url';
 
 @Component({
   selector: 'mobile-urls',
