@@ -23,6 +23,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
     declarations: [],
@@ -50,7 +51,8 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatSnackBarModule,
         MatRadioModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        MatStepperModule
     ]
 })
 export class MaterialModule { }
