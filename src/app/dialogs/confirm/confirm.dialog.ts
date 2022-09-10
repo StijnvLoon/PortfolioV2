@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TextValue } from 'src/models/Dictionary';
+import { TextValue } from "src/models/dict/TextValue";
 import { LanguageService } from 'src/services/language.service';
 
 export interface DialogData {

@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Project } from 'src/models/Project';
+import { Project } from 'src/models/project/Project';
 import { LanguageService } from 'src/services/language.service';
 import { ProjectService } from 'src/services/project.service';
 import { lobbyListAnim } from 'src/animations/lobbyListAnim';

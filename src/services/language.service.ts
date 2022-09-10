@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Dictionary, Language, TextValue } from '../models/Dictionary';
+import { Dictionary, Language } from '../models/dict/Dictionary';
+import { TextValue } from "../models/dict/TextValue";
 import { environment } from 'src/environments/environment';
 import { en } from 'src/lang/en';
 import { nl } from 'src/lang/nl';

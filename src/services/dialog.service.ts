@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FilePickerDialog } from 'src/app/dialogs/file-picker/file-picker.dialog';
 import { LoginDialog } from 'src/app/dialogs/login/login.dialog';
 import { ConfirmDialog } from '../app/dialogs/confirm/confirm.dialog';
-import { TextValue } from '../models/Dictionary';
+import { TextValue } from "../models/dict/TextValue";
 
 @Injectable({
   providedIn: 'root'

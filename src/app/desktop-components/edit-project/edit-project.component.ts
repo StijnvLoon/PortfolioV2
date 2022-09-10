@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Paragraph } from 'src/models/Project';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 import { AuthService } from 'src/services/auth.service';
 import { DialogService } from 'src/services/dialog.service';
@@ -53,14 +52,14 @@ export class EditProjectComponent implements OnInit {
     this.routeSub.unsubscribe();
   }
 
-  addParagraph() {
-    this.projectEditor.project.content.push({ title: {}, text: {} })
-  }
+//   addParagraph() {
+//     this.projectEditor.project.content.push({ title: {}, text: {} })
+//   }
 
-  removeParagraph(par: Paragraph) {
-    const index = this.projectEditor.project.content.indexOf(par)
-    this.projectEditor.project.content.splice(index, 1)
-  }
+//   removeParagraph(par: Paragraph) {
+//     const index = this.projectEditor.project.content.indexOf(par)
+//     this.projectEditor.project.content.splice(index, 1)
+//   }
 
   submitProject() {
     if (this.authService.isLoggedIn()) {

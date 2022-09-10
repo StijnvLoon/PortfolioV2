@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Language } from 'src/models/Dictionary';
+import { Language } from 'src/models/dict/Dictionary';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 import { DialogService } from 'src/services/dialog.service';
 import { LanguageService } from 'src/services/language.service';
@@ -66,17 +66,17 @@ export class EditUtilsComponent implements OnInit {
     this.projectEditor.project.keywords.push({})
   }
 
-  addColor() {
-    this.projectEditor.project.colors.push("#000000")
-  }
+//   addColor() {
+//     this.projectEditor.project.colors.push("#000000")
+//   }
 
-  setColor(index: number, value: string) {
-    this.projectEditor.project.colors[index] = value
-  }
+//   setColor(index: number, value: string) {
+//     this.projectEditor.project.colors[index] = value
+//   }
 
-  deleteColor(index: number) {
-    this.projectEditor.project.colors.splice(index, 1)
-  }
+//   deleteColor(index: number) {
+//     this.projectEditor.project.colors.splice(index, 1)
+//   }
 
   getUrlName(index: number) {
     return this.projectEditor.getUrlName(index)

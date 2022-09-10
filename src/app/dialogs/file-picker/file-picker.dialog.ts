@@ -1,15 +1,15 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TextValue } from 'src/models/Dictionary';
+import { TextValue } from "src/models/dict/TextValue";
 import { LanguageService } from 'src/services/language.service';
 import { FileService } from 'src/services/file.service';
-import { Folder } from 'src/models/Folder';
-import { Item } from 'src/models/Item';
+import { StorageItem } from 'src/models/storage/StorageItem';
 import { itemsListAnim } from 'src/animations/itemsListAnim';
 import { LoaderService } from 'src/services/loader.service';
 import { AuthService } from 'src/services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogService } from 'src/services/dialog.service';
+import { StorageFolder } from 'src/models/storage/StorageFolder';
 
 export interface DialogData {
     title: string | TextValue,
@@ -26,8 +26,8 @@ export interface DialogData {
 })
 export class FilePickerDialog {
 
-    public folders: Folder[] = []
-    public items: Item[] = []
+    public folders: StorageFolder[] = []
+    public items: StorageItem[] = []
     public nameFilter: string = ''
 
     //TODO
@@ -53,7 +53,7 @@ export class FilePickerDialog {
         this.dialogRef.close(downloadUrl)
     }
 
-    getFilteredItems(): Item[] {
+    getFilteredItems(): StorageItem[] {
         return this.items.filter(
             (item) => item.name.toLowerCase().includes(this.nameFilter.toLowerCase())
         )
@@ -90,7 +90,7 @@ export class FilePickerDialog {
             this.fileService.uploadItem(
                 file,
                 this.formPathFromIndex() + '/' + file.name,
-                (item: Item) => {
+                (item: StorageItem) => {
                     this.items.push(item)
                     this.loaderService.stopLoading()
                 },

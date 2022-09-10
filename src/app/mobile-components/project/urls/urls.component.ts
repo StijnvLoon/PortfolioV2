@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Url } from 'src/models/Project';
+import { ProjectUrl } from "src/models/project/Url";
 import { LanguageService } from 'src/services/language.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { LanguageService } from 'src/services/language.service';
 })
 export class UrlsComponent implements OnInit {
 
-  @Input() urls: Url[]
+  @Input() urls: ProjectUrl[]
 
   constructor(
     public languageService: LanguageService

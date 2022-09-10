@@ -1,20 +1,20 @@
-import { Folder } from "src/models/Folder";
-import { Item } from "src/models/Item";
-import { Project } from "../models/Project";
+import { StorageFolder } from "src/models/storage/StorageFolder";
+import { StorageItem } from "src/models/storage/StorageItem";
+import { Project } from "../models/project/Project";
 import { DataSource } from "./DataSource";
 
 export class MockDataSource implements DataSource {
 
     private readonly mockDelay: number = 1000
 
-    private readonly folders1: Folder[] = [
+    private readonly folders1: StorageFolder[] = [
         { name: 'test', path: 'test' },
         { name: 'test2', path: 'test2' }
     ]
-    private readonly folders2: Folder[] = [
+    private readonly folders2: StorageFolder[] = [
         { name: 'child', path: 'test/child'}
     ]
-    private readonly items: Item[] = [
+    private readonly items: StorageItem[] = [
         { name: 'olifant.jpg', extention: '.jpg', path: '', downloadUrl: 'https://walz-images.walz.de/v2/800x800_r1/images/MH/653/1/6531075_01/jpg/yoga-olifant-p1661023-1.jpg' },
         { name: 'kangaroe.jpg', extention: '.jpg', path: '', downloadUrl: 'https://walz-images.walz.de/v2/800x800_r1/images/MH/653/1/6531075_01/jpg/yoga-olifant-p1661023-1.jpg' }
     ]
@@ -24,7 +24,6 @@ export class MockDataSource implements DataSource {
             id: '1',
             title: { EN: 'This is test project #1', NL: 'Dit is test project #1' },
             logos: [],
-            colors: [],
             content: [
                 {
                     title: { EN: 'Description', NL: 'Beschrijving' },
@@ -73,7 +72,6 @@ export class MockDataSource implements DataSource {
                 'https://qfltfw.am.files.1drv.com/y4m3uUw2dNbmkCzCCJyMKYlZh_RLgpzM7eo4T4SKdi4HBfuKJE66M_KixMPGzuRpFiK34TMV9eQ9fLI1Eh1HIwg-DVDLLvHc_N68CH31pqxduon29ps7pUMWQb4NdKKUOBpFKuJnJgiaW5ys0aFjb3TU9-V_NFgDG8nc3KWtBZLvizU1mDBmsOroxWGuqKqckz57E07-Cu1NvEZAERffMQZzg?',
                 'https://xox0fg.db.files.1drv.com/y4mb-jwrObXWVuaIS6yr5jeS9vm2oeKjxARMpLtEmSRbZVN3u36R9RB_PJ7LLytIndCw8bIoJ_ofquXJzDvjbT8OLd-4_hqpW6aU6siAY3FbAtjchvX7hzrEfcCH5GaVTGOUGOZlDljhK9QEzEjCbB4Qs6p1q7jZzKTlfnUQ8jYmRfhn5P58X_UlyK0sM3aJehIzEtwvpghuN9WyOlEAxZL0A?'
             ],
-            colors: ['#000000'],
             content: [
                 {
                     title: { EN: 'Problem', NL: 'Probleem' },
@@ -210,7 +208,7 @@ export class MockDataSource implements DataSource {
 
     retrieveStorageItems(
         path: string = '',
-        onResult: (folders: Folder[], items: Item[]) => void,
+        onResult: (folders: StorageFolder[], items: StorageItem[]) => void,
         onError: (errorCode: string) => void
     ) {
         switch(path) {
@@ -223,7 +221,7 @@ export class MockDataSource implements DataSource {
     uploadFile(
         file: any,
         path: string,
-        onResult: (item: Item) => void,
+        onResult: (item: StorageItem) => void,
         onError: (errorCode: string) => void
     ) {
         setTimeout(() => {

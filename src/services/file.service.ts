@@ -5,8 +5,8 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { FireStoreDataSource } from '../dataSources/FireStoreDataSource';
 import { DataSource } from '../dataSources/DataSource';
 import { MockDataSource } from '../dataSources/MockDataSource';
-import { Folder } from '../models/Folder';
-import { Item } from '../models/Item';
+import { StorageItem } from '../models/storage/StorageItem';
+import { StorageFolder } from 'src/models/storage/StorageFolder';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class FileService {
 
   getItems(
     path: string = '',
-    onResult: (folders: Folder[], items: Item[]) => void,
+    onResult: (folders: StorageFolder[], items: StorageItem[]) => void,
     onError: (errorCode: string) => void
   ) {
     this.dataSource.retrieveStorageItems(path, onResult, onError)
@@ -37,7 +37,7 @@ export class FileService {
   uploadItem(
     file: any,
     path: string,
-    onResult: (item: Item) => void,
+    onResult: (item: StorageItem) => void,
     onError: (errorCode: string) => void
   ) {
     this.dataSource.uploadFile(file, path, onResult, onError)

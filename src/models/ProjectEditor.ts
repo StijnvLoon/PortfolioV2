@@ -1,5 +1,5 @@
-import { Language, languageArray } from './Dictionary'
-import { Project } from './Project'
+import { Language, languageArray } from './dict/Dictionary'
+import { Project } from './project/Project'
 
 export class ProjectEditor {
 
@@ -15,7 +15,6 @@ export class ProjectEditor {
                 id: "",
                 title: {},
                 logos: [],
-                colors: [],
                 content: [],
                 status: {},
                 coverImage: "",

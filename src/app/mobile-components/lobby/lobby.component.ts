@@ -3,7 +3,7 @@ import { MatRadioChange } from '@angular/material/radio';
 import { Router } from '@angular/router';
 import { changeAnim } from 'src/animations/changeAnim';
 import { lobbyListAnim } from 'src/animations/lobbyListAnim';
-import { Project } from 'src/models/Project';
+import { Project } from 'src/models/project/Project';
 import { LanguageService } from 'src/services/language.service';
 import { LoaderService } from 'src/services/loader.service';
 import { ProjectService } from 'src/services/project.service';

@@ -1,4 +1,4 @@
-import { Language } from "src/models/Dictionary";
+import { Language } from "src/models/dict/Dictionary";
 import { Theme } from "src/models/Theme";
 import * as firebaseConfig from "../../hosting/firebaseConfig.json"
 

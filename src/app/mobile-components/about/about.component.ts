@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Language } from 'src/models/Dictionary';
+import { Language } from 'src/models/dict/Dictionary';
 import { LanguageService } from 'src/services/language.service';
 
 @Component({

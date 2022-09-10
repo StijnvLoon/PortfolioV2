@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectEditor2 } from 'src/models/ProjectEditor2';
+import { LanguageService } from 'src/services/language.service';
 import { ProjectService } from 'src/services/project.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class EditProject2Component implements OnInit {
     public projectEditor: ProjectEditor2
 
     constructor(
-        private projectService: ProjectService
+        private projectService: ProjectService,
+        public languageService: LanguageService
     ) { }
 
     ngOnInit(): void {

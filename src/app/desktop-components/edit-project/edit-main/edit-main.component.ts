@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Language } from 'src/models/Dictionary';
+import { Language } from 'src/models/dict/Dictionary';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 import { DialogService } from 'src/services/dialog.service';
 import { LanguageService } from 'src/services/language.service';

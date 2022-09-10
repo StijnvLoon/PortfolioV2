@@ -1,8 +1,8 @@
 import { AngularFirestore } from "@angular/fire/firestore";
 import { AngularFireStorage, AngularFireStorageReference } from "@angular/fire/storage";
-import { Folder } from "src/models/Folder";
-import { Item } from "src/models/Item";
-import { Project } from "../models/Project";
+import { StorageFolder } from "src/models/storage/StorageFolder";
+import { StorageItem } from "src/models/storage/StorageItem";
+import { Project, ProjectData } from "../models/project/Project";
 import { DataSource } from "./DataSource";
 
 export class FireStoreDataSource implements DataSource {
@@ -22,13 +22,13 @@ export class FireStoreDataSource implements DataSource {
             .collection(this.collectionsName)
             .snapshotChanges()
             .subscribe((projectsPayload) => {
-                const projects = projectsPayload.map((projectRaw) => {
+                const projectsData = projectsPayload.map((projectRaw) => {
                     const project = projectRaw.payload.doc.data()
                     project['id'] = projectRaw.payload.doc.id
                     return project
                 })
 
-                onResult(projects as Project[])
+                onResult(projectsData.map((data: ProjectData) => new Project(data)))
             });
     }
 
@@ -90,15 +90,15 @@ export class FireStoreDataSource implements DataSource {
 
     retrieveStorageItems(
         path: string = '',
-        onResult: (folders: Folder[], items: Item[]) => void,
+        onResult: (folders: StorageFolder[], items: StorageItem[]) => void,
         onError: (errorCode: string) => void
     ) {
         this.firestorage.ref(path).listAll().subscribe((result) => {
-            const items: Item[] = []
+            const items: StorageItem[] = []
             
             result.items.forEach((itemRaw) => {
                 itemRaw.getDownloadURL().then((url) => {
-                    const item: Item = {
+                    const item: StorageItem = {
                         name: itemRaw.name,
                         extention: itemRaw.name.split('.')[itemRaw.name.split('.').length-1],
                         path: itemRaw.fullPath,
@@ -112,7 +112,7 @@ export class FireStoreDataSource implements DataSource {
             })
 
             const folders = result.prefixes.map((folderRaw) => {
-                const folder: Folder = {
+                const folder: StorageFolder = {
                     name: folderRaw.name,
                     path: folderRaw.fullPath
                 }
@@ -126,7 +126,7 @@ export class FireStoreDataSource implements DataSource {
     uploadFile(
         file: any,
         path: string,
-        onResult: (item: Item) => void,
+        onResult: (item: StorageItem) => void,
         onError: (errorCode: string) => void
     ) {
         this.firestorage.ref(path).put(file)

@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
 import { Router } from '@angular/router';
 import { changeAnim } from 'src/animations/changeAnim';
-import { Project } from 'src/models/Project';
+import { Project } from 'src/models/project/Project';
 import { LanguageService } from 'src/services/language.service';
 import { ProjectService } from 'src/services/project.service';
 import { SearchbarService } from 'src/services/searchbar.service';

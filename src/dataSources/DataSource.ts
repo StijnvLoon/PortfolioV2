@@ -1,6 +1,6 @@
-import { Folder } from 'src/models/Folder';
-import { Item } from 'src/models/Item';
-import { Project } from '../models/Project';
+import { StorageFolder } from 'src/models/storage/StorageFolder';
+import { StorageItem } from 'src/models/storage/StorageItem';
+import { Project } from '../models/project/Project';
 
 export interface DataSource {
     // projects
@@ -26,13 +26,13 @@ export interface DataSource {
     // files
     retrieveStorageItems(
         path: string,
-        onResult: (folders: Folder[], items: Item[]) => void,
+        onResult: (folders: StorageFolder[], items: StorageItem[]) => void,
         onError: (errorCode: string) => void
     )
     uploadFile(
         file: any,
         path: string,
-        onResult: (item: Item) => void,
+        onResult: (item: StorageItem) => void,
         onError: (errorCode: string) => void
     )
 }

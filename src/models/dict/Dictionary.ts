@@ -3,11 +3,6 @@ export enum Language {
   EN,
 }
 
-export interface TextValue {
-  EN?: string
-  NL?: string,
-}
-
 export interface Dictionary {
   error: string
   welcome: string

@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TextValue } from 'src/models/Dictionary';
+import { TextValue } from "src/models/dict/TextValue";
 import { AuthService } from 'src/services/auth.service';
 import { LanguageService } from 'src/services/language.service';
 

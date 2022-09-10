@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { TextValue } from 'src/models/Dictionary';
-import { Question } from 'src/models/Project';
+import { TextValue } from "src/models/dict/TextValue";
+import { ProjectQuestion } from "src/models/project/Question";
 import { LanguageService } from 'src/services/language.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { LanguageService } from 'src/services/language.service';
 })
 export class FaqComponent {
 
-  @Input() questions: Question[]
+  @Input() questions: ProjectQuestion[]
   @Input() projectTitle: TextValue
 
   constructor(

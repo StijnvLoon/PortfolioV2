@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Language } from 'src/models/Dictionary';
-import { Paragraph } from 'src/models/Project';
+import { Language } from 'src/models/dict/Dictionary';
 import { ProjectEditor } from 'src/models/ProjectEditor';
 import { LanguageService } from 'src/services/language.service';
 
@@ -11,10 +10,10 @@ import { LanguageService } from 'src/services/language.service';
 })
 export class EditParagraphComponent implements OnInit {
 
-  @Input() projectEditor: ProjectEditor
-  @Input() paragraph: Paragraph
-  @Input() level: number = 0
-  @Output() onRemoveSubparagraph = new EventEmitter<Paragraph>();
+//   @Input() projectEditor: ProjectEditor
+//   @Input() paragraph: Paragraph
+//   @Input() level: number = 0
+//   @Output() onRemoveSubparagraph = new EventEmitter<Paragraph>();
 
   constructor(
     public languageService: LanguageService
@@ -23,40 +22,40 @@ export class EditParagraphComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getCurrentLanguageString() {
-    return Language[this.projectEditor.selectedLanguage]
-  }
+//   getCurrentLanguageString() {
+//     return Language[this.projectEditor.selectedLanguage]
+//   }
 
-  getTitle(): string {
-    return this.paragraph.title[Language[this.projectEditor.selectedLanguage]]
-  }
+//   getTitle(): string {
+//     return this.paragraph.title[Language[this.projectEditor.selectedLanguage]]
+//   }
 
-  getContent(): string {
-    return this.paragraph.text[Language[this.projectEditor.selectedLanguage]]
-  }
+//   getContent(): string {
+//     return this.paragraph.text[Language[this.projectEditor.selectedLanguage]]
+//   }
 
-  setTitle(value: string) {
-    this.paragraph.title[Language[this.projectEditor.selectedLanguage]] = value
-  }
+//   setTitle(value: string) {
+//     this.paragraph.title[Language[this.projectEditor.selectedLanguage]] = value
+//   }
 
-  setContent(value: string) {
-    this.paragraph.text[Language[this.projectEditor.selectedLanguage]] = value
-  }
+//   setContent(value: string) {
+//     this.paragraph.text[Language[this.projectEditor.selectedLanguage]] = value
+//   }
 
-  addSubParagraph() {
-    if(this.paragraph.content == undefined) {
-      this.paragraph.content = []
-    }
-    this.paragraph.content.push({ title: {}, text: {} })
-  }
+//   addSubParagraph() {
+//     if(this.paragraph.content == undefined) {
+//       this.paragraph.content = []
+//     }
+//     this.paragraph.content.push({ title: {}, text: {} })
+//   }
 
-  removeParagraph() {
-    this.onRemoveSubparagraph.emit(this.paragraph)
-  }
+//   removeParagraph() {
+//     this.onRemoveSubparagraph.emit(this.paragraph)
+//   }
 
-  removeSubparagraph(subparagraph: Paragraph) {
-    const index = this.paragraph.content.indexOf(subparagraph)
-    this.paragraph.content.splice(index, 1)
-  }
+//   removeSubparagraph(subparagraph: Paragraph) {
+//     const index = this.paragraph.content.indexOf(subparagraph)
+//     this.paragraph.content.splice(index, 1)
+//   }
 
 }

@@ -2,6 +2,25 @@
     <div class="page_center" style="margin-bottom: 100px;">
         <div class="holder" *ngIf="projectEditor" style="margin-top: 12px">
 
+            <mat-stepper linear #stepper>
+                <mat-step>
+                    <form>
+                        <ng-template matStepLabel>{{languageService.getUpper('main')}}</ng-template>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <form>
+                        <ng-template matStepLabel>{{languageService.getUpper('main')}}</ng-template>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+            </mat-stepper>
+            
         </div>
     </div>
 </div>

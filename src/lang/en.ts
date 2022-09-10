@@ -1,4 +1,4 @@
-import { Dictionary } from '../models/Dictionary';
+import { Dictionary } from '../models/dict/Dictionary';
 
 export const en: Dictionary = {
     error: '[error]',

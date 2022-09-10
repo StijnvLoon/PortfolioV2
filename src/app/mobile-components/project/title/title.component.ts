@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
-import { TextValue } from 'src/models/Dictionary';
+import { TextValue } from "src/models/dict/TextValue";
 import { LanguageService } from 'src/services/language.service';
 import { SearchbarService } from 'src/services/searchbar.service';
 

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { LanguageService } from 'src/services/language.service';
 import { imageTransitionAnimLtoR, imageTransitionAnimRtoL } from 'src/animations/imageTransitionAnim';
 import { trigger, transition } from '@angular/animations';
-import { Image } from 'src/models/Project';
+import { ProjectImage } from "src/models/project/Image";
 
 @Component({
   selector: 'desktop-images',
@@ -17,7 +17,7 @@ import { Image } from 'src/models/Project';
 })
 export class ImagesComponent implements OnInit {
 
-  @Input() images: Image[]
+  @Input() images: ProjectImage[]
   public currentIndex: number = 0
 
   constructor(

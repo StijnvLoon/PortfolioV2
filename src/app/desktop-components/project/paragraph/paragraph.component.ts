@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Paragraph } from 'src/models/Project';
+// import { Paragraph } from 'src/models/project/Project';
 import { Theme } from 'src/models/Theme';
 import { LanguageService } from 'src/services/language.service';
 import { ThemeService } from 'src/services/theme.service';
@@ -11,7 +11,7 @@ import { ThemeService } from 'src/services/theme.service';
 })
 export class ParagraphComponent {
 
-  @Input() paragraph: Paragraph
+//   @Input() paragraph: Paragraph
   @Input() level: number = 0
 
   constructor(
