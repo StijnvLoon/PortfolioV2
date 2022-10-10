@@ -1,0 +1,58 @@
+.language_list {
+    display: flex;
+    column-gap: 10px;
+    margin-bottom: 20px;
+}
+.language_selected {
+    background-color: rgb(39, 112, 222);
+}
+
+.stepper {
+    display: flex;
+    column-gap: 20px;
+}
+
+.stepper_nav {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.stepper_nav button {
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+}
+
+.stepper_container {
+    width: 100%;
+    position: relative;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.cover {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 0;
+    left: 0;
+}
+.cover img-lazy {
+    width: 100%;
+    height: inherit;
+    filter: opacity(0.3);
+    object-fit: cover;
+}
+.cover .fade {
+    width: 100%;
+    height: 50px;
+    background-color: red;
+    transform: translateY(-50px);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 29%, rgba(255,255,255,0) 100%);
+}

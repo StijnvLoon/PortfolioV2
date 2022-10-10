@@ -1,26 +1,39 @@
 <div class="page_container" #scrollable>
     <div class="page_center" style="margin-bottom: 100px;">
-        <div class="holder" *ngIf="projectEditor" style="margin-top: 12px">
+        <div class="holder" *ngIf="project" style="margin-top: 12px">
 
-            <mat-stepper linear #stepper>
-                <mat-step>
-                    <form>
-                        <ng-template matStepLabel>{{languageService.getUpper('main')}}</ng-template>
-                        <div>
-                            <button mat-button matStepperNext>Next</button>
-                        </div>
-                    </form>
-                </mat-step>
-                <mat-step>
-                    <form>
-                        <ng-template matStepLabel>{{languageService.getUpper('main')}}</ng-template>
-                        <div>
-                            <button mat-button matStepperNext>Next</button>
-                        </div>
-                    </form>
-                </mat-step>
-            </mat-stepper>
-            
+            <h2>Project bewerken</h2>
+
+            <div class="actions">
+                <mat-button-toggle-group [(ngModel)]="selectedLanguage">
+                    <mat-button-toggle *ngFor="let language of languages" [value]="language">{{language}}
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+                <button mat-raised-button color="accent">
+                    <mat-icon>save</mat-icon>
+                </button>
+            </div>
+
+            <div class="stepper">
+                <mat-card class="stepper_nav">
+                    <button mat-raised-button color="primary" (click)="changeTab(0)">General</button>
+                    <button mat-raised-button color="primary" (click)="changeTab(1)">Content</button>
+                    <button mat-raised-button color="primary" (click)="changeTab(2)">Utils</button>
+                    <button mat-raised-button color="primary" (click)="changeTab(3)">Questions</button>
+                </mat-card>
+                <mat-card class="stepper_container">
+                    <div class="cover" *ngIf="project.coverImage">
+                        <img-lazy [src]="project.coverImage"></img-lazy>
+                        <div class="fade"></div>
+                    </div>
+
+                    <app-edit-general @ChangeAnim *ngIf="tabSelected(0)" [project]="project" [lang]="selectedLanguage">
+                    </app-edit-general>
+                    <app-edit-content @ChangeAnim *ngIf="tabSelected(1)"></app-edit-content>
+                    <app-edit-utils @ChangeAnim *ngIf="tabSelected(2)"></app-edit-utils>
+                    <app-edit-questions @ChangeAnim *ngIf="tabSelected(3)"></app-edit-questions>
+                </mat-card>
+            </div>
         </div>
     </div>
 </div>

@@ -12,8 +12,8 @@
                 [scrollElement]="scrollable">
             </desktop-title>
             
-            <mat-divider *ngIf="project.content.length > 0"></mat-divider>
-            <desktop-paragraph *ngFor="let paragraph of project.content" [paragraph]="paragraph"></desktop-paragraph>
+            <!-- <mat-divider *ngIf="project.content.length > 0"></mat-divider>
+            <desktop-paragraph *ngFor="let paragraph of project.content" [paragraph]="paragraph"></desktop-paragraph> -->
             
             <mat-divider *ngIf="project.images.length > 0"></mat-divider>
             <desktop-images *ngIf="project.images.length > 0" [images]="project.images"></desktop-images>

@@ -7,7 +7,7 @@ export interface ProjectData {
     id: string
     title: TextValueData
     logos: string[]         // logo urls
-    content: string         // Quill object
+    content: TextValueData         // Quill object
     status: TextValueData
     coverImage: string
     keywords: TextValueData[]
@@ -21,7 +21,7 @@ export class Project {
     id: string
     title: TextValue
     logos: string[]         // logo urls
-    content: object[]
+    content: TextValue         // Quill
     status: TextValue
     coverImage: string
     keywords: TextValue[]
@@ -34,7 +34,7 @@ export class Project {
         this.id = data.id
         this.title = new TextValue(data.title)
         this.logos = data.logos
-        this.content = JSON.parse(data.content)
+        this.content = new TextValue(data.content)
         this.status = new TextValue(data.status)
         this.coverImage = data.coverImage
         this.keywords = data.keywords.map((data) => new TextValue(data))
@@ -42,6 +42,22 @@ export class Project {
         this.urls = data.urls.map((data) => new ProjectUrl(data))
         this.questions = data.questions.map((data) => new ProjectQuestion(data))
         this.creationDate = new Date(data.creationDate)
+    }
+
+    static EMPTY(): Project {
+        return new Project({
+            id: undefined,
+            title: {},
+            logos: [],
+            content: {},
+            status: {},
+            coverImage: "",
+            keywords: [],
+            images: [],
+            urls: [],
+            questions: [],
+            creationDate: new Date().toDateString()
+        })
     }
 }
 

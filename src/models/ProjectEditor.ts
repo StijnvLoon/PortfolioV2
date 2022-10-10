@@ -11,19 +11,7 @@ export class ProjectEditor {
     ) {
         if (!this.project) {
             this.isNewProject = true
-            this.project = {
-                id: "",
-                title: {},
-                logos: [],
-                content: [],
-                status: {},
-                coverImage: "",
-                keywords: [],
-                images: [],
-                urls: [],
-                questions: [],
-                creationDate: new Date()
-            }
+            this.project = Project.EMPTY()
         } else {
             this.isNewProject = false
         }

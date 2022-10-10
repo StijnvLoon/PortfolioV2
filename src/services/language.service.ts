@@ -38,7 +38,7 @@ export class LanguageService {
     if(typeof identifier == 'string') {
       translation = this.retrieveFromString(identifier)
     } else {
-      translation = this.retrieveFromTextValue(identifier)
+      translation = identifier.get(this.language)
     }
 
     if(translation !== undefined) {
@@ -50,10 +50,6 @@ export class LanguageService {
 
   private retrieveFromString(string: string): string {
     return this.dict()[string]
-  }
-
-  private retrieveFromTextValue(textValue: TextValue): string {
-    return textValue[Language[this.language]]
   }
 
   private dict(): Dictionary {

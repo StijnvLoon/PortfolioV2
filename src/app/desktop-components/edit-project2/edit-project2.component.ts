@@ -1,24 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectEditor2 } from 'src/models/ProjectEditor2';
+import { changeAnim } from 'src/animations/changeAnim';
+import { Language, languageArray } from 'src/models/dict/Dictionary';
+import { Project } from 'src/models/project/Project';
 import { LanguageService } from 'src/services/language.service';
 import { ProjectService } from 'src/services/project.service';
 
 @Component({
-    selector: 'app-edit-project2',
+    selector: 'desktop-edit-project',
     templateUrl: './edit-project2.component.html',
-    styleUrls: ['./edit-project2.component.scss']
+    styleUrls: ['./edit-project2.component.scss'],
+    animations: [
+        changeAnim
+    ]
 })
 export class EditProject2Component implements OnInit {
 
-    public projectEditor: ProjectEditor2
+    public project: Project
+    private selectedTab: number = 0
+    public selectedLanguage: string
+    public languages: string[]
 
     constructor(
         private projectService: ProjectService,
         public languageService: LanguageService
-    ) { }
+    ) { 
+        this.project = Project.EMPTY()
+        this.languages = languageArray()
+        this.selectedLanguage = this.languages[0]
+    }
 
     ngOnInit(): void {
-        this.projectEditor = new ProjectEditor2()
+    }
+
+    changeTab(index: number) {
+        this.selectedTab = index
+    }
+
+    tabSelected(index: number) {
+        return this.selectedTab == index
     }
 
 }

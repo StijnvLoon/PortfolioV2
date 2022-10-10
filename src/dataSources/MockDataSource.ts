@@ -20,22 +20,23 @@ export class MockDataSource implements DataSource {
     ]
 
     private readonly projectList: Project[] = [
-        {
+        new Project({
             id: '1',
             title: { EN: 'This is test project #1', NL: 'Dit is test project #1' },
             logos: [],
-            content: [
-                {
-                    title: { EN: 'Description', NL: 'Beschrijving' },
-                    text: { EN: 'This is the description paragraph', NL: 'Dit is de beschrijving paragraaf' },
-                    content: [
-                        {
-                            title: { EN: 'Description', NL: 'Beschrijving' },
-                            text: { EN: 'This is the description paragraph', NL: 'Dit is de beschrijving paragraaf' },
-                        }
-                    ]
-                }
-            ],
+            content: {},
+            // [
+            //     {
+            //         title: { EN: 'Description', NL: 'Beschrijving' },
+            //         text: { EN: 'This is the description paragraph', NL: 'Dit is de beschrijving paragraaf' },
+            //         content: [
+            //             {
+            //                 title: { EN: 'Description', NL: 'Beschrijving' },
+            //                 text: { EN: 'This is the description paragraph', NL: 'Dit is de beschrijving paragraaf' },
+            //             }
+            //         ]
+            //     }
+            // ],
             status: { NL: 'engels ontbreekt' },
             coverImage: 'https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80',
             keywords: [
@@ -63,37 +64,38 @@ export class MockDataSource implements DataSource {
             ],
             urls: [],
             questions: [],
-            creationDate: new Date()
-        },
-        {
+            creationDate: new Date().toDateString()
+        }),
+        new Project({
             id: '2',
             title: { EN: 'CouponManager', NL: 'CouponManager' },
             logos: [
                 'https://qfltfw.am.files.1drv.com/y4m3uUw2dNbmkCzCCJyMKYlZh_RLgpzM7eo4T4SKdi4HBfuKJE66M_KixMPGzuRpFiK34TMV9eQ9fLI1Eh1HIwg-DVDLLvHc_N68CH31pqxduon29ps7pUMWQb4NdKKUOBpFKuJnJgiaW5ys0aFjb3TU9-V_NFgDG8nc3KWtBZLvizU1mDBmsOroxWGuqKqckz57E07-Cu1NvEZAERffMQZzg?',
                 'https://xox0fg.db.files.1drv.com/y4mb-jwrObXWVuaIS6yr5jeS9vm2oeKjxARMpLtEmSRbZVN3u36R9RB_PJ7LLytIndCw8bIoJ_ofquXJzDvjbT8OLd-4_hqpW6aU6siAY3FbAtjchvX7hzrEfcCH5GaVTGOUGOZlDljhK9QEzEjCbB4Qs6p1q7jZzKTlfnUQ8jYmRfhn5P58X_UlyK0sM3aJehIzEtwvpghuN9WyOlEAxZL0A?'
             ],
-            content: [
-                {
-                    title: { EN: 'Problem', NL: 'Probleem' },
-                    text: { NL: 'Een vriend van mij beheert de social media afdeling van een aantal New York Pizza instanties. Hiervoor moet hij duizenden couponcodes aanvragen, beheren en uitgeven en werkte hiervoor in Excel. Hij vroeg zich af of ik geen handige desktop applicatie kon maken om dit werk voor hem makkelijker te maken.' },
-                    content: [
-                        {
-                            title: { EN: 'Technologies', NL: 'Technologieën' },
-                            text: { NL: 'Er is gekozen voor een Electron applicatie in combinatie met Angular' },
-                            content: [
-                                {
-                                    title: { EN: 'Angular', NL: 'Angular' },
-                                    text: { NL: '*uitleg Angular applicatie*' }
-                                },
-                                {
-                                    title: { EN: 'Electron', NL: 'Electron' },
-                                    text: { NL: '*uitleg Electron applicatie*' }
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ],
+            content: {},
+            // [
+            //     {
+            //         title: { EN: 'Problem', NL: 'Probleem' },
+            //         text: { NL: 'Een vriend van mij beheert de social media afdeling van een aantal New York Pizza instanties. Hiervoor moet hij duizenden couponcodes aanvragen, beheren en uitgeven en werkte hiervoor in Excel. Hij vroeg zich af of ik geen handige desktop applicatie kon maken om dit werk voor hem makkelijker te maken.' },
+            //         content: [
+            //             {
+            //                 title: { EN: 'Technologies', NL: 'Technologieën' },
+            //                 text: { NL: 'Er is gekozen voor een Electron applicatie in combinatie met Angular' },
+            //                 content: [
+            //                     {
+            //                         title: { EN: 'Angular', NL: 'Angular' },
+            //                         text: { NL: '*uitleg Angular applicatie*' }
+            //                     },
+            //                     {
+            //                         title: { EN: 'Electron', NL: 'Electron' },
+            //                         text: { NL: '*uitleg Electron applicatie*' }
+            //                     }
+            //                 ]
+            //             }
+            //         ]
+            //     }
+            // ],
             status: { EN: 'Finished', NL: 'Afgerond' },
             coverImage: 'https://ibuz9q.db.files.1drv.com/y4mLllhWqe7uAiWwI-niZzLH8oKkGTOtAZmaIFw4pYW2fVWxAi7rNh9TMdFd042ngASyWUIx-KpQOteuCR-JRZDn52osZNBmuxMBjppGZIJ613UaukTyTJyn_9KSZmaryv87jQBPOTIciSKEvO1emNETghOU45Q7yi5GVUHCuDvko2IlWVU6B7Rlt9txfnXgGGAgpgpwAprBcuSa16IuFaB2A',
             keywords: [
@@ -154,8 +156,8 @@ export class MockDataSource implements DataSource {
                     answer: { EN: 'This is an answer.', NL: 'Dit is een antwoord.' },
                 }
             ],
-            creationDate: new Date('2016-11-14')
-        }
+            creationDate: '2016-11-14'
+        })
     ]
 
     retrieveProjects(

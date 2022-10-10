@@ -17,6 +17,9 @@ export interface Dictionary {
   no: string
   cancel: string
   confirm_delete_logo: string
+  general: string
+  next: string
+  back: string
   main: string
   cover: string
   image: string
