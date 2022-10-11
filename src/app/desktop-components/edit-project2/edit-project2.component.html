@@ -29,7 +29,8 @@
 
                     <app-edit-general @ChangeAnim *ngIf="tabSelected(0)" [project]="project" [lang]="selectedLanguage">
                     </app-edit-general>
-                    <app-edit-content @ChangeAnim *ngIf="tabSelected(1)"></app-edit-content>
+                    <app-edit-content @ChangeAnim *ngIf="tabSelected(1)" [project]="project" [lang]="selectedLanguage">
+                    </app-edit-content>
                     <app-edit-utils @ChangeAnim *ngIf="tabSelected(2)"></app-edit-utils>
                     <app-edit-questions @ChangeAnim *ngIf="tabSelected(3)"></app-edit-questions>
                 </mat-card>
