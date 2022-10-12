@@ -6,7 +6,7 @@
         <input matInput [value]="project.title.get(lang)" (input)="project.title[lang] = $event.target.value">
         <mat-hint>EN: {{project.title.get("EN")}}</mat-hint>
     </mat-form-field>
-    
+
     <mat-form-field appearance="fill">
         <mat-label>{{languageService.getUpper('cover')}} {{languageService.get('image')}}</mat-label>
         <input matInput [value]="project.coverImage" disabled>
@@ -15,5 +15,15 @@
         </button>
     </mat-form-field>
 
-</div>
+    <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <input matInput [value]="project.status.get(lang)" (input)="project.status[lang] = $event.target.value" [matAutocomplete]="auto">
+        <mat-hint>EN: {{project.status.get("EN")}}</mat-hint>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="project.status = $event.option.value">
+            <mat-option *ngFor="let option of availableStatusses" [value]="option">
+                {{option.get(lang) || '[unavailable]'}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
 
+</div>

@@ -9,7 +9,7 @@
                     <mat-button-toggle *ngFor="let language of languages" [value]="language">{{language}}
                     </mat-button-toggle>
                 </mat-button-toggle-group>
-                <button mat-raised-button color="accent">
+                <button mat-raised-button color="accent" (click)="test()">
                     <mat-icon>save</mat-icon>
                 </button>
             </div>

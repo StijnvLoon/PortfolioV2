@@ -40,4 +40,8 @@ export class EditProject2Component implements OnInit {
         return this.selectedTab == index
     }
 
+    test() {
+        console.log(this.project)
+    }
+
 }
