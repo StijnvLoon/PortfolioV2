@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DateAdapter } from '@angular/material/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { routeTransitionAnim } from 'src/animations/routeTransitionAnim';
 import { environment } from 'src/environments/environment';
@@ -13,10 +14,13 @@ export class AppComponent implements OnInit {
 
   constructor(
     private titleService: Title,
-    private metaService: Meta
+    private metaService: Meta,
+    private dateAdapter: DateAdapter<any>
   ) { }
 
   ngOnInit(): void {
+    this.dateAdapter.setLocale('nl')
+
     if(environment.production) {
       this.titleService.setTitle(environment.title)
       this.metaService.addTags([

@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { Language } from 'src/models/dict/Dictionary';
 import { TextValue } from 'src/models/dict/TextValue';
 import { Project } from 'src/models/project/Project';
 import { DialogService } from 'src/services/dialog.service';
@@ -22,16 +20,13 @@ export class EditGeneralComponent implements OnInit {
     constructor(
         private projectService: ProjectService,
         public languageService: LanguageService,
-        private dialogService: DialogService
+        private dialogService: DialogService,
     ) { }
 
     ngOnInit(): void {
         this.projectService.get((projects: Project[]) => {
             this.availableStatusses = projects.map((p) => p.status)
-            console.log(this.availableStatusses)
-        }, (error: string) => {
-
-        })
+        }, (error: string) => { })
     }
 
     pickImage() {
@@ -39,14 +34,8 @@ export class EditGeneralComponent implements OnInit {
             'file_picker_choose_image',
             '',
             (url: string) => {
-                if (url) {
-                    this.project.coverImage = url
-                }
+                if (url) this.project.coverImage = url
             }
         )
-    }
-
-    test($event: MatAutocompleteSelectedEvent) {
-        console.log($event)
     }
 }

@@ -17,13 +17,22 @@
 
     <mat-form-field appearance="fill">
         <mat-label>Status</mat-label>
-        <input matInput [value]="project.status.get(lang)" (input)="project.status[lang] = $event.target.value" [matAutocomplete]="auto">
+        <input matInput [value]="project.status.get(lang)" (input)="project.status[lang] = $event.target.value"
+            [matAutocomplete]="auto">
         <mat-hint>EN: {{project.status.get("EN")}}</mat-hint>
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="project.status = $event.option.value">
             <mat-option *ngFor="let option of availableStatusses" [value]="option">
                 {{option.get(lang) || '[unavailable]'}}
             </mat-option>
         </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Creation date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="project.creationDate">
+        <mat-hint>DD-MM-YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="multi-year"></mat-datepicker>
     </mat-form-field>
 
 </div>
