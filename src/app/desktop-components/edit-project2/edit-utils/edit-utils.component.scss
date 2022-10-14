@@ -1,4 +1,19 @@
 :host {
-    width: 100%;
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.logos_holder {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.logo {
+    height: 60px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 4px;
 }

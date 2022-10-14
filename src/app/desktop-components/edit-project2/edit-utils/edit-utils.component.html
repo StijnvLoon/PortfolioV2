@@ -1,1 +1,11 @@
-<p>edit-utils works!</p>
+<div style="margin: 20px;">
+    <h2>Utils</h2>
+    <h4 style="margin-bottom: 4px;">Logo's</h4>
+    <div class="logos_holder">
+        <img-lazy *ngFor="let imageUrl of project.logos; let i = index" [src]="imageUrl" class="logo" matRipple
+            (click)="removeLogo(i)" [matTooltip]="'Verwijderen'"></img-lazy>
+        <button mat-button color="accent" style="height: 60px;" (click)="pickLogo()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
