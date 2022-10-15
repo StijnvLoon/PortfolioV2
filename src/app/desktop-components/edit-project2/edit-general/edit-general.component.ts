@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { itemsListAnim } from 'src/animations/itemsListAnim';
 import { TextValue } from 'src/models/dict/TextValue';
 import { Project } from 'src/models/project/Project';
 import { DialogService } from 'src/services/dialog.service';
@@ -8,7 +9,7 @@ import { ProjectService } from 'src/services/project.service';
 @Component({
     selector: 'app-edit-general',
     templateUrl: './edit-general.component.html',
-    styleUrls: ['./edit-general.component.scss']
+    styleUrls: ['./edit-general.component.scss'],
 })
 export class EditGeneralComponent implements OnInit {
 

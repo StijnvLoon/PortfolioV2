@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { languageArray } from 'src/models/dict/Dictionary';
+import { TextValue } from 'src/models/dict/TextValue';
 import { Project } from 'src/models/project/Project';
 import { DialogService } from 'src/services/dialog.service';
 import { LanguageService } from 'src/services/language.service';
+import { ProjectService } from 'src/services/project.service';
 
 @Component({
     selector: 'app-edit-utils',
@@ -13,12 +16,22 @@ export class EditUtilsComponent implements OnInit {
     @Input() project: Project
     @Input() lang: string
 
+    public availableKeywords: TextValue[] = []
+    public languages: string[]
+
     constructor(
         private dialogService: DialogService,
-        public languageService: LanguageService
+        public languageService: LanguageService,
+        private projectService: ProjectService
     ) { }
 
     ngOnInit(): void {
+        this.projectService.get((projects: Project[]) => {
+            projects.forEach((p) => {
+                this.availableKeywords = this.availableKeywords.concat(p.keywords)
+            })
+        }, (error: string) => { })
+        this.languages = languageArray()
     }
 
     pickLogo() {
@@ -33,6 +46,14 @@ export class EditUtilsComponent implements OnInit {
 
     removeLogo(index: number) {
         this.project.logos.splice(index, 1)
+    }
+
+    addKeyword() {
+        this.project.keywords.push(new TextValue({}))
+    }
+
+    removeKeyword(index: number) {
+        this.project.keywords.splice(index, 1)
     }
 
 }

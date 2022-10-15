@@ -1,11 +1,35 @@
 <div style="margin: 20px;">
     <h2>Utils</h2>
+
     <h4 style="margin-bottom: 4px;">Logo's</h4>
     <div class="logos_holder">
         <img-lazy *ngFor="let imageUrl of project.logos; let i = index" [src]="imageUrl" class="logo" matRipple
             (click)="removeLogo(i)" [matTooltip]="'Verwijderen'"></img-lazy>
-        <button mat-button color="accent" style="height: 60px;" (click)="pickLogo()">
+        <button mat-raised-button color="primary" style="height: 60px;" (click)="pickLogo()">
             <mat-icon>add</mat-icon>
         </button>
     </div>
+
+    <h4 style="margin-bottom: 4px;">Zoektermen</h4>
+    <div class="keywords_holder">
+        <div class="keyword_row" *ngFor="let keyword of project.keywords; let i = index">
+            <mat-form-field appearance="fill" *ngFor="let columnLang of languages">
+                <mat-label>{{columnLang}}</mat-label>
+                <input matInput [value]="keyword.get(columnLang)" (input)="keyword[columnLang] = $event.target.value"
+                    [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="project.keywords[i]= $event.option.value">
+                    <mat-option *ngFor="let option of availableKeywords" [value]="option">
+                        {{option.get(columnLang) || '[unavailable]'}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <button mat-raised-button color="warn" style="height: 50px;" (click)="removeKeyword(i)">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+        <button mat-raised-button color="primary" (click)="addKeyword()" style="width: 100%;">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
 </div>

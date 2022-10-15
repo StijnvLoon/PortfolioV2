@@ -52,7 +52,7 @@ import { MatStepperModule } from '@angular/material/stepper';
         MatRadioModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatStepperModule
+        MatStepperModule,
     ]
 })
 export class MaterialModule { }
