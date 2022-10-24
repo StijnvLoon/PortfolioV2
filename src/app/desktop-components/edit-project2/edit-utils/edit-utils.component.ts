@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { languageArray } from 'src/models/dict/Dictionary';
 import { TextValue } from 'src/models/dict/TextValue';
 import { Project } from 'src/models/project/Project';
+import { ProjectUrl } from 'src/models/project/Url';
 import { DialogService } from 'src/services/dialog.service';
 import { LanguageService } from 'src/services/language.service';
 import { ProjectService } from 'src/services/project.service';
@@ -54,6 +55,17 @@ export class EditUtilsComponent implements OnInit {
 
     removeKeyword(index: number) {
         this.project.keywords.splice(index, 1)
+    }
+
+    addUrl() {
+        this.project.urls.push(new ProjectUrl({
+            name: new TextValue({}),
+            url: ''
+        }))
+    }
+
+    removeUrl(index: number) {
+        this.project.urls.splice(index, 1)
     }
 
 }

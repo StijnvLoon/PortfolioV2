@@ -1,15 +1,9 @@
-:host {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
 .logos_holder {
     display: flex;
     max-width: 100%;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 15px;
 }
 .logo {
     height: 60px;
@@ -20,13 +14,27 @@
 
 .keywords_holder {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    row-gap: 5px;
+    margin-bottom: 15px;
 }
-.keyword_row {
+.keyword {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+}
+
+.urls_holder {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.url {
+    display: flex;
+    width: 100%;
     gap: 20px;
 }
-.keyword_row mat-form-field {
+.url mat-form-field {
     width: 100%;
 }

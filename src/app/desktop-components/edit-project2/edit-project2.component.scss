@@ -10,7 +10,8 @@
 .stepper {
     display: flex;
     column-gap: 20px;
-    height: 500px;
+    height: auto;
+    min-height: 500px;
 }
 
 .stepper_nav {
@@ -27,7 +28,6 @@
 
 .stepper_container {
     width: 100%;
-    position: relative;
 }
 
 .actions {

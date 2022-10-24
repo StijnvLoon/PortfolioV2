@@ -9,9 +9,6 @@ import { ProjectService } from 'src/services/project.service';
     selector: 'desktop-edit-project',
     templateUrl: './edit-project2.component.html',
     styleUrls: ['./edit-project2.component.scss'],
-    animations: [
-        changeAnim
-    ]
 })
 export class EditProject2Component implements OnInit {
 

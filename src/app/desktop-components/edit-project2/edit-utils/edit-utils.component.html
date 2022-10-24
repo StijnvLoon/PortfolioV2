@@ -12,14 +12,15 @@
 
     <h4 style="margin-bottom: 4px;">Zoektermen</h4>
     <div class="keywords_holder">
-        <div class="keyword_row" *ngFor="let keyword of project.keywords; let i = index">
-            <mat-form-field appearance="fill" *ngFor="let columnLang of languages">
-                <mat-label>{{columnLang}}</mat-label>
-                <input matInput [value]="keyword.get(columnLang)" (input)="keyword[columnLang] = $event.target.value"
+        <div class="keyword" *ngFor="let keyword of project.keywords; let i = index">
+            <mat-form-field appearance="fill">
+                <mat-label>{{i + 1}}</mat-label>
+                <input matInput [value]="keyword.get(lang)" (input)="keyword[lang] = $event.target.value"
                     [matAutocomplete]="auto">
+                <mat-hint>EN: {{keyword.get("EN")}}</mat-hint>
                 <mat-autocomplete #auto="matAutocomplete" (optionSelected)="project.keywords[i]= $event.option.value">
                     <mat-option *ngFor="let option of availableKeywords" [value]="option">
-                        {{option.get(columnLang) || '[unavailable]'}}
+                        {{option.get(lang) || '[unavailable]'}}
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
@@ -32,4 +33,24 @@
         </button>
     </div>
 
+    <h4 style="margin-bottom: 4px;">Links</h4>
+    <div class="urls_holder">
+        <div class="url" *ngFor="let url of project.urls; let i = index">
+            <mat-form-field appearance="fill">
+                <mat-label>Naam</mat-label>
+                <input matInput [value]="url.name.get(lang)" (input)="url.name[lang] = $event.target.value">
+                <mat-hint>EN: {{url.name.get("EN")}}</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Url</mat-label>
+                <input matInput [value]="url.url" (input)="url.url= $event.target.value">
+            </mat-form-field>
+            <button mat-raised-button color="warn" style="height: 50px;" (click)="removeUrl(i)">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+        <button mat-raised-button color="primary" (click)="addUrl()" style="width: 100%;">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
 </div>
