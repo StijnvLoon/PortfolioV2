@@ -32,7 +32,7 @@
                     <app-edit-content *ngIf="tabSelected(1)" [project]="project" [lang]="selectedLanguage">
                     </app-edit-content>
                     <app-edit-utils *ngIf="tabSelected(2)" [project]="project" [lang]="selectedLanguage"></app-edit-utils>
-                    <app-edit-questions *ngIf="tabSelected(3)"></app-edit-questions>
+                    <app-edit-questions *ngIf="tabSelected(3)" [project]="project" [lang]="selectedLanguage"></app-edit-questions>
                 </mat-card>
             </div>
         </div>

@@ -1,1 +1,23 @@
-<p>edit-questions works!</p>
+<div style="margin: 20px;">
+    <h2>Vragen</h2>
+
+    <div class="questions_holder">
+        <div class="question" *ngFor="let question of project.questions; let i = index">
+            <mat-form-field appearance="fill">
+                <mat-label>Vraag</mat-label>
+                <input matInput [value]="question.question.get(lang)" (input)="question.question[lang] = $event.target.value">
+                <mat-hint>EN: {{question.question.get("EN")}}</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Antwoord</mat-label>
+                <input matInput [value]="question.answer.get(lang)" (input)="question.answer[lang] = $event.target.value">
+            </mat-form-field>
+            <button mat-raised-button color="warn" style="height: 50px;" (click)="removeQuestion(i)">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+        <button mat-raised-button color="primary" (click)="addQuestion()" style="width: 100%;">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>

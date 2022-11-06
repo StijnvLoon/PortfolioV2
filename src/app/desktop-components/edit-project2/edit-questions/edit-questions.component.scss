@@ -1,0 +1,14 @@
+.questions_holder {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.question {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+.question mat-form-field {
+    width: 100%;
+}
